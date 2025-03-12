@@ -1,0 +1,56 @@
+
+.sizeClassthree {
+    width: 220px;
+    display: table;
+    float: left;
+    margin-right: 10px;
+}
+
+.sizeClassfour {
+    width: 282px;
+    display: table;
+    float: left;
+    margin-right: 10px;
+}
+
+.sizeClassfive {
+    width: 350px;
+    display: table;
+    float: left;
+    margin-right: 10px;
+}
+
+.sizeClasssix {
+    width: 310px;
+    display: table;
+    float: left;
+    margin-right: 10px;
+}
+
+.sizeClassseven {
+    width: 360px;
+    display: table;
+    float: left;
+    margin-right: 10px;
+}
+
+.sizeClasseight {
+    width: 410px;
+    display: table;
+    float: left;
+    margin-right: 10px;
+}
+
+.sizeClassnine {
+    width: 460px;
+    display: table;
+    float: left;
+    margin-right: 10px;
+}
+
+.sizeClassten {
+    width: 510px;
+    display: table;
+    float: left;
+    margin-right: 10px;
+}

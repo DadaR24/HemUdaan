@@ -1,0 +1,233 @@
+﻿<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/Content/js/jquery.min.js"></script>
+
+</head>
+
+<div class="panel panel-default" id="dv_subtopic_panel">
+    <div class="panel-heading  p-none">
+        <h4 class="panel-title">
+            <a class="accordion-toggle"  data-toggle="collapse" data-parent="#accordion" href="#divSubTopicPanelBody">
+                Sub Topics
+            </a>
+        </h4>
+    </div>
+    <div id="divSubTopicPanelBody" class="accordion-body collapse">
+      <div class="panel-body">
+       @using (Html.BeginForm("AddTopic", "Course", FormMethod.Post, new { enctype = "multipart/form-data", id = "subtopicForm" }))
+       {
+        <div class="row">
+            <label id="subTopicSuccessMessage" class="text-success"></label>
+            <label id="subTopicErrorMessage" class="text-danger"></label>
+        </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="control-label" for="inputDefault">Select Topic</label>
+                    <a href="javascript:void(null)" onclick="bindTopics()" title="Reload Topics"><i class="ml-sm fa fa-refresh"></i></a>
+                    <div>
+                        <select id="ddlParentTopics" class="form-control" required="required"></select>
+                        <input type="hidden" id="TopicID" name="TopicID" />
+                        <input type="hidden" id="ParentTopicID" name="ParentTopicID" />
+                    </div>
+                </div>
+                <div class="form-group col-md-5">
+                    <label class="control-label" for="inputDefault">Sub Topic Name</label>
+                    <div class="">
+                        <input type="text" id="TopicName" name="TopicName" maxlength="1000" class="form-control" required="required" />
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label class="control-label" for="inputDefault">Order No</label>
+                    <div class="">
+                        <input type="number" id="Order" name="Order" class="form-control" required="required" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label" for="inputDefault"> Video Link</label>
+                    <div class="">
+                        <input type="text" id="TrainerVideo" name="TrainerVideo" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label" for="inputDefault"> Hindi Video Link</label>
+                    <div class="">
+                        <input type="text" id="HindiVideo" name="HindiVideo" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label" for="inputDefault"> Note</label>
+                    <div class="">
+                        <input type="text" id="TrainerNote" name="TrainerNote" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="row hidden">
+                <div class="form-group col-md-5">
+                    <label class=" control-label" for="inputDefault">Student Video Link</label>
+                    <div class="">
+                        <input type="text" id="StudentVideo" name="StudentVideo" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group col-md-5">
+                    <label class=" control-label" for="inputDefault">Student Note</label>
+                    <div class="">
+                        <input type="text" id="StudentNote" name="StudentNote" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label" for="inputDefault">Language</label>
+                    <div class="">
+                        <select id="languageID" name="languageID" class="form-control">
+                            <option value="0">-- Select Language --</option>
+                            <option value="1" selected>English</option>
+                            <option value="2">Hindi</option>
+                            <option value="3">Gujarati</option>
+                            <option value="4">Marathi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label" for="inputDefault">No of Questions</label>
+                    <div class="">
+                        <select id="NoOfQuestion" name="NoOfQuestion" class="form-control">
+                            <option value="0">-- Select No --</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row">
+            <div class="form-group col-md-5">
+                <label class="control-label" for="languageID">language</label>
+                <div class="">
+                    <select id="languageID" name="languageID">
+                        <option value="1">English</option>
+                        <option value="2">Hindi</option>
+                        <option value="3">Both</option>
+                    </select>
+                </div>
+            </div>
+        </div>*@
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="control-label">Upload Resource File</label>
+                    <span class="text-sm"><a id="aUploadTopicResource" href='#' class="hidden" target="_blank">(View File)</a></span>
+                    <input id="TopicResource" name="fileTopicResource" class="file" type="file">
+                    <input type="hidden" id="TrainerResource" name="TrainerResource" />
+                </div>
+                <div class="form-group col-md-5">
+                    <label class="control-label">Upload Exercise File </label>
+                    <span class="text-sm"><a id="aUploadTopicExercise" class="hidden" href='#' target="_blank">(View File)</a></span>
+                    <input id="TopicExercise" name="fileTopicExercise" class="file" type="file">
+                    <input type="hidden" id="TrainerExercise" name="TrainerExercise" />
+                </div>
+                <div class="form-group col-md-2">
+                    <label class="control-label col-md-12">&nbsp;</label>
+                    <input id="btnAddSubTopic" type="button" onclick="AddEditSubTopics()" value="Add" class="btn btn-primary" />
+                    <input type="button" onclick="ResetTopicForm()" value="Cancel" class="btn btn-default" />
+                </div>
+            </div>
+            <h4>Sub Topic List</h4>
+            <div class="table-responsive">
+                <table id="tblSubTopicList" class="table table-condensed table-bordered table-striped table-hover mb-none">
+                    <thead>
+                        <tr>
+                            <th width="40px">#</th>
+                            <th>Order</th>
+                            <th>Topic</th>
+                            <th>Sub Topic</th>
+                            <th>Trainer Video</th>
+                            <th>Student Video</th>
+                            <th>Hindi Video</th>
+                            <th>Resource File</th>
+                            <th>Exercise File</th>
+                            <th>Language</th>
+                            <th width="60px">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        }
+        </div>
+    </div>
+</div>
+
+<script>
+    function AddEditSubTopics() {
+        debugger;
+        var formData = new FormData($('#subtopicForm')[0]); // Serialize form data
+        $.ajax({
+            type: 'POST',
+            url: '/Course/AddTopic', // Adjust the URL as needed
+            data: formData,
+            contentType: false, // Set content type to false for FormData
+            processData: false, // Prevent jQuery from processing the data
+            success: function (response) {
+                // Handle success response
+                console.log('Form submitted successfully:', response);
+            },
+            error: function (xhr, status, error) {
+                // Handle error response
+                console.error('Error submitting form:', error);
+            }
+        });
+    }
+
+
+
+    function bindTopics() {
+        debugger;
+        var courseId = $('#CourseID').val();
+        if (courseId) {
+            $.ajax({
+                type: "GET",
+                url: '/Course/ListAllCourseTopic',
+                data: { 'CourseId': courseId },
+                dataType: 'json',
+                success: function (response) {
+                    // Populate the topic dropdown with the response data
+                    populateTopicsDropdown(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching topics:", error);
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Call bindTopics function initially or from wherever necessary
+        bindTopics();
+    });
+
+    // Function to populate topics dropdown
+    function populateTopicsDropdown(response) {
+        debugger;
+        // Clear the current options
+        $('#ddlParentTopics').empty();
+        // Add a default option
+        $('#ddlParentTopics').append('<option value="">-- Select Topic --</option>');
+        // Add the new options
+        $.each(response, function (i, item) {
+            $('#ddlParentTopics').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+        });
+        // Trigger the change event to bind the subtopics
+        $('#ddlParentTopics').change();
+    }
+</script>

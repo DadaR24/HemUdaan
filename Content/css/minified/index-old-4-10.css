@@ -1,0 +1,267 @@
+﻿.font-kaushan {
+    font-family: 'Kaushan Script', cursive;
+}
+
+.border-double {
+    border: 4px double #9b6d99;
+}
+
+.border-grey {
+    border: 1px solid #807f7f;
+    border-radius: 3px;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+#header.header-wj .header-body {
+    background-color: #1bb8a3 !important;
+}
+
+html .list-style-none {
+    list-style: none;
+}
+
+ul li:hover .buyPrint {
+    bottom: -55px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.tilt {
+    width: 100%;
+}
+
+.tilt__item {
+    display: inline-block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+    position: relative;
+}
+
+    .tilt__item .buyPrint {
+        border: 0px solid #2b658b;
+        border-radius: 4px;
+        color: white;
+        display: block;
+        height: 40px;
+        background: #2b658b;
+        position: absolute;
+        right: 5px;
+        bottom: 60px;
+        transition: all .5s ease !important;
+        z-index: -1;
+        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
+        padding: 0 30px;
+        cursor: pointer;
+        transform: none !important;
+    }
+
+    .tilt__item .tilt__overlay {
+        position: fixed;
+        right: 20px;
+        left: 20px;
+        top: 20px;
+        bottom: 20px;
+        border: 2px solid white;
+        background: #000000;
+        opacity: 0;
+        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+        transition: all .2s ease !important;
+    }
+
+    .tilt__item:hover .buyPrint {
+        bottom: -55px;
+    }
+
+    .tilt__item:hover .tilt__item-inner {
+        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .tilt__item:hover .tilt__overlay {
+        opacity: 0.1;
+    }
+
+.tilt__item-inner {
+    width: 250px;
+    height: 300px;
+    background: #fff center;
+    background-size: cover;
+    border-radius: 3px;
+    pointer-events: none;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
+    transition: all .2s ease;
+}
+
+.photo-info h2 {
+    margin: 10px 0 0;
+}
+
+.photo-info a {
+    display: block;
+    margin-top: 5px;
+}
+
+.home-intro p {
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+.owl-carousel.rounded-nav .owl-nav [class*="owl-"], .owl-carousel.rounded-nav .owl-nav [class*="owl-"]:hover {
+    border: 1px solid #1bb8a3 !important;
+    color: #1bb8a3 !important;
+}
+
+.min-45 {
+    min-height: 45px !important;
+}
+
+#counter-home .counters strong {
+    font-size: 22px !important;
+}
+
+.min-45 {
+    min-height: 45px !important;
+}
+
+.vertical-school {
+    width: 264px;
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    position: relative;
+    top: 113px;
+    z-index: 9;
+    left: -103px;
+}
+
+.bg-yellow-dark {
+    background-color: #FFC107;
+}
+
+.vertical-student {
+    width: 264px;
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    position: relative;
+    top: 109px;
+    z-index: 9;
+    left: -103px;
+}
+
+.winner-circle-border {
+    border: 2px solid #F7CA1C;
+}
+
+#tech h4 {
+    font-size: 1.2em;
+}
+
+#tech h5 {
+    font-size: 0.825em;
+    text-transform: capitalize;
+}
+
+#tech h6 {
+    font-size: 1.1em;
+}
+
+#tech .ellipsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+}
+
+@@media only screen and (max-width: 768px) {
+    #tech .text-sm {
+        font-size: 0.9rem !important;
+    }
+
+    #tech h1 {
+        font-size: 2.1em;
+        line-height: 27px;
+        margin: 0 0 32px 0;
+    }
+
+    #tech h4 {
+        font-size: 1.2em;
+    }
+
+    #tech h6 {
+        font-size: 0.9em;
+        height: 35px;
+    }
+
+    #tech .text-sm {
+        font-size: 1.2rem !important;
+    }
+}
+
+@@media only screen and (max-width: 1024px) {
+
+    #tech h1 {
+        font-size: 2.1em;
+        line-height: 27px;
+        margin: 0 0 32px 0;
+    }
+
+    #tech h6 {
+        font-size: 0.9em;
+    }
+
+
+    #tech .ellipsis {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        /* overflow: hidden; */
+        text-overflow: ellipsis;
+        /* white-space: nowrap; */
+    }
+
+    #tech h4 {
+        font-size: 0.9em;
+    }
+
+
+    #tech .mb-sm {
+        margin-bottom: 5px !important;
+    }
+
+    #tech .mt-sm {
+        margin-top: 5px !important;
+    }
+}
+
+@@media only screen and (max-width: 425px) {
+    #counter-home .counters strong {
+        font-size: 22px !important;
+    }
+}
+
+@@media only screen and (max-width: 375px) {
+    #counter-home .counters strong {
+        font-size: 20px !important;
+    }
+}
+
+@@media only screen and (max-width: 320px) {
+    #counter-home .counters strong {
+        font-size: 18px !important;
+    }
+
+    #tech h6 {
+        font-size: 1.2em;
+    }
+}

@@ -1,0 +1,361 @@
+﻿
+@model HEMUdaan.Models.User
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .container {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-row {
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap to the next line */
+        align-items: center;
+    }
+
+        .form-row label {
+            flex: 1;
+            text-align: right;
+            margin-right: 15px;
+        }
+
+        .form-row input[type="text"],
+        .form-row select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease;
+            margin-bottom: 10px; /* Add some space between inputs */
+            width: 211px;
+            margin: 0px 0px 0px 65px;
+        }
+
+            .form-row input[type="text"]:focus,
+            .form-row select:focus {
+                outline: none;
+                border-color: #007bff;
+            }
+
+        .form-row input[type="submit"] {
+            flex: 1;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px; /* Add some space above the button */
+        }
+
+            .form-row input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+    p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+        p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            p a:hover {
+                text-decoration: underline;
+            }
+
+    .error-message {
+        color: red; /* Set the color to red */
+        margin-top: 5px; /* Adjust the top margin to create space between the input and the error message */
+    }
+
+    /* Media query for smaller screens */
+    @@media screen and (max-width: 768px) {
+        .form-row label {
+            text-align: left; /* Align labels to the left on smaller screens */
+            margin-right: 0; /* Remove right margin */
+            margin-bottom: 5px; /* Add some space between labels */
+        }
+
+        .form-row input[type="text"],
+        .form-row select {
+            flex: 100%; /* Make inputs full width */
+            margin-right: 0; /* Remove right margin */
+        }
+
+        .form-row input[type="submit"] {
+            flex: 100%; /* Make button full width */
+        }
+    }
+
+    label {
+        margin: 10px; /* Adjust as needed */
+    }
+
+    select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .form-row textarea {
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 212px; /* Adjust width as needed */
+        resize: vertical; /* Allow vertical resizing */
+    }
+
+        .form-row textarea:focus {
+            outline: none;
+            border-color: #007bff; /* Change color on focus as needed */
+        }
+
+    button {
+        background-color: #008CBA; /* Blue background */
+        border: none; /* No border */
+        color: white; /* White text */
+        padding: 10px 20px; /* Padding */
+        text-align: center; /* Center text */
+        text-decoration: none; /* No underline */
+        display: inline-block; /* Display as inline block */
+        font-size: 16px; /* Font size */
+        margin: 10px; /* Margin */
+        transition-duration: 0.4s; /* Animation duration */
+        cursor: pointer; /* Cursor pointer */
+        border-radius: 5px; /* Rounded corners */
+        height: 40px; /* Set height */
+        width: 150px; /* Set width */
+    }
+
+        /* Change the background color on hover */
+        button:hover {
+            background-color: #005f75; /* Darker blue */
+            color: blue;
+        }
+</style>
+
+@if (!Request.Browser.IsMobileDevice)
+{
+    <div class="container">
+        <h2>
+            <label for="Course">CREATE</label>
+            <select id="Course" style="width:100px;height:25px;">
+                <option value="Student">Student</option>
+                <option value="Teacher">Teacher</option>
+            </select>
+            <label for="Account">ACCOUNT</label>
+        </h2>
+
+        <form action="@Url.Action("Register", "Home")" method="post" id="registrationForm">
+            <div class="form-row">
+                <input type="text" id="FirstName" name="FirstName" placeholder="Student First Name" required>
+                <br />
+                <input type="text" id="MiddleName" name="MiddleName" placeholder="Student Middle Name" required>
+                <br />
+                @*<label for="LastName">Last Name*</label>*@
+                <input type="text" id="LastName" name="LastName" placeholder="Student Last Name" required>
+                <br />
+            </div>
+            <div class="form-row">
+                <input type="text" id="GuardianName" name="GuardianName" placeholder="Student Guardian's Name">
+                <br />
+                <input type="text" id="MobileNumber" name="MobileNumber" pattern="[0-9]{10}" title="Mobile number must be 10 digits" placeholder="Mobile Number" required>
+                @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "error-message" })
+                <br />
+                <input type="text" id="EmergencyContact" name="EmergencyContact" pattern="[0-9]{10}" title="Mobile number must be 10 digits" placeholder="Emergency Contact">
+                @Html.ValidationMessageFor(model => model.EmergencyContact, "", new { @class = "error-message" })
+                <br />
+            </div>
+            <div class="form-row">
+                <input type="text" id="emailid" name="emailid" placeholder="Email ID" required>
+                <br />
+                <input type="text" id="schoolname" name="schoolname" placeholder="School Name">
+                <br />
+                <select id="std" name="Std" required style="width:233px;">
+                    @foreach (var item in Model.StandardList)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="form-row">
+                <select id="city" name="City" required style="width:232px;">
+                    @foreach (var item in Model.CityList)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+                <br />
+                <select id="state" name="State" style="margin:0px 0px 0px 65px;width:230px" required>
+                    @foreach (var item in Model.StateList)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+                <br />
+                <input type="text" id="Pincode" name="Pincode" pattern="[0-9]{6}" style="margin:0px 0px 0px 66px" title="Pin code must be 6 digits" placeholder="Pin Code" required>
+                @Html.ValidationMessageFor(model => model.Pincode)
+            </div>
+
+            <div class="form-row">
+                <textarea type="text" class="form-control" id="txtPaymentDetails" name="PaymentDetails" style="margin:0px 0px 0px 63px;width:214px;" rows="2" onpaste="return false;" placeholder="Payment Details" required></textarea>
+                <br />
+                <textarea type="text" class="form-control" id="txtSpecify" name="Specify" style="margin:0px 0px 0px 63px;width:227px;" rows="4" onpaste="return false;" placeholder="Please specify any-if surgery/illness/allergy of the participant"></textarea>
+                <br />
+                <br />
+                <!-- Checkbox for agreement -->
+
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="Agree" style="margin:-73px 0px 0px 0px" onchange="toggleRegisterButton()"> <!-- Add an onchange event handler -->
+                <label for="Agree" style="text-align:center">I agree that all information provided is accurate.I consent to my child’s participation in the summer camp activities.I understand the inherent risks involved in any sports or adventure activity,and the care and efforts done at every stage are for developing and building our child’s character.Photographs and videos taken during the camp may be used on our website, media section and school prospectus.No phones calls will be permitted from parents to child, child to parents during the camp.No interference from parents in the process/ methodology/ role allocation to the child.</label>
+            </div>
+            <div class="form-row">
+                <!-- Register button -->
+                <input type="submit" id="registerBtn" value="REGISTER" style="display:none">
+            </div>
+        </form>
+        <p>If you've already Registered, <a href="@Url.Action("Index", "Login")">Click Here to login</a></p>
+    </div>
+
+}
+else
+{
+    <div class="container">
+        <h4>
+            <label for="Course">CREATE</label>
+            <select id="Course" style="width:100px;height:25px;">
+                <option value="Student">Student</option>
+                <option value="Teacher">Teacher</option>
+            </select>
+            <label for="Account">ACCOUNT</label>
+        </h4>
+
+        <form action="@Url.Action("Register", "Home")" method="post" id="registrationForm">
+            <div class="form-row">
+                @*<label for="FirstName">First Name*</label>*@
+                <input type="text" id="FirstName" name="FirstName" placeholder="Student First Name" required>
+                <br />
+                <input type="text" id="MiddleName" name="MiddleName" placeholder="Student Middle Name" required>
+                <br />
+                @*<label for="LastName">Last Name*</label>*@
+                <input type="text" id="LastName" name="LastName" placeholder="Student Last Name" required>
+                <br />
+            </div>
+            <div class="form-row">
+                <input type="text" id="GuardianName" name="GuardianName" placeholder="Student Guardian's Name">
+                <br />
+                <input type="text" id="MobileNumber" name="MobileNumber" pattern="[0-9]{10}" title="Mobile number must be 10 digits" placeholder="Mobile Number" required>
+                @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "error-message" })
+                <br />
+                <input type="text" id="EmergencyContact" name="EmergencyContact" pattern="[0-9]{10}" title="Mobile number must be 10 digits" placeholder="Emergency Contact">
+                @Html.ValidationMessageFor(model => model.EmergencyContact, "", new { @class = "error-message" })
+                <br />
+            </div>
+            <div class="form-row">
+                <input type="text" id="emailid" name="emailid" placeholder="Email ID" required>
+                <br />
+                <input type="text" id="schoolname" name="schoolname" placeholder="School Name">
+                <br />
+                <select id="std" name="Std" required>
+                    @foreach (var item in Model.StandardList)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="form-row">
+                <select id="city" name="City" required>
+                    @foreach (var item in Model.CityList)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+                <br />
+                <select id="state" name="State" style="margin:0px 0px 0px 67px" required>
+                    @foreach (var item in Model.StateList)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+                <br />
+                <input type="text" id="Pincode" name="Pincode" pattern="[0-9]{6}" style="margin:0px 0px 0px 67px" title="Pin code must be 6 digits" placeholder="Pin Code" required>
+                @Html.ValidationMessageFor(model => model.Pincode)
+            </div>
+            <div class="form-row">
+                <textarea type="text" class="form-control" id="txtPaymentDetails" name="PaymentDetails" style="margin:0px 0px 0px 61px" rows="2" onpaste="return false;" placeholder="Payment Details" required></textarea>
+                <br />
+                <textarea type="text" class="form-control" id="txtSpecify" name="Specify" style="margin:11px 0px 0px 55px" rows="4" onpaste="return false;" placeholder="Please specify any-if surgery/illness/allergy of the participant"></textarea>
+                <br />
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="Agree" style="margin:-246px 0px 0px 0px" onchange="toggleRegisterButton()"> <!-- Add an onchange event handler -->
+                <label for="Agree" style="text-align:center">I agree that all information provided is accurate.I consent to my child’s participation in the summer camp activities.I understand the inherent risks involved in any sports or adventure activity,and the care and efforts done at every stage are for developing and building our child’s character.Photographs and videos taken during the camp may be used on our website, media section and school prospectus.No phones calls will be permitted from parents to child, child to parents during the camp.No interference from parents in the process/ methodology/ role allocation to the child.</label>
+            </div>
+
+            <div class="form-row">
+                <input type="submit" id="registerBtn" value="REGISTER" style="display:none" onclick="registerUser()">
+            </div>
+
+        </form>
+        <p>If you've already Registered, <a href="@Url.Action("Index", "Login")">Click Here to login</a></p>
+    </div>
+
+}
+<script>
+    // JavaScript function to handle the agreement
+    var agreed = false;
+    function agree() {
+        var agreed = confirm("Consent and agreement\n\nI agree that all information provided is accurate. I consent to my child’s participation in the summer camp activities. I understand the inherent risks involved in any sports or adventure activity, and the care and efforts done at every stage are for developing and building our child’s character.\n\nPhotographs and videos taken during the camp may be used on our website, media section and school prospectus.\n\nNo phones calls will be permitted from parents to child, child to parents during the camp.\n\nNo interference from parents in the process/ methodology/ role allocation to the child.");
+        if (agreed) {
+            agreed = true;
+
+            document.getElementById("agreeBtn").style.backgroundColor = "green"; // Change button color to green
+            document.getElementById("agreeBtn").disabled = true; // Disable the button after agreement
+            document.getElementById("registerBtn").style.display = "block"; // Show the register button
+            document.getElementById("Agree").value = "true";
+        }
+    }
+
+    // JavaScript function to handle form submission
+    function registerUser() {
+        // Perform form validation here if needed
+        document.getElementById("registrationForm").submit(); // Submit the form
+    }
+
+    function toggleRegisterButton() {
+
+        var agreeCheckbox = document.getElementById("Agree");
+        var registerBtn = document.getElementById("registerBtn");
+
+
+        if (agreeCheckbox.checked) {
+            registerBtn.style.display = "block"; // Show the register button if checkbox is checked
+        } else {
+            registerBtn.style.display = "none"; // Hide the register button if checkbox is unchecked
+        }
+    }
+
+
+
+
+</script>

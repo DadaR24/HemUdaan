@@ -1,0 +1,84 @@
+﻿@model IEnumerable<HEMUdaan.Models.Course>
+
+@{
+    ViewBag.Title = "CourseList";
+}
+<style>
+    /* Apply some basic styling to the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    /* Style for table header */
+    th {
+        background-color: #f2f2f2;
+        text-align: left;
+        padding: 8px;
+    }
+
+    /* Alternating row colors */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Style for table cells */
+    td {
+        padding: 8px;
+    }
+
+    /* Hover effect on rows */
+    tr:hover {
+        background-color: #ddd;
+    }
+
+</style>
+<h2>Course List</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Active</th>
+                <th>Author</th>
+                <th>Manager</th>
+              
+                <th>Approved</th>
+                <th>Created By</th>
+                <th>Created Date</th>
+                <th>Expected Delivery Date</th>
+                 <th>Allocated To</th>
+              <th>From Age</th>
+                <th>To Age</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.CourseName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Author)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Manager)</td>
+                   
+                    <td>@Html.DisplayFor(modelItem => item.ApprovalStatus)</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.CreatedBy)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ExpectedDeliveryDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CourseAllocatedTo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FromAge)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ToAge)</td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Details", "Details", new { id = item.CourseID }, new { @class = "btn btn-info btn-sm" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CourseID }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,199 @@
+﻿.img-150{
+        width:150px !important;
+    }
+
+#whizgoogler-winner .school-heading{
+    font-size:18px !important;
+    height:40px;
+}
+
+#whizgoogler-winner .box-shadow {
+    border: 1px solid #fff;
+    padding: 10px;
+    box-shadow: 2px 2px 12px #888888;
+}
+
+#whizgoogler-winner .box-shadow {
+    border: 1px solid #fff;
+    padding: 10px;
+    box-shadow: 2px 2px 12px #888888;
+}
+
+#whizgoogler-winner .height-200 {
+    height: 200px;
+}
+
+#whizgoogler-winner .img-100 {
+    width: 100px;
+}
+
+#whizgoogler-winner .map {
+    position: relative;
+    top: 0;
+}
+
+#whizgoogler-winner .school-logo {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+}
+
+#whizgoogler-winner .top-map {
+    padding-top: 100px;
+    height: 200px;
+    background-image: url(../../Content/img/map-2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+#whizgoogler-winner h3 {
+    font-size: 20px;
+    font-weight: bold;
+    /*letter-spacing:1px;*/
+    line-height: 1;
+}
+
+#whizgoogler-winner h4 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+#whizgoogler-winner h5 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+#whizgoogler-winner .text-lg {
+    font-size: 1.7rem !important;
+}
+
+#whizgoogler-winner .bg-googlered {
+    background-color: #ea4335 !important;
+}
+
+#whizgoogler-winner .bg-googleblue {
+    background-color: #4285f4 !important;
+}
+
+#whizgoogler-winner .bg-googlegreen {
+    background-color: #34a853 !important;
+}
+
+#whizgoogler-winner .img-shape {
+    background-color: #fff;
+    width: 300px;
+    border-radius: 0 100px 0 100px;
+    border: 15px solid #fff;
+}
+
+#whizgoogler-winner .bg-strip-rank {
+    background-image: url('../img/bg-strip-rank.png');
+    background-repeat: no-repeat;
+}
+
+#whizgoogler-winner .heading-red {
+    color: #ea4335;
+}
+
+#whizgoogler-winner .title-line {
+    padding: 15px 0;
+}
+
+    #whizgoogler-winner .title-line:before {
+        background: #34a853;
+        content: "";
+        display: block;
+        height: 2px;
+        margin: 0 auto;
+        width: 220px;
+    }
+
+    #whizgoogler-winner .title-line:after {
+        background: #34a853;
+        content: "";
+        display: block;
+        height: 6px;
+        position: relative;
+        top: -6px;
+        margin: 0 auto;
+        width: 60px;
+    }
+
+@media only screen and (max-width:768px) {
+    #whizgoogler-winner .school-heading{
+    font-size:16px !important;
+    height:35px;
+}
+
+    #whizgoogler-winner h4 {
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        line-height: 1;
+    }
+
+    #whizgoogler-winner .height-200 {
+        height: 115px;
+    }
+
+    #whizgoogler-winner .img-100 {
+        width: 75px;
+    }
+
+    #whizgoogler-winner .map {
+        position: relative;
+        top: 0;
+    }
+
+    #whizgoogler-winner .school-logo {
+        position: absolute;
+        top: 11%;
+        left: 35%;
+    }
+
+    #whizgoogler-winner .top-map {
+        padding-top: 70px;
+        height: 150px;
+        background-image: url(../../Content/img/map-2.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+    }
+
+    #whizgoogler-winner .img-shape {
+        background-color: #fff;
+        width: 340px;
+        border-radius: 0 60px 0 60px;
+        border: 10px solid #fff;
+    }
+
+
+    #whizgoogler-winner .title-line {
+        padding: 15px 0;
+    }
+
+        #whizgoogler-winner .title-line:before {
+            background: #34a853;
+            content: "";
+            display: block;
+            height: 2px;
+            margin: 0 auto;
+            width: 170px;
+        }
+
+        #whizgoogler-winner .title-line:after {
+            background: #34a853;
+            content: "";
+            display: block;
+            height: 6px;
+            position: relative;
+            top: -6px;
+            margin: 0 auto;
+            width: 50px;
+        }
+}

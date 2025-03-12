@@ -1,0 +1,231 @@
+﻿body {
+    background-color: #D7E4ED !important;
+}
+
+.box-white {
+    background: #fff;
+    padding: 10px 10px 0 10px;
+}
+
+.br-20 {
+    border-radius: 20px !important;
+}
+
+.text-lightdark {
+    color: #3e3e3e !important;
+}
+
+.form-show-courses select {
+    border-color: #ffffff;
+    outline: 0;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: #4a4a4a;
+    background-color: #ffffff;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(74, 127, 159);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(74, 127, 159);
+    border: none;
+}
+
+.cust-search .easy-autocomplete {
+    width: 100% !important;
+}
+
+/*To Do List CSS*/
+#todoList .owl-carousel.owl-loaded {
+    z-index: 0;
+}
+
+#todoList .feature-box {
+    min-height: 48px;
+}
+
+#todoList .coins-border {
+    border: 1px solid #f4b400;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #f4b400;
+    margin-right: 3px;
+    font-weight: bold;
+    line-height: 16px;
+    height: 18px;
+    display: inline-flex;
+    vertical-align: top;
+}
+
+    #todoList .coins-border img,
+    span {
+        margin-right: 2px;
+    }
+
+        #todoList .coins-border img.coin-icon {
+            width: 18px !important;
+        }
+
+#todoList img.task-icon {
+    width: 40px !important;
+}
+
+#todoList .b-blue {
+    border: 1px solid #3498db;
+    border-radius: 2px;
+}
+
+#todoList .feature-box.feature-box-style-5 .feature-box-icon {
+    background: transparent;
+    width: 50px;
+    height: 50px;
+}
+
+#todoList .feature-box.feature-box-style-5 .feature-box-info {
+    padding-left: 55px;
+}
+
+#todoList .xs-text {
+    font-size: 12px;
+}
+
+#todoList .w-text {
+    width: 60%;
+}
+
+/*Course Card*/
+.course-list {
+    padding: 5px 0px 5px 3px;
+    margin-bottom: 8px;
+    box-shadow: 0px 0px 4px #d4d1d1;
+    border-radius: 12px;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    background-color: #ffffff;
+}
+
+    .course-list.completed-bg {
+        background-color: #d7e4ed !important;
+    }
+
+.course-theory {
+    display: block;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.course-list:last-child {
+    margin-bottom: 0px;
+}
+
+.rounded-4 {
+    border-radius: 4px !important;
+}
+
+.feature-icon img {
+    width: 67px;
+}
+
+.feature-content .coursename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 205px;
+    display: inline-block;
+    margin: 0px 5px 0 0;
+}
+
+.feature-icon {
+    width: 13%;
+    display: inline-block;
+}
+
+.feature-content {
+    width: 88%;
+    text-align: left;
+    display: inline-block;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.text-ellipsis {
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+.course-list .progress {
+    height: 6px;
+    background: #eaeaea !important;
+    margin-top: 13px;
+}
+
+.course-list .progress-bar {
+    background: #adadad;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+/*Responsive CSS Starts*/
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 767px) {
+    .xs-mt-none {
+        margin-top: 0px !important;
+    }
+
+    .br-20 {
+        border-radius: 10px !important;
+    }
+
+    .form-show-courses select {
+    font-size: 14px;
+    line-height: 18px;
+    height: 29px;
+    padding: 3px 12px;
+}
+
+    .course-item .progress-bar-tooltip-down {
+        padding: 2px 3px;
+        line-height: 15px;
+        font-size: 8px;
+        top: 10px;
+        right: 5px;
+    }
+
+        .course-item .progress-bar-tooltip-down:after {
+            border-color: #333 transparent;
+            border-style: solid;
+            border-width: 0px 5px 7px;
+            bottom: 19px;
+            content: "";
+            display: block;
+            left: 6px;
+            position: absolute;
+            width: 0;
+        }
+        .feature-icon img {
+    border: none;
+    width: 50px!important;
+}
+}
+
+@media only screen and (max-width: 375px) {
+}
+
+@media only screen and (max-width: 320px) {
+    .course-list .coursename {
+        width: 145px !important;
+    }
+}

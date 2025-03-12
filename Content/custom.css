@@ -1,0 +1,260 @@
+/* Add here all your CSS customizations */
+/*
+    Asp Net
+*/
+
+/*
+    Overwrite
+
+*/
+.cursor {
+    cursor: pointer;
+}
+
+.profileNav {
+    color: #00bcd5;
+    cursor: pointer;
+}
+
+.joinelement33 {
+    width: 33% !important;
+    float: left;
+    margin-right: 0 !important;
+}
+
+.testimonial.testimonial-style-4 blockquote p {
+    font-weight: 300;
+}
+
+.p-xxs {
+    padding: 2px !important;
+}
+
+.pt-xxs {
+    padding-top: 2px !important;
+}
+
+.pl-xxs {
+    padding-left: 2px !important;
+}
+
+.pr-xxs {
+    padding-right: 2px !important;
+}
+
+.pb-xxs {
+    padding-bottom: 2px !important;
+}
+
+.home-intro-off-white {
+    background-color: #fefcfc !important;
+    border: 1px solid #F9F9F9;
+    border-top-color: #bce8f1 !important;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.bg-dark {
+    background-color: #E5E5E5;
+}
+
+.text-color-cf-dark {
+    color: #005F74 !important;
+}
+
+.bg-cf-dark {
+    background: #005F74 !important;
+}
+
+.table-row-selected {
+    background-color: #d97638 !important;
+    color: white;
+}
+
+.section-default-scale-off-blue, .home-intro-off-blue {
+    background-color: #d9edf7 !important;
+    border-top-color: #bce8f1 !important;
+}
+
+.help-block {
+    color: #999;
+    font-size: 0.8em;
+    margin: 0;
+}
+
+.label-default-off {
+    background-color: #FFF;
+    color: #666;
+    border: 1px solid;
+}
+/*
+    Upload File
+*/
+@media (min-width: 479px) {
+    .btn-file i, .fileinput-upload, .fileinput-remove i {
+        display: none;
+    }
+}
+
+/*Vector */
+.vector-img {
+    background-repeat: no-repeat;
+    background-size: 128px 128px;
+    display: block;
+    height: 128px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 128px;
+}
+
+.vector-img32 {
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+    display: block;
+    height: 32px;
+    margin-left: auto;
+    margin-right: 8px;
+    text-align: center;
+    width: 32px;
+    float: left;
+}
+
+.pro-img {
+    background-image: url("../../Images/vecors/independent.png");
+}
+
+.pace-img {
+    background-image: url("../../Images/vecors/set-schedule.png");
+}
+
+.budget-img {
+    background-image: url("../../Images/vecors/payment.png");
+}
+
+.hometutor {
+    background-image: url(../../Images/vecors/hometutor.jpg);
+    background-position-x: left;
+}
+
+.pro-teach {
+    background-image: url(../../Images/vecors/teach.png);
+    background-position-x: left;
+}
+
+.pro-payment1 {
+    background-image: url(../../Images/vecors/payment1.png);
+    background-position-x: left;
+}
+
+.pro-support {
+    background-image: url('../../Images/vecors/support2.png');
+    background-position-x: left;
+}
+
+.pro-invitefriend {
+    background-image: url(../../Images/vecors/invitefriend.png);
+    background-position-x: left;
+}
+
+.pro-payment1 {
+    background-image: url(../../Images/vecors/payment1.png);
+    background-position-x: left;
+}
+
+.pro-shopping {
+    background-image: url(../../Images/vecors/shopping.png);
+    background-position-x: left;
+}
+
+.pro-personal {
+    background-image: url(../../Images/vecors/personal.png);
+    background-position-x: left;
+}
+
+.pro-xheart {
+    background-image: url(../../Images/vecors/xheart.png);
+    background-position-x: left;
+}
+
+.pro-xlearn {
+    background-image: url(../../Images/vecors/xlearn.png);
+    background-position-x: left;
+}
+
+.pro-xcertificate {
+    background-image: url(../../Images/vecors/xcertificate.png);
+    background-position-x: left;
+}
+
+.pro-xsheild {
+    background-image: url(../../Images/vecors/xsheild.png);
+    background-position-x: left;
+}
+/*Vector - end*/
+
+/*Contact Us*/
+.left-fixed-tab {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+    background: #02bed6;
+}
+
+html .call-to-action.call-to-action-primary {
+    background: #02BED6;
+}
+
+.left-fixed-tab {
+    /*background-color: #1DBFD7;*/
+    float: right;
+    position: fixed;
+    text-align: right;
+    top: 150px;
+    width: auto;
+    z-index: 9999;
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+    .left-fixed-tab, .left-fixed-tab a {
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.2em;
+        background: #02bed6;
+    }
+
+        .left-fixed-tab a {
+            padding-left: 5px;
+        }
+
+        .left-fixed-tab a, .left-fixed-tab i {
+            text-decoration: none !important;
+            cursor: pointer;
+        }
+
+        .left-fixed-tab i {
+            font-size: 1.4em;
+            background-color: #1dbfd7;
+            color: #fff;
+            padding: 4px 10px 4px 10px;
+            border-radius: 5px 0 0 5px;
+        }
+
+            .left-fixed-tab i:hover {
+                color: #006477;
+            }
+
+
+
+/**/
+
+/** Youtube */
+.ytp-button.ytp-cards-button, .ytp-cards-button, .ytp-button {
+    display: none;
+}
+
+.ytp-watermark.yt-uix-sessionlink, .ytp-watermark, .yt-uix-sessionlink, .ytp-watermark {
+    display: none !important;
+}
+/** YouTube End*/
+

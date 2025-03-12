@@ -1,0 +1,32 @@
+﻿<!-- pagination -->
+<ul class="pagination pull-right mb-xs mt-md ml-md">
+    <li><span href="#" onclick="LoadDataList('First')"><i class="fa fa-fast-backward"></i></span></li>
+    <li>
+        <span href="#" onclick="LoadDataList('Previous')">
+            <i class="fa fa-backward"></i>
+        </span>
+    </li>
+    <li>
+        <span>
+            <select id="PageNumber" name="PageNumber" onchange="LoadDataList('GoToPage')" class="form-control m-none p-none text-sm " style="height:20px;">
+                <option value="1">1</option>
+            </select>
+        </span>
+    </li>
+    <li><span href="#" onclick="LoadDataList('Next')"><i class="fa fa-forward"></i></span></li>
+    <li><span href="#" onclick="LoadDataList('Last')"><i class="fa fa-fast-forward"></i></span></li>
+</ul>
+<div class="pull-right pt-md">
+    <span class="col mt-md">Result per page:</span>
+    <select id="PageSize" name="PageSize" onchange="LoadDataList('PageSize')" class="form-control m-none p-none text-sm pull-right col ml-xs" style="height:30px; width:70px;">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option selected value="30">30</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+</div>
+<input type="hidden" name="ActionType" id="ActionType" value="" />
+<input type="hidden" name="isPostback" id="isPostback" value="1" />
+<input type="hidden" name="TotalRecords" id="TotalRecords" value="1" />
+<!-- pagination -->

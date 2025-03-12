@@ -1,0 +1,940 @@
+﻿.rev_slider .slotholder:after {
+    background: none;
+}
+
+label.btn span {
+    font-size: 1.5em;
+}
+
+label input[type="radio"] ~ i.fa.fa-circle-o {
+    color: #c8c8c8;
+    display: inline;
+}
+
+label input[type="radio"] ~ i.fa.fa-dot-circle-o {
+    display: none;
+}
+
+label input[type="radio"]:checked ~ i.fa.fa-circle-o {
+    display: none;
+}
+
+label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o {
+    color: #7AA3CC;
+    display: inline;
+}
+
+label:hover input[type="radio"] ~ i.fa {
+    color: #7AA3CC;
+}
+
+label input[type="checkbox"] ~ i.fa.fa-square-o {
+    color: #c8c8c8;
+    display: inline;
+}
+
+label input[type="checkbox"] ~ i.fa.fa-check-square-o {
+    display: none;
+}
+
+label input[type="checkbox"]:checked ~ i.fa.fa-square-o {
+    display: none;
+}
+
+label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o {
+    color: #7AA3CC;
+    display: inline;
+}
+
+label:hover input[type="checkbox"] ~ i.fa {
+    color: #7AA3CC;
+}
+
+div[data-toggle="buttons"] label.active {
+    color: #7AA3CC;
+}
+
+div[data-toggle="buttons"] label {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 2em;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: top;
+    cursor: pointer;
+    background-color: none;
+    border: 0px solid #c8c8c8;
+    border-radius: 3px;
+    color: #c8c8c8;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+    div[data-toggle="buttons"] label:hover {
+        color: #7AA3CC;
+    }
+
+    div[data-toggle="buttons"] label:Inactive, div[data-toggle="buttons"] label.Inactive {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+.confirmation-color {
+    background-color: #2bb8a3;
+    border: 2px solid #fff;
+    border-radius: 30px;
+}
+
+.bg-pink-light {
+    background-color: #ff4b78;
+}
+
+
+/* The container */
+.radio-box {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    /* Hide the browser's default radio button */
+    .radio-box input {
+        position: absolute;
+        opacity: 0;
+    }
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    bottom: -10px;
+    left: 40%;
+    height: 25px;
+    width: 25px;
+    background-color: #1585de;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-box:hover input ~ .checkmark {
+    background-color: #1585de;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-box input:checked ~ .checkmark {
+    background-color: #1585de;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-box input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-box .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+css---------------------------------- .min-45 {
+    min-height: 45px !important;
+}
+
+.vertical-school {
+    width: 304px;
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    position: relative;
+    top: 135px;
+    z-index: 9;
+    left: -120px;
+}
+
+.bg-yellow-dark {
+    background-color: #FFC107;
+}
+
+.vertical-student {
+    width: 304px;
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    position: relative;
+    top: 130px;
+    z-index: 9;
+    left: -120px;
+}
+
+#googler-toppers .tabs .nav-tabs li.active a, .nav-tabs li a:hover {
+    background-color: #f7951e;
+    color: #fff;
+    border-radius: 15px;
+    border-top: none;
+}
+
+#googler-toppers .nav-tabs li a, .nav-tabs li a:hover {
+    background-color: #f9d921;
+    color: #000;
+    border-radius: 15px;
+    border-top: none;
+}
+
+.bg-pink-light {
+    background-color: #ff4b78;
+}
+
+#confirmation .modal-body {
+    font-family: 'Tekton Pro';
+}
+
+.pad60 {
+    padding-bottom: 60px;
+}
+
+.bg-color {
+    background-color: #00607a;
+}
+
+.clients-box {
+    background: #faf7ff;
+}
+
+
+    .clients-box .section-title-1 {
+        margin-bottom: 60px;
+    }
+
+
+.about-me .owl-carousel .owl-item img {
+    display: block;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+}
+
+.tp-caption img {
+    width: 188px !important;
+}
+
+.slider-container .featured-label-google {
+    color: #ffff01 !important;
+    font-size: 47px !important;
+    line-height: 33px !important;
+}
+
+    .slider-container .featured-label-google span {
+        font-size: 24px !important;
+    }
+
+.slider-container .top-border-google {
+    color: #ffff01 !important;
+    border-bottom: none;
+    border-top: none;
+}
+
+.slider-container .bottom-label-google {
+    color: #134147;
+    font-size: 21px !important;
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.google-coin:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    cursor: pointer;
+}
+
+.whizgoogle-prizegreen {
+    border: 3px solid #1BB8A3;
+    background: #1bb8a3;
+}
+
+.whizgoogle-prizered {
+    border: 3px solid #1BB8A3;
+    background: #1bb8a3;
+}
+
+.whizgoogle-prizeorange {
+    border: 3px solid #F7951E;
+    background: #F7951E;
+}
+
+.whizgoogle-prizeyellow {
+    border: 3px solid #F9D921;
+    background: #F9D921;
+}
+
+.whizgoogle-prizeblue {
+    border: 3px solid #1BB8A3;
+    background: #1bb8a3;
+}
+
+.text-yellow {
+    color: #ffff01 !important;
+}
+
+.share_business_text {
+    /*background: #4d18c2;*/
+    color: #fff !important;
+    text-transform: uppercase;
+    padding: 5px;
+    font-weight: 600 !important;
+    font-size: 19px !important;
+    text-transform: capitalize;
+    border: 2px solid #e2358e;
+    text-transform: inherit;
+}
+
+.slider-container .top-border-yellow {
+    color: #ffff01 !important;
+    border-bottom: none;
+    border-top: none;
+    font-size: 22px !important;
+    font-weight: normal !important;
+}
+
+.participate_btn {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #ea3b86;
+    border-color: #00607a #00607a #003847;
+    border: none;
+    margin-top: 40px !important;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+    .participate_btn:hover {
+        color: #fff;
+        background: #a91da5;
+    }
+
+.sticky {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    left: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+}
+
+    .sticky a {
+        color: #FFF;
+    }
+
+
+.my-float {
+    margin-top: 16px;
+}
+
+.exclusive_text {
+    color: #9c188f;
+    font-weight: bold !important;
+}
+
+.view_details_btn {
+    color: #333232;
+    background: #f5bf23;
+    font-weight: 600;
+    /* text-shadow: 1px 1px 1px #6b6868; */
+    padding: 9px 25px;
+    border-radius: 0;
+    border: none;
+}
+
+    .view_details_btn:hover {
+        color: #333232;
+        background: #f5bf23;
+    }
+
+.how_it_work_btn {
+    color: #fff;
+    background: #e83c84;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px #6b6868;
+    padding: 15px 75px;
+    border-radius: 0;
+    border: none;
+}
+
+    .how_it_work_btn:hover {
+        color: #fff;
+        background: #e83c84;
+    }
+
+.view_details_btn:hover {
+    background: #f5bf23;
+    color: #333232;
+    border: none;
+    padding: 9px 25px;
+}
+
+.text-head {
+    color: #91138e;
+    text-transform: uppercase !important;
+}
+
+.section-title-1 .title-line:after {
+    background: #8f2cde;
+}
+
+.section-title-1 .title-line:before {
+    background: #91138e;
+}
+
+.section-color-bg {
+    background-color: #fef9fe !important;
+    border-top: 2px solid #f5ebf5 !important;
+    border-bottom: 2px solid #f5ebf5 !important;
+}
+
+.pink-bgborder {
+    background-image: url('../../Content/img/Competition_Challenge/Whiztalk2019/smi13.png');
+    /*background: #f7d3ee !important;*/
+    color: #fff;
+    padding: 10px 0;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px #9e969e;
+    transform: scale(1);
+    transition: .3s ease-in-out;
+}
+
+    .pink-bgborder:hover {
+        transform: scale(1.1);
+    }
+
+.boxcontent .toggle-event .toggle label {
+    color: #fff;
+    background: #b19cd9 !important;
+    border-left-color: #8c7bad !important;
+    border-right-color: #b19cd9 !important;
+}
+
+.rules_box {
+    border: 2px solid #aa95d2 !important;
+    padding: 15px !important;
+    overflow: hidden;
+}
+
+.boxcontent .tabs-primary .nav-tabs li.active a {
+    border-top-color: #91138e;
+    color: #91138e;
+}
+
+.boxcontent .list.list-icons li .fa {
+    color: #91138e;
+    border-color: #91138e;
+}
+
+.boxcontent .tabs-primary .nav-tabs li a {
+    color: #91138e;
+}
+
+.home-concept {
+    background: transparent url(../../Content/img/home-concept_Final.png) no-repeat center 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.google-faq {
+    background: #b19cd9;
+    border-radius: 15px;
+}
+
+.zoom-btn-school {
+    background-color: #149e37;
+}
+
+    .zoom-btn-school a {
+        color: #444242;
+        text-decoration: none;
+    }
+
+.blinking {
+    animation: blinkingText 3s infinite;
+}
+
+
+.zoom-btn-student {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(39, 22, 126) 0%, rgb(125, 13, 139) 51%, rgb(230, 49, 142) 100%);
+}
+
+.zoom-btn-teacher {
+    background: linear-gradient(90deg, rgb(39, 22, 126) 0%, rgb(125, 13, 139) 51%, rgb(230, 49, 142) 100%);
+}
+
+.zoom-btn-school {
+    background-color: #b21f8d;
+}
+
+
+.zoom {
+    position: fixed;
+    bottom: 45px;
+    right: 118px;
+    height: 70px;
+    z-index: 9999999;
+}
+
+
+.zoom-fab {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid #705c98;
+}
+
+    .zoom-fab:hover {
+        color: #444242;
+        text-decoration: none;
+    }
+
+    .zoom-fab:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+@keyframes blinkingText {
+    0% {
+        background: #551185;
+    }
+
+    49% {
+        background: #d44fb2;
+    }
+
+    50% {
+        background: #d44fb2;
+    }
+
+    99% {
+        background: #ec78cf;
+    }
+
+    100% {
+        background: #fff;
+    }
+}
+
+.bg-purple {
+    background-color: #b19cd9;
+}
+
+.prize-section-bg {
+    background-image: url(../../Content/img/Competition_Challenge/Whiztalk2019/prize_bann.jpg) !important;
+    background-position: center center !important;
+    background-repeat: repeat !important;
+}
+
+.boxcontent .toggle > label i {
+    font-size: 0.8em;
+    margin-right: 8px;
+    position: relative;
+    top: 1px;
+}
+
+.purple-light-bg {
+    background: #fbf9ff;
+}
+
+.whiztalk-progress .progress-bar-primary {
+    background-color: #6b46b3;
+}
+
+.topstudent_style .panel-default > .panel-heading {
+    color: #543b84;
+    background-color: #b19cd9;
+    border-color: #b19cd9;
+}
+
+.topstudent_style .panel-group .panel-heading a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-shadow: 1px 0px 0px #6b6868;
+    text-transform: uppercase;
+}
+
+.uneditable-input {
+    width: 295px;
+}
+
+.topstudent_style .panel-body {
+    background: #f9f8fd;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.toggle-scrol {
+    height: 283px;
+    overflow-x: scroll;
+    overflow-x: hidden;
+}
+
+.blue-bgborder {
+    background: #3f5e9d !important;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.counters label {
+    display: block;
+    font-weight: 100;
+    font-size: 13px;
+    line-height: 5px;
+}
+
+.counters strong {
+    display: block;
+    font-weight: bold;
+    font-size: 33px;
+    line-height: 36px;
+}
+
+.arrow_box {
+    position: relative;
+    background: #f05940;
+    border: 2px solid #f05940;
+    margin: 0 0 30px;
+    border-radius: 30px;
+    width: 350px;
+    left: 20%;
+    top: 12px;
+}
+
+    .arrow_box h3 {
+        padding: 4px 0;
+        margin-bottom: 0;
+    }
+
+.about {
+    background-image: url(../../Content/img/Competition_Challenge/Whiztalk2019/how-it-works-BG.svg);
+    background-repeat: no-repeat;
+    background-size: 73%;
+    min-height: 100%;
+    background-position-x: center;
+    background-position-y: 100px;
+}
+
+.Join_For_Free_btn {
+    background: #8e0fb6;
+    border: 3px solid #fcfe0c;
+    position: absolute;
+    bottom: 9%;
+    padding: 8px 10px;
+    left: 54%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16), 0 2px 4px 0 rgba(0,0,0,0.08);
+}
+
+    .Join_For_Free_btn a {
+        color: #ffffff;
+        font-size: 23px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+@media only screen and (max-width: 1440px) {
+    .Join_For_Free_btn {
+        bottom: 7%;
+        padding: 5px 10px;
+        left: 55%;
+    }
+
+        .Join_For_Free_btn a {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+}
+
+@media only screen and (max-width: 1024px) {
+    .Join_For_Free_btn {
+        background: #8e0fb6;
+        border: 3px solid #fcfe0c;
+        position: absolute;
+        bottom: 8%;
+        padding: 0px 10px;
+        left: 54%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16), 0 2px 4px 0 rgba(0,0,0,0.08);
+    }
+
+        .Join_For_Free_btn a {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .participate_btn {
+        margin-left: 0;
+        margin-top: 0px !important;
+    }
+
+    .slider-container .top-border-yellow {
+        font-size: 14px !important;
+    }
+
+    .news-content h3 {
+        margin-bottom: 5px !important;
+    }
+
+    .news-box {
+        height: auto;
+        padding: 15px 5px;
+    }
+
+    .zoom-menu {
+        top: 71%;
+        left: -42px;
+        position: fixed;
+    }
+
+        .zoom-menu li {
+            display: block;
+        }
+
+    .sticky {
+        width: 60px;
+        height: 60px;
+        bottom: 0px;
+        left: 0;
+    }
+
+    .Join_For_Free_btn {
+        border: 2px solid #fcfe0c;
+        bottom: 3%;
+        padding: 0px 9px;
+        left: 52%;
+    }
+
+        .Join_For_Free_btn a {
+            font-size: 8px;
+            font-weight: 600;
+        }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .rules_box h3 {
+        font-size: 16px;
+    }
+
+    .clients-box .section-title-1 {
+        margin-bottom: 20px;
+    }
+
+    .mob-p-none {
+        padding: 0;
+    }
+
+    .slider-container .featured-label-google {
+        font-size: 20px !important;
+        line-height: 20px !important;
+    }
+
+    .tp-parallax-wrap .share_business_text {
+        background: #4d18c2;
+        color: #fff !important;
+        text-transform: uppercase;
+        padding: 5px !important;
+        font-weight: 600 !important;
+        font-size: 11px !important;
+        line-height: 13px !important;
+        margin-top: 20px !important;
+    }
+
+    .custom-content i {
+        font-size: 12px;
+        padding-right: 0;
+    }
+
+    .pink-bgborder {
+        font-size: 10px;
+    }
+
+    .mob-pl-none {
+        padding-left: 5px !important;
+    }
+
+    .mob-pr-none {
+        padding-right: 5px !important;
+    }
+
+    .pink-bgborder:hover {
+        transform: none;
+    }
+
+    .mob-mt-none {
+        margin-top: 0px !important;
+    }
+
+    .mob-mb-none {
+        margin-bottom: 0px !important;
+    }
+
+
+    .mob-p-xs {
+        padding: 5px !important;
+    }
+
+    .mob-pt-none {
+        padding-top: 0 !important;
+    }
+
+    .counters label {
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 0px;
+    }
+
+    .counters strong {
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 34px;
+    }
+
+    .blue-bgborder {
+        padding: 25px 0 20px;
+        margin: 5px 0 5px;
+    }
+
+    section.section {
+        padding: 10px 0 !important;
+    }
+
+    .mob-display-none {
+        display: none;
+    }
+
+    .tp-simpleresponsive img, .rev_slider img {
+        max-width: 100% !important;
+    }
+
+    .desktop_banner {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .slotholder {
+        visibility: hidden !important;
+    }
+
+    .section-title-1 h1 {
+        text-transform: capitalize !important;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .fileupload .uneditable-input {
+        width: 167px;
+    }
+
+    .rules_box h4 {
+        font-size: 14px;
+    }
+
+    .arrow_box {
+        margin: 0 15px 30px;
+        width: auto;
+    }
+
+        .arrow_box h3 {
+            padding: 5px 0;
+        }
+}
+
+@media only screen and (max-width: 490px) {
+    .whiz-mobs {
+        font-size: 1.1rem !important;
+    }
+
+    .whiz-mobn {
+        font-size: 1.2rem !important;
+        line-height: 18px;
+    }
+
+    .whiz-mobt {
+        font-size: 0.9rem !important;
+        padding: none;
+    }
+
+    .mob-none {
+        visibility: hidden;
+        display: none;
+    }
+
+    .mobile-view {
+        padding: 0 5px;
+    }
+
+    .mobile-nopad {
+        padding: 0 2px;
+    }
+
+    .fileupload .uneditable-input {
+        width: 66%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .fileupload .uneditable-input {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .fileupload .uneditable-input {
+        width: 72%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .fileupload .uneditable-input {
+        width: 66%;
+    }
+}
+
+.text-md {
+    font-size: 1.4rem !important;
+}

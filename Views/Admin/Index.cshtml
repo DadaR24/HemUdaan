@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Sidebar</title>
+    <!-- Include Bootstrap for some basic styling -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Boxicons for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css">
+    <style>
+        /* Basic styling for sidebar */
+        .sidebar {
+            height: 100%;
+            width: 250px; /* Adjust width as needed */
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #262626; /* Dark background color */
+            padding-top: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+            .logo img {
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+            }
+
+            .logo span {
+                font-weight: bold;
+            }
+
+        .side-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .side-menu li {
+                margin-bottom: 15px;
+            }
+
+            .side-menu a {
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                padding: 10px;
+                transition: all 0.3s ease;
+            }
+
+                .side-menu a:hover {
+                    background-color: #444;
+                }
+
+        /* Styling for nested submenu */
+        .side-submenu {
+            display: none;
+            padding-left: 20px;
+            color: aliceblue;
+        }
+
+            .side-submenu li {
+                margin-bottom: 10px;
+            }
+
+        /* Styling for content area */
+        .content {
+            margin-left: 250px; /* Adjust based on sidebar width */
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .form-input {
+            position: relative;
+        }
+
+            .form-input input[type="search"] {
+                width: 200px;
+                padding: 8px;
+                border-radius: 20px;
+                border: 1px solid #ddd;
+                outline: none;
+            }
+
+            .form-input button {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+                background: transparent;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+
+        .notification, .profile {
+            color: #333;
+            text-decoration: none;
+            margin-left: 10px;
+            position: relative;
+        }
+
+            .notification span, .profile img {
+                margin-left: 5px;
+            }
+
+            /* Notification badge */
+            .notification span {
+                background-color: #ff0000;
+                color: #fff;
+                padding: 2px 6px;
+                border-radius: 50%;
+                font-size: 12px;
+                position: absolute;
+                top: -5px;
+                right: -5px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <img src="./img/logo-1.png" alt="" />
+            <span></span>HEMUdaan
+        </a>
+        <ul class="side-menu">
+            <li class="active">
+                <a href="#"><i class="bx bxs-dashboard"></i>Dashboard</a>
+            </li>
+            <li class="toggle-submenu">
+                <a href="#" class="toggle-users"><i class="bx bx-group"></i>Users</a>
+                <ul class="side-submenu">
+                    <li>
+                        <a onclick="userlist()"><i class="bx bxs-dashboard"></i>User lists</a>
+                    </li>
+                    <!-- Add more user list items as needed -->
+                </ul>
+            </li>
+            <li class="toggle-submenu">
+                <a href="#"><i class="bx bx-bar-chart"></i>Courses</a>
+                <ul class="side-submenu">
+                    <li>
+                        <a onclick="Register()"><i class="bx bxs-dashboard"></i>Register New</a>
+                    </li>
+                    <li>
+                        <a onclick="List()"><i class="bx bxs-dashboard"></i>List All</a>
+                    </li>
+
+
+                </ul>
+            </li>
+
+            <li class="toggle-submenu">
+                <a href="#"><i class="bx bx-comment-detail"></i>Survey</a>
+                <ul class="side-submenu">
+                    <li>
+                        <a onclick="Survey()"><i class="bx bxs-dashboard"></i>CourseSurvey</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="toggle-submenu">
+                <a href="#"><i class="bx bx-comment-detail"></i>Course MCQ</a>
+                <ul class="side-submenu">
+                    <li>
+                        <a onclick="MCQ()"><i class="bx bxs-dashboard"></i>MCQ</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="toggle-submenu">
+                <a href="#"><i class="bx bx-comment-detail"></i>Reports</a>
+                <ul class="side-submenu">
+                    <li>
+                        <a onclick="SurveyReport()"><i class="bx bxs-dashboard"></i>Survey Report</a>
+                    </li>
+                    <li>
+                        <a onclick="PBLReport()"><i class="bx bxs-dashboard"></i>PBL Report</a>
+                    </li>
+                    <li>
+                        <a onclick="CreReport()"><i class="bx bxs-dashboard"></i>Group Submission Report</a>
+                    </li>
+                    <li>
+                        <a onclick="MCQReport()"><i class="bx bxs-dashboard"></i>MCQ Report</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#"><i class="bx bx-cog"></i>Settings</a>
+            </li>
+        </ul>
+
+        <div class="side-menu">
+            <ul>  
+			    <li>
+                    <a href="../User/BulkUserAddition"><i class="bx bxs-dashboard"></i>Bulk Upload</a>
+                </li>
+
+			
+                <li>
+                    <a href="#"><i class="bx bx-moon"></i>Dark / Light</a>
+                </li>
+                <li>
+                    <a onclick="logout()" class="logout"><i class="bx bx-log-out-circle"></i>Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+        <nav>
+            <i class="bx bx-menu"></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search................" />
+                    <button type="submit"><i class="bx bx-search"></i></button>
+                </div>
+            </form>
+            <a href="#" class="notification">
+                <i class="bx bx-bell"></i>
+                <span></span>
+            </a>
+
+            <a href="#" class="profile">
+                <img src="./img/logo-1.png" alt="" />
+            </a>
+        </nav>
+        <!-- Your main content goes here -->
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.toggle-submenu').click(function (e) {
+                e.preventDefault();
+                $(this).find('.side-submenu').slideToggle();
+            });
+        });
+
+        function Register() {
+            window.location.href = "/Course/Index";
+        }
+
+        function List() {
+            window.location.href = "/Course/CourseList";
+        }
+        function Survey() {
+            window.location.href = "/Admin/CourseSurvey";
+        }
+        function userlist() {
+            window.location.href = "/Admin/Userlist";
+
+        }
+        function logout() {
+            window.location.href = "/Home/Index";
+        }
+        function MCQ() {
+            window.location.href = "/Admin/CourseMCQ";
+        }
+        function SurveyReport() {
+            window.location.href = "/Admin/SurveyReport";
+        }
+        function PBLReport() {
+            window.location.href = "/Admin/PBLReport";
+        }
+        function CreReport() {
+            window.location.href = "/Admin/CreativityReports";
+        }
+        function MCQReport() {
+            window.location.href = "/Admin/MCQReport";
+        }
+    </script>
+
+</body>
+</html>

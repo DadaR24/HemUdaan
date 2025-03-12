@@ -1,0 +1,157 @@
+﻿boxed .body {
+    border: 15px solid #00607a !important;
+    border-radius: 0px !important;
+}
+
+.wj_sr_caption {
+    font-family: 'Lato', sans-serif !important;
+}
+
+.wj_sr_item {
+    font-family: 'Oswald', sans-serif !important;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.border-top-wj {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.text-wj {
+    color: #4a7f9f;
+}
+
+.bg-wj {
+    background-color: #4a7f9f;
+}
+
+.bg-light-grey {
+    background-color: #e2e1e052;
+}
+
+.border {
+    border: 1px solid #adadad;
+}
+
+.sm-img .owl-carousel .owl-item img {
+    width: 18px !important;
+}
+
+.school-details {
+    text-align: left;
+}
+
+.text-lightdark {
+    color: #3c3b3b;
+}
+
+.xs-mb {
+    margin-right: 5px;
+}
+
+section.section-1 {
+    background: #f4f4f4;
+    border-top: 5px solid #f1f1f1;
+    margin: 30px 0;
+    padding: 0;
+}
+
+.border-right {
+    border-right: 1px dotted #c1c1c1;
+}
+
+.bg-grey-transparent {
+    background-color: #adadad;
+}
+
+.event-img .owl-carousel .owl-item img {
+    width: 135px !important;
+}
+
+.card-shadow {
+    border: 1px solid #cecece;
+    border-radius: 5px;
+    padding: 0 15px;
+    /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+}
+
+.testimonial .testimonial-author strong {
+    color: #3c3b3b;
+}
+
+.caourse-card {
+    background: #fff;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    position: relative;
+    padding: 5px 10px;
+}
+
+.cust-timeline section.timeline:after {
+    left: 0%;
+}
+
+.cust-timeline section.timeline .timeline-date {
+    margin: 0 0 10px 0;
+    right: 12%;
+}
+
+.cust-timeline section.timeline .timeline-box.right {
+    right: 50%;
+    margin-top: 10px;
+}
+
+.cust-timeline section.timeline .timeline-box {
+    margin-bottom: 10px;
+}
+
+.cust-timeline section.timeline .timeline-box.right:after{
+     top: 25px;
+}
+
+
+
+
+
+/*Responsive style*/
+@media only screen and (max-width:1024px) {
+}
+
+@media only screen and (max-width:768px) {
+    .cust-timeline section.timeline .timeline-box.right {
+        right: 0%;
+        margin-top: 0px;
+    }
+
+    .cust-timeline section.timeline:after {
+        left: 50%;
+    }
+
+    .xs-count{
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .school-details {
+        text-align: center;
+    }
+
+    .xs-mb {
+        margin-right: 0px;
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (max-width:425px) {
+
+    .cust-timeline section.timeline:after {
+    left: 50%;
+    top: -40px;
+}
+}

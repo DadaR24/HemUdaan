@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Message";
+    Layout = "~/Views/Shared/_UdaanLayout.cshtml";
+}
+
+<style>
+    .emoji-container {
+        display: inline-block;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    .emoji {
+        font-size: 3em;
+    }
+</style>
+<div class="container bg-white mt-4 py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 text-center">
+            @if (ViewBag.Message == "0")
+            {
+                <div class="alert alert-danger p-4">
+                    <h1 class="h4 text-danger">You have not uploaded any activity.</h1>
+                    <h1 class="h4 text-danger">Request to re-upload an activity.</h1>
+                    <button class="btn btn-primary mt-3" onclick="location.href='/School/Dashboard'">Dashboard</button>
+                </div>
+            }
+            else
+            {
+              <div class="p-4">
+                  <div class="emoji-container">
+                      <div class="emoji">😊</div>
+                 
+                      <h1 class="h4">THANK YOU !!!</h1>
+                     <p class="lead">Thank you for your submission. We acknowledge the same!</p>
+                     <button class="btn btn-primary mt-3" onclick="location.href='@Url.Action("Index", "Volunteer", new {UserID = ViewBag.UserID})'">Dashboard</button>
+                  </div>
+              </div>
+            }
+        </div>
+    </div>
+</div>

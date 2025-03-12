@@ -1,0 +1,52 @@
+﻿@model HEMUdaan.Models.UserProfileModel
+
+@{
+     Layout = "~/Views/Shared/_UdaanLayout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+	 @foreach (var course in Model.Courses)
+                {
+				
+				
+				<div class="col-md-3">
+            <div class="card">
+			@if (!string.IsNullOrEmpty(course.FeaturedImage))
+                                        {
+                                            <img class="img-fluid p-3" src="@Url.Content(course.FeaturedImage)" alt="@course.CourseName" />
+                                        }
+            <div class="card-body">
+                <h5 class="card-title"><b>@course.CourseName.ToUpper()</b></h5>
+                <p class="card-text">@course.Description</p>
+            </div>
+                <div class="card-footer text-center">
+                
+				 <div class="d-flex justify-content-center">
+                    <a href="@Url.Action("Learn", "Course", new { CourseID = course.CourseID })" class="btn btn-primary btn-center">
+                                                    Start
+                                                </a>
+                 </div>
+                </div>
+            </div>
+        </div>
+				
+				}
+	</div>
+	</div>
+	
+<script>
+    function startCourse(courseID) {
+        debugger;
+        if (courseID) {
+            // Proceed only if courseID is not null or undefined
+            window.location.href = "/Course/Learn/" + courseID;
+        } else {
+            console.error("Invalid courseID: " + courseID);
+            // Handle the case where courseID is not provided or invalid
+        }
+    }
+</script>

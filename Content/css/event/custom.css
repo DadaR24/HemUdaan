@@ -1,0 +1,30 @@
+
+
+/* Harsha*/
+.text-red {
+    color:#ea4335;
+    font-weight:500;
+}
+
+
+.text-small{
+	font-size: 30px;
+}
+
+html .top-border-blue .box-content
+
+{border-top-color:#338cf9 !important;
+}
+
+html.top-border-red .box-content
+{border-top-color:#e8422e !important;
+}
+
+html.top-border-yellow .box-content
+{border-top-color:#fcbb00 !important;
+}
+
+html.top-border-green .box-content
+{border-top-color:#45a849 !important;
+}
+

@@ -1,0 +1,8 @@
+﻿html .img-fix{
+    width:100px;
+    height:100px;
+}
+
+html .border-black{
+    border:1px solid #666;
+}

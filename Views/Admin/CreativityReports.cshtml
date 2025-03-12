@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "CreativityReports";
+}
+
+@{ var count = 1; }
+
+<div class="container bg-white mt-4 py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h2>HEMUdaan Group Submission Reports</h2>
+        </div>
+    </div>
+</div>
+<div class="container text-right mb-3">
+    <button type="button" id="btnExportToExcel" class="btn btn-primary">Export To Excel</button>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="ParticipatedSchoolsList" class="table table-striped table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Sr.No.</th>
+                    <th>Volunteer Name</th>
+                    <th>CourseName</th>
+                    <th>Location</th>
+                    <th>Mobile No</th>
+                    <th>Image Activity</th>
+                    <th>Video Activity</th>
+                    <th>Short Description</th>
+                    <th>Submission Date</th>
+                    <th>TeamName</th>
+                    <th>ListStudents</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.ListOfSchoolsParticipated != null)
+                {
+                    foreach (var item in ViewBag.ListOfSchoolsParticipated)
+                    {
+                        <tr>
+                            <td>@count</td>
+                            <td>@item["Volunteer Name"]</td>
+                            <td>@item["CourseName"]</td>
+                            <td>@item["City"]</td>
+                            <td>@item["MobileNumber"]</td>
+                            <td>@item["ImageActivity"]</td>
+                            <td>@item["VideoActivity"]</td>
+                            <td>@item["ShortDescription"]</td>
+                            <td>@item["Submission Date"]</td>
+                            <td>@item["GroupName"]</td>
+                            <td>@item["ListStudents"]</td>
+                        </tr>
+                        count++;
+                    }
+                }
+                else
+                {
+                    <tr><td colspan="11" class="text-center">@ViewBag.MessageData</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@section scripts{
+    <script src="~/Content/js/moment.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnExportToExcel").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("CASReport", "Volunteer")',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        var bytes = new Uint8Array(response.FileContents);
+                        var blob = new Blob([bytes], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+                        var link = document.createElement('a');
+                        link.href = window.URL.createObjectURL(blob);
+                        link.download = "SubmissionStatusReport.xlsx";
+                        link.click();
+                    },
+                    error: function (err) {
+                        console.error('Error exporting data:', err);
+                    }
+                });
+            });
+        });
+    </script>
+}

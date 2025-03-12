@@ -1,0 +1,170 @@
+﻿.sidenav-mob {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: 0.5s;
+    padding-top: 20px;
+    text-align:center;
+}
+
+.sidenav-mob {
+    /*background-image: url(../images/misc/menu-bg.png);*/
+    background-size: 100px 100px;
+}
+
+
+.sidenav-mob a {
+   font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 9px;
+    color: #d6dee6;
+    /*width: 80px;
+    height: 90px;*/
+    text-align: center;
+    line-height: 90px;
+    padding-top: 22px;
+    text-decoration:none;
+}
+
+.sidenav-mob a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav-mob a .icon-mob {
+    color: #ffffff;
+    display: block;
+    font-size: 20px;
+    margin-bottom: -30px;
+    padding-bottom: 2px;
+    font-size: 20px;
+}
+
+.sidenav-mob .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav-mob {padding-top: 15px;}
+  .sidenav-mob a {font-size: 15px;}
+}
+ .dropbtn {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.dropdown-img {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-img-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+
+.dropdown-img-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-img a:hover {background-color: #ddd}
+
+.show {display:block;}
+
+.header-nav {
+    float: right;
+}
+
+.nav-pills>li {
+    float: left;
+    margin: 0;
+}
+
+#header .header-column {
+    display: block;
+    /* float: left; */
+}
+
+#header .burgerforceright .nav-pills>li.forceright{
+    float: right!important;
+}
+
+
+
+
+
+
+
+/*Responsive css starts*/
+@media only screen and (max-width: 768px) {
+    .header-logo img {
+        width: 180px;
+    }
+    .w-logo{
+         width: 180px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px;
+}
+    .img-bars {
+    width: 20px;
+}
+}
+
+@media only screen and (max-width: 394px){
+     .header-logo img{
+        width: 170px;
+    }
+}
+
+@media only screen and (max-width: 340px){
+    .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 5px;
+}
+    .img-bars {
+    width: 17px;
+}
+
+    .header-logo img{
+        width: 160px;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    .header-logo img {
+    width: 145px!important;
+}
+
+}

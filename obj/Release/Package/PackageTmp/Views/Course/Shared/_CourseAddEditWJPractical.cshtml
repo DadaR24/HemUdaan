@@ -1,0 +1,465 @@
+﻿
+@{
+    List<SelectListItem> listTopics = ViewBag.listTopics;
+}
+
+
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+
+</head>
+<style>
+    /* Hide the default checkbox visually */
+    .visually-hidden {
+        position: absolute;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+    }
+
+    /* Style the label to resemble a checkbox */
+    .task-checkbox-label {
+        display: inline-block;
+        cursor: pointer;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Style the label when the checkbox is checked */
+    #isTaskCheckbox:checked + .task-checkbox-label {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+    }
+</style>
+<div class="panel panel-default mt-xs" id="dv_Practical">
+    <div class="panel-heading  p-none">
+        <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#divPracticalPanelBody">
+                Whiz Juniors Practical
+            </a>
+        </h4>
+    </div>
+    <div id="divPracticalPanelBody" class="accordion-body collapse">
+        <div class="panel-body">
+            @using (Html.BeginForm("WJPractical", "Course", FormMethod.Post, new { enctype = "multipart/form-data", id = "practicalForm" }))
+            {
+                @*<form id="practicalForm" name="practicalForm" action="/Course/WJPractical" method="post" enctype="multipart/form-data">*@
+                    <div class="row">
+                        <label id="practicalSuccessMessage" class="text-success"></label>
+                        <label id="practicalErrorMessage" class="text-danger"></label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <input type="hidden" id="CourseID" name="CourseID" />
+                                <input type="hidden" id="PracticalID" name="PracticalID" />
+                                <div class="form-group col-md-8">
+                                    <label class="control-label" for="inputDefault">Title</label>
+                                    <div class="">
+                                        <input type="text" id="Title" name="Title" maxlength="900" class="form-control" required="required" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="control-label">Level </label>
+                                    <div class="">
+                                        <select id="PracticalLevel" name="PracticalLevel" class="form-control" required="required">
+                                            <option value="" selected="selected" disabled>Select Level</option>
+                                            <option value="1">Easy</option>
+                                            <option value="2">Moderate</option>
+                                            <option value="3">Tough</option>
+                                        </select>
+
+                                    </div>
+                                    <input type="hidden" id="Level" name="Level" class="form-control" value="" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="control-label" for="inputDefault">Description</label>
+                                    <div class="">
+                                        <textarea maxlength="10000" data-msg-required="Description" rows="3" class="form-control" name="Description" id="Description" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="inputDefault"> Coins</label>
+                                    <div class="">
+                                        <input type="number" id="Coins" name="Coins" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="inputDefault"> Gems</label>
+                                    <div class="">
+                                        <input type="number" id="Gems" name="Gems" class="form-control" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*Anil Practical Standard and Topic Wise and Subtopic Wise*@
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="control-label" for="inputDefault">Practical Topic</label> <a href="javascript:void(null)" onclick="bindPracticalTopics()" title="Reload Topics"><i class="ml-sm fa fa-refresh"></i></a>
+                                    <select id="ddlPracticalTopics" class="form-control" required="required" onchange="bindPracticalSubTopic()"></select>
+                                    <div class="">
+                                        <input type="number" id="PracticalTopicID" name="PracticalTopicID" class="form-control hidden" hidden />
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="inputDefault"> Practical Sub Topic</label> <a href="javascript:void(null)" onclick="bindPracticalTopics()" title="Reload Topics"><i class="ml-sm fa fa-refresh"></i></a>
+                                    <select id="ddlPracticalSubTopics" class="form-control" required="required" onchange="bindPracticalSubTopic()"></select>
+                                    <div class="">
+                                        <input type="number" id="PracticalSubtopicID" name="PracticalSubtopicID" class="form-control hidden" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="inputDefault"> Practical Standard</label>
+                                    <select id="ddlPracticalStandard" class="form-control" required="required">
+                                        <option value="-- Select Standard --" selected disabled>-- Select Standard --</option>
+                                        <option value="1st">1st</option>
+                                        <option value="2nd">2nd</option>
+                                        <option value="3rd">3rd</option>
+                                        <option value="4th">4th</option>
+                                        <option value="5th">5th</option>
+                                        <option value="6th">6th</option>
+                                        <option value="7th">7th</option>
+                                        <option value="8th">8th</option>
+                                        <option value="9th">9th</option>
+                                        <option value="10th">10th</option>
+                                        <option value="11th">11th</option>
+                                        <option value="12th">12th</option>
+                                        <option value="13th">13th</option>
+                                        <option value="14th">14th</option>
+                                        <option value="15th">15th</option>
+                                    </select>
+                                    <div class="">
+                                        <input type="text" id="PracticalStandard" name="PracticalStandard" class="form-control hidden" required hidden />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="inputDefault">Language</label>
+                                    <div class="">
+                                        <select id="languageID" name="languageID" class="form-control">
+                                            <option value="0">-- Select Language --</option>
+                                            <option value="1" selected>English</option>
+                                            <option value="2">Hindi</option>
+                                            <option value="3">Gujarati</option>
+                                            <option value="4">Marathi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="inputDefault">Practical Type</label>
+                                    <div class="">
+                                        <select id="ddlType" name="Type" class="form-control">
+                                            <option value="0">-- Select Type --</option>
+                                            <option value="1">Scramble</option>
+                                            <option value="2">KEN KEN</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="inputDefault">Topic Type</label>
+                                    <div class="">
+                                        <select id="ddlTopicID" name="ScrambleTopicID" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="inputDefault">Click Here If Task</label>
+                                    <input type="checkbox" id="isTaskCheckbox" class="form-control visually-hidden">
+                                    <label for="isTaskCheckbox" class="task-checkbox-label">Task</label>
+                                    <input type="hidden" id="isTask" name="isTask"> <!-- Hidden field to hold the actual value -->
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-8">
+                                    <label class="control-label" for="inputDefault"> Video Link</label>
+                                    <div class="">
+                                        <input type="text" id="VideoLink" name="VideoLink" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="control-label" for="inputDefault">Order No</label>
+                                    <div class="">
+                                        <input type="number" id="OrderNo" name="OrderNo" class="form-control" required="required" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-8">
+                                    <label class="control-label" for="inputDefault"> Code</label>
+                                    <div class="">
+                                        <input type="text" id="Code" name="Code" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="control-label" for="inputDefault">Group</label>
+                                    <div class="">
+                                        <select id="Student_Group" name="Student_Group" class="form-control" required="required">
+                                            <option value="" selected="selected" disabled>Select Group</option>
+                                            <option value="All">All</option>
+                                            <option value="Level 1">A</option>
+                                            <option value="Level 2">B</option>
+                                            <option value="Level 3">C</option>
+                                            <option value="Level 4">D</option>
+                                            <option value="Teacher">Teacher</option>
+                                        </select>
+                                    </div>
+                                    <input type="hidden" id="Student_Group1" name="Student_Group1" class="form-control" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                Thumbnail Image (512px X 512px)
+                                <img id="imgPhoto12" width="128" class="mb-sm" />
+                                <input type="file" name="Thumbnail" id="ThumbnailFile" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 mt-lg">
+                                Resource File
+                                <h4 id="resource_file"></h4>
+                                <input type="file" name="Resources" id="ResourcesFile" />
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label class="control-label" for="inputDefault"> FileType</label>
+                            <div class="">
+                                @*<input type="text" id="FileType" name="FileType" class="form-control" />*@
+                                <select id="FileType" name="FileType" class="form-control" required="required">
+                                    <option value="0" selected="selected" disabled>Select File Type</option>
+                                    <option value=".csv,.CSV">Coma Separated File</option>
+                                    <option value=".doc,.docx,.DOC,.DOCX">Word Document</option>
+                                    <option value=".html,.htm,.HTML,.HTM">Html File</option>
+                                    <option value=".jpg,.png,.jpeg ,.gif,.JPG,.PNG,.JPEG ,.GIF">Image File</option>
+                                    <option value=".mp4,.avi,.3gp,.mpeg,.MP4,.AVI,.3GP,.MPEG">Video File</option>
+                                    <option value=".pdf,.PDF">PDF File</option>
+                                    <option value=".ppt,.pptx,.PPT,.PPTX">Presentation</option>
+                                    <option value=".pub,.PUB">Publisher File</option>
+                                    <option value=".sb2,.SB2">Scratch File</option>
+                                    <option value=".txt,.TXT">Text File</option>
+                                    <option value=".xls,.xlsx,.XLS,.XLSX">Excel File</option>
+                                    <option value=".zip,.rar,.ZIP,.RAR">Compressed Zip File</option>
+                                    <option value=".mp3,.wav,.aac,.MP3,.WAV,.AAC">Audio File</option>
+                                    <option value=".rtf,.RTF">Rich Text Format File</option>
+                                    <option value=".wjlink">Link File</option>
+                                    <option value=".glb,.3mf,.fbx">3 D File</option>
+                                </select>
+
+                            </div>
+                            <input type="hidden" id="FileType1" name="FileType1" class="form-control" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label col-md-12">&nbsp;</label>
+                            <input id="btnAddPractical" type="button" onclick="AddEditPracticals()" value="Add" class="btn btn-primary" />
+                            <input type="button" onclick="ResetPracticalForm()" value="Cancel" class="btn btn-default" />
+                        </div>
+                    </div>
+                    <h4>Practical List</h4>
+                    <div class="table-responsive">
+                        <table id="tblPracticalList" class="table table-condensed table-bordered table-striped table-hover mb-none">
+                            <thead>
+                                <tr>
+                                    <th width="40px">#</th>
+                                    <th>Order</th>
+                                    <th>Code</th>
+                                    <th>Group</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Video link</th>
+                                    <th>Coins</th>
+                                    <th>FileType</th>
+                                    <th>Level</th>
+                                    <th>IsTask</th>
+                                    <th>Language</th>
+                                    <th width="60px">Action</th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+            }
+                @*</form>*@
+            </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+<script>
+    var topicList = null;
+
+    function bindPracticalTopics() {
+        debugger;
+        var courseId = $('#CourseID').val();
+        if (courseId) {
+            $.ajax({
+                type: "GET",
+                url: '/Course/ListCourseTopic',
+                data: { 'courseId': courseId },
+                dataType: 'json',
+                success: function (response) {
+                    var dropdown = $('#ddlPracticalTopics'); // Corrected dropdown ID
+                    dropdown.empty(); // Clear existing options
+                    dropdown.append('<option value="">-- Select Topic --</option>'); // Add default option
+
+                    // Loop through the response and append options to the dropdown
+                    $.each(response, function (index, topic) {
+                        dropdown.append($('<option></option>').attr('value', topic.Value).text(topic.Text));
+                    });
+                },
+                error: function (xhr, status, error) {
+                    // Handle error
+                }
+            });
+        }
+    }
+
+
+
+    function populateTopicsDropdown(response) {
+        var dropdown = $('#ddlParentTopics');
+        dropdown.empty();
+        dropdown.append('<option value="">-- Select Topic --</option>');
+        $.each(response, function (i, item) {
+            dropdown.append($('<option></option>').attr('value', item.Value).text(item.Text));
+        });
+    }
+
+    //function bindPracticalTopics() {
+    //    debugger;
+    //    if (topicList != null) {
+    //        var listItems = "";
+    //        listItems += "<option selected='selected' disabled>Select Topic</option>";
+    //        for (var i = 0; i < topicList.length; i++) {
+    //            var parentTopic = topicList[i].ParentTopicID;
+    //            if (parentTopic == null || parentTopic == undefined || parentTopic <= 0) {
+    //                listItems += "<option value='" + topicList[i].TopicID + "'>" + topicList[i].TopicName + "</option>";
+    //            }
+    //        }
+    //        $("#ddlPracticalTopics").html(listItems);
+    //        $("#ddlPracticalSubTopics").html("<option selected='selected' disabled>Select Sub Topic</option>");
+    //    }
+    //}
+
+    function AddEditPracticals() {
+        debugger;
+        var practicalForm = $("#practicalForm");
+
+        // Resetting Messages
+        $("#practicalSuccessMessage").html("");
+        $("#practicalErrorMessage").html("");
+
+        // Resetting CourseId
+        $(practicalForm).find("#CourseID").val($("#CourseForm").find("#CourseID").val());
+        $(practicalForm).find("#PracticalTopicID").val($("#practicalForm").find("#ddlPracticalTopics").val());
+        $(practicalForm).find("#PracticalSubtopicID").val($("#practicalForm").find("#ddlPracticalSubTopics").val());
+        $(practicalForm).find("#PracticalStandard").val($("#practicalForm").find("#ddlPracticalStandard").val());
+        $(practicalForm).find("#languageID").val($("#practicalForm").find("#languageID").val());
+        $(practicalForm).find("#Type").val($("#practicalForm").find("#ddlType").val());
+        $(practicalForm).find("#ScrambleTopicID").val($("#practicalForm").find("#ddlTopicID").val());
+       
+        var formData = new FormData(practicalForm[0]);
+
+        // Append thumbnail image file to formData
+        var thumbnailFile = $("#ThumbnailFile")[0].files[0];
+        formData.append("Thumbnail", thumbnailFile);
+       
+        var resourceFile = $("#ResourcesFile")[0].files[0];
+        formData.append("Resources", resourceFile);
+
+
+        // Use $.ajax instead of $.ajaxSubmit
+        $.ajax({
+            type: "POST",
+            url: '/Course/WJPractical', // Correct endpoint
+            data: formData,
+            contentType: false, // Necessary for sending formData
+            processData: false, // Necessary for sending formData
+            success: function (response) {
+                console.log(response);
+                if (response.Success) {
+                    ResetPracticalForm();
+                    $("#practicalSuccessMessage").html(response.Message);
+                } else {
+                    $("#practicalErrorMessage").html(response.Message);
+                }
+
+            },
+            error: function (xhr, status, error) {
+                // Handle error
+            }
+        });
+
+    }
+
+    //function AddEditPracticals() {
+    //    debugger;
+    //    var practicalForm = $("#practicalForm");
+
+    //    // Resetting Messages
+    //    $("#practicalSuccessMessage").html("");
+    //    $("#practicalErrorMessage").html("");
+
+    //    // Add validation rules using jQuery Validate (assuming you've included the library)
+    //    practicalForm.validate({
+    //        rules: {
+    //            // Define validation rules for required fields (e.g., Title, Description, etc.)
+    //            Title: "required",
+    //            Description: "required",
+    //            // ... add rules for other required fields
+    //        },
+    //        messages: {
+    //            // Define custom error messages for validation rules (optional)
+    //            Title: "Please enter a title for the practical.",
+    //            Description: "Please provide a description for the practical.",
+    //            // ... add messages for other fields
+    //        },
+    //        submitHandler: function (form) {
+    //            // Form is valid, submit it using AJAX
+    //            var formData = new FormData(practicalForm[0]);
+    //            // ... rest of your AJAX code for submitting the form
+    //        }
+    //    });
+
+    //    // If validation fails, the submitHandler won't be called and error messages will be displayed
+
+    //    // You can optionally trigger form submission manually after validation:
+    //    // if (practicalForm.valid()) {
+    //    //   // Submit the form using AJAX
+    //    // }
+    //}
+
+
+    $(document).ready(function () {
+        // Listen for changes in the checkbox state
+        $('#isTaskCheckbox').change(function () {
+            // If the checkbox is checked, set the hidden field value to true, otherwise set it to false
+            if ($(this).is(':checked')) {
+                $('#isTask').val('true');
+            } else {
+                $('#isTask').val('false');
+            }
+        });
+    });
+
+</script>
+

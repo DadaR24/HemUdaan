@@ -1,0 +1,367 @@
+﻿
+<div class="panel panel-default" id="dv_mcq_panel">
+    <div class="panel-heading  p-none">
+        <h4 class="panel-title">
+            <a class="accordion-toggle"  data-toggle="collapse" data-parent="#accordion" href="#divQuestionsPanelBody">
+                MCQ
+            </a>
+        </h4>
+    </div>
+    <div id="divQuestionsPanelBody" class="accordion-body collapse">
+        <div class="panel-body">
+            <form id="questionForm" action="/Admin/MCQData" method="post">
+
+                <div class="roww">
+                    <label id="QuestionSuccessMessage" class="text-success"></label>
+                    <label id="QuestionErrorMessage" class="text-danger"></label>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label class="control-label" for="inputDefault">Select Topic</label>
+                        <a href="javascript:void(null)" onclick="bindQuestionTopics()" title="Reload Topics"><i class="ml-sm fa fa-refresh"></i></a>
+                        <div>
+                            <select id="ddlQuestionTopics" class="form-control" required="required"></select>
+                            <input type="hidden" id="TopicID" name="TopicID" />
+                            <input type="hidden" id="SubTopicID" name="SubTopicID" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-3">
+                        <label class="control-label" for="inputDefault">Select Sub Topic</label>
+                        <a href="javascript:void(null)" onclick="bindQuestionSubTopics()" title="Reload Topics"><i class="ml-sm fa fa-refresh"></i></a>
+                        <div>
+                            <select id="ddlQuestionSubTopics" class="form-control" required="required">
+                                <option selected="selected" disabled>Select Sub Topic</option>
+                            </select>
+                            <input type="hidden" id="CourseID" name="CourseID" />
+                            <input type="hidden" id="TopicID" name="TopicID" />
+                            <input type="hidden" id="QuestionID" name="QuestionID" />
+                            <input type="hidden" id="SubTopicName" name="SubTopicName" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="control-label" for="inputDefault">Complexity Level</label>
+                        <div class="">
+                            <select id="ddlComplexityLevel" class="form-control" required="required">
+                                <option value="Easy" selected="selected">Easy</option>
+                                <option value="Moderate">Moderate</option>
+                                <option value="Tough">Tough</option>
+                            </select>
+                            <input type="hidden" id="ComplexityLevel" name="ComplexityLevel" />
+
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="control-label" for="inputDefault">Editor</label>
+                        <div class="">
+                            <select id="ddlType" name="ddlType" class="form-control" onchange="questionTypeChanged()">
+                                @*<option value="TEXT">Text</option>*@
+                                <option value="HTML">HTML</option>
+                            </select>
+                            <input type="hidden" id="Type" name="Type" />
+
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="control-label" for="inputDefault">Level</label>
+                        <div class="">
+                            <select id="ddl_Level" name="QuestionLevel" class="form-control">
+                                <option selected='selected' disabled value="0">-- Select Level --</option>
+                                <option value="1">Level1 (1st,2nd,3rd)</option>
+                                <option value="2">Level2 (4th,5th,6th)</option>
+                                <option value="3">Level3 (7th,8th,9th)</option>
+                                <option value="4">Level4 (10th,11th,12th)</option>
+                            </select>
+                            <input type="hidden" id="Type" name="Type" />
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label class="control-label" for="inputDefault">Language</label>
+                        <div class="">
+                            <select id="languageID" name="languageID" class="form-control">
+                                <option value="0">-- Select Language --</option>
+                                <option value="1" selected>English</option>
+                                <option value="2">Hindi</option>
+                                <option value="3">Gujarati</option>
+                                <option value="4">Marathi</option>
+                            </select>
+                            @*<input type="hidden" id="languageID" name="languageID" />*@
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 htmleditor ">
+                        <label class="control-label " for="inputDefault">Question</label>
+                        <textarea class="summernote input-block-level" id="QuestionName" name="QuestionName" data-plugin-summernote data-plugin-options='{ "height": 180, "codemirror": { "theme": "ambiance" } }'></textarea>
+
+                    </div>
+                    @*<div class="col-md-9 normaleditor hidden">
+                            <label class="control-label " for="inputDefault">Question</label>
+                            <textarea id="1QuestionName" class="form-control" name="1QuestionName" required="required" rows="1"></textarea>
+                        </div>*@
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <input type="button" class="btn btn-primary" name="name" value="Add Image" onclick="GetIamges()" data-toggle="modal" data-target=".addimage" />
+                            <input type="button" class="btn btn-primary" name="name" value="Upload Image" data-toggle="modal" data-target=".before" />
+                            <input type="button" class="btn btn-primary" name="name" value="Add Video" data-toggle="modal" data-target="#formModalVideoLink" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-md">
+                    <div class="col-md-12">
+                        <table class="table table-hover  ">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        Answer Options
+                                    </th>
+                                    <th>
+                                        Answer
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < 5; i++)
+                                {
+                                    <tr>
+                                        <td>@(i + 1)</td>
+                                        <td>
+
+                                            <textarea id="QuestionOption[@i].Options" name="QuestionOption[@i].Options" uqname="@string.Format("txtOptions_{0}",i)" class="form-control normaleditor" rows="1"></textarea>
+
+                                            <div class="htmleditor hidden">
+                                                <textarea class="summernote input-block-level" id='@string.Format("txtHtmlOptions_{0}",i)' name="content" data-plugin-summernote data-plugin-options='{ "height": 80, "codemirror": { "theme": "ambiance" } }'></textarea>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" class="IsAnswer" uqname="@string.Format("chkIsAnswer_{0}",i)" />
+                                            <input type="hidden" id="QuestionOption[@i].IsAnswer" name="QuestionOption[@i].IsAnswer" class="IsAnswerVal" value="" />
+                                            <input type="hidden" id="QuestionOption[@i].QuestionID" name="QuestionOption[@i].QuestionID" />
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr class="active">
+                                    <th>
+                                        Answer <br />
+                                        Explanation
+                                    </th>
+                                    <th>
+                                        @*<textarea id="AnswerDescription" name="AnswerDescription" class="form-control normaleditor" required="required" rows="1"></textarea>
+                                        <div class="htmleditor hidden">
+                                            <textarea class="summernote input-block-level" id="txtHtmlAnswerDescription" name="content" data-plugin-summernote data-plugin-options='{ "height": 80, "codemirror": { "theme": "ambiance" } }' required></textarea>
+                                        </div>*@
+                                    </th>
+                                    <th class="">
+                                        <div class="mt-md normaleditor">
+                                            <input type="submit" id="btnAddQuestion" value="Add" class="btn btnsave btn-primary" />
+                                            <input type="button" onclick="ResetQuestionForm()" value="Cancel" class="btn btn-default" />
+                                        </div>
+                                        @*<div class="mt-xlg pt-xlg htmleditor hidden">
+                                                <input id="btnAddHTMLQuestion" type="button" onclick="AddEditQuestion()" value="Add" class="btn btnsave btn-primary" />
+                                                <input type="button" onclick="ResetQuestionForm()" value="Cancel" class="btn btn-default" />
+                                            </div>*@
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <!-- ---->
+                <div class="table-responsive">
+                    <table id="tblQuestionList" class="table table-condensed table-bordered table-striped table-hover mb-none">
+                        <thead>
+                            <tr>
+                                <th width="40px">#</th>
+                                <th>Topic</th>
+                                <th>Sub Topic</th>
+                                <th>Question</th>
+                                <th>Complexity </th>
+                                <th>Type</th>
+                                <th>Language</th>
+                                <th width="60px">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>{SerialNumber}</td><td>{TopicName}</td><td>{SubTopicName}</td><td>{Question}</td><td>{Complexity}</td><td>{Type}</td><td>{languageID}</td><td class='actions text-center'><a class='cur-pointer' onClick='LoadQuestion({QuestionID})'><i class='fa fa-pencil'></i></a><a class='cur-pointer' onClick='DeleteQuestion({QuestionID})' class='delete-row'><i class='fa fa-trash-o'></i></a></td></tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- ---->
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade before" id="formModal1" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="formModalLabel">Upload Image </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="alert alert-info fade in nomargin hidden" id="divContactSuccess">
+                            <h4>Success!</h4>You Image is image is uploaded successfully. <strong>Thank you</strong>
+                        </div>
+                    </div>
+
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="alert alert-danger text-center hidden" id="contactError">
+                            Oops! Image failed to upload.
+                        </div>
+                    </div>
+                </div>
+                <form id="ImageUpload" action="/Courses/ImageUpload" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
+
+                    <div class='form-group'>
+                        <label class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" placeholder="Enter image name" value="" data-msg-required=" Please enter your image name." maxlength="100" class="form-control" name="Name" id="Name" required>
+                        </div>
+                    </div>
+
+                    <div class='form-group'>
+                        <label class="col-sm-2 control-label">ALt Text</label>
+                        <div class="col-sm-8">
+                            <input type="text" placeholder="Enter alternate text" value="" maxlength="100" class="form-control" name="Alt" id="Alt">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Picture</label>
+                        <div class="col-sm-8">
+                            @*<img id="imgProfilePic" src="" width="150" class="mb-md"/>*@
+                            <input id="file-0a" name="file" class="file" type="file" multiple data-min-file-count="1" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
+                        <input type="button" value="Upload Image" onclick="UploadImage()" class="btn btn-primary" data-loading-text="Loading...">
+                    </div>
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade addimage" id="formSelectImageModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="formModalLabel">Select Image </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <ul class="portfolio-list sort-destination full-width-spaced mb-xl" data-sort-id="portfolio" id="homeOverview">
+                        <div id="image">
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="formModalVideoLink" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="VideoUpload">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="formModalLabel">Add video link</h4>
+                </div>
+                <div class="modal-body">
+                    <div class='form-group'>
+                        <label class="col-sm-2 control-label">Url</label>
+                        <div class="col-sm-8">
+                            <input type="text" placeholder="Enter video link " value="" data-msg-required="" class="form-control" name="videoUrl" id="videoUrl" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
+                        <input type="button" value="Upload Image" onclick="AddVideo()" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function bindQuestionTopics() {
+        debugger;
+        var courseId = $('#CourseID').val();
+        $.ajax({
+            type: "GET",
+            url: '/Course/ListAllCourseTopic',
+            data: { 'CourseId': courseId },
+            dataType: 'json',
+            success: function (response) {
+                $('#ddlQuestionTopics').append('<option value="">-- Select Topic --</option>');
+                $.each(response, function (i, item) {
+                    $('#ddlQuestionTopics').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching topics:", error);
+            }
+        });
+    }
+
+    function bindQuestionSubTopics() {
+        debugger;
+        var courseId = $('#CourseID').val();
+        $.ajax({
+            type: "GET",
+            url: '/Course/ListAllCourseSubTopic',
+            data: { 'CourseId': courseId },
+            dataType: 'json',
+            success: function (response) {
+                $('#ddlQuestionSubTopics').append('<option value="">-- Select Topic --</option>');
+                $.each(response, function (i, item) {
+                    $('#ddlQuestionSubTopics').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching topics:", error);
+            }
+        });
+    }
+
+    function populateTopicsDropdown(response) {
+        debugger;
+        $('#ddlQuestionTopics').empty();
+        $('#ddlQuestionTopics').append('<option value="">-- Select Topic --</option>');
+        $.each(response, function (i, item) {
+            $('#ddlQuestionTopics').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+        });
+    }
+
+    $(document).ready(function () {
+        bindQuestionTopics();
+    });
+
+
+</script>
+

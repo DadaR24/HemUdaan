@@ -1,0 +1,109 @@
+﻿body {
+    background: url("../Content/img/Competition/3.jpg") no-repeat center center fixed;
+    background-size: cover; /* for IE9+, Safari 4.1+, Chrome 3.0+, Firefox 3.6+ */
+    -webkit-background-size: cover; /* for Safari 3.0 - 4.0 , Chrome 1.0 - 3.0 */
+    -moz-background-size: cover; /* optional for Firefox 3.6 */
+    -o-background-size: cover; /* for Opera 9.5 */
+    margin: 0; /* to remove the default white margin of body */
+    padding: 0; /* to remove the default white margin of body */
+    height: 100%;
+    overflow: hidden;
+}
+
+.HeadLabel {
+    color: white;
+    font-size: 50px;
+    left: 666px;
+    top: 59px;
+    width: 100%;
+    font-family: ccomic sans-serif;
+}
+
+.WhizLabel {
+    color: white;
+    font-size: 50px;
+    left: 785px;
+    top: 7px;
+    width: 100%;
+    font-family: ccomic sans-serif;
+}
+
+.alternative-font {
+    color: #fff;
+}
+
+.parallax {
+    /* The image used */
+    background-image: url(../Content/img/parallax-12.jpg);
+    /* Set a specific height */
+    min-height: 500px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax1 {
+    background-image: url(../Content/img/parallax-12.jpg);
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    background-image: url(../Content/img/parallax-12.jpg);
+    min-height: 1035px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 300px;
+    margin: 20px auto;
+}
+
+
+imgSize {
+    max-width: 100%;
+    display: block;
+}
+
+.dv_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 240px;
+    -webkit-transform: translate(-50%,-50%); /* Safari and Chrome */
+    -moz-transform: translate(-50%,-50%); /* Firefox */
+    -ms-transform: translate(-50%,-50%); /* IE 9 */
+    -o-transform: translate(-50%,-50%); /* Opera */
+    transform: translate(-50%,-50%);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+    .image img {
+        -webkit-transition: all 1s ease; /* Safari and Chrome */
+        -moz-transition: all 1s ease; /* Firefox */
+        -o-transition: all 1s ease; /* IE 9 */
+        -ms-transition: all 1s ease; /* Opera */
+        transition: all 1s ease;
+    }
+
+    .image:hover img {
+        -webkit-transform: scale(1.25); /* Safari and Chrome */
+        -moz-transform: scale(1.25); /* Firefox */
+        -ms-transform: scale(1.25); /* IE 9 */
+        -o-transform: scale(1.25); /* Opera */
+        transform: scale(1.25);
+    }

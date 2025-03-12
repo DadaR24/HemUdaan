@@ -1,0 +1,344 @@
+﻿body {
+    background-color: #F1EBE2 !important;
+}
+
+.doc {
+    width: 100%;
+    height: 600px;
+}
+
+.no-radius {
+    border-radius: 0px !important;
+}
+
+.shadow-box {
+    background-color: #FFF;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0,0,0,.075);
+}
+
+.breadcrumb {
+    background-color: #fff;
+}
+
+h5 {
+    font-size: 1.2em;
+    color: #777;
+}
+
+.feature-box .feature-box-icon {
+    position: relative;
+    top: 0 !important;
+}
+
+.alert-white {
+    background-color: #fff;
+}
+
+.inverted-orange {
+    background-color: #f7951e;
+}
+
+.inverted-grey {
+    background-color: #383f48;
+}
+
+.inverted-grey {
+    background-color: #46b8da;
+}
+
+.marginTopBottom {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.img-thumbnail-screenomatic {
+    border: 2px solid #1bb8a3;
+}
+
+.corner-radius {
+    border-radius: 5px;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.short-text {
+    white-space: nowrap;
+    width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-bs-file {
+    position: relative;
+}
+
+    .btn-bs-file input[type="file"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        outline: none;
+        cursor: inherit;
+    }
+
+.call-to-action {
+    /*height:50px!important;*/
+    min-height: 0 !important;
+}
+
+.bg-action {
+    background-color: #f7951e;
+    font-size: 18px;
+}
+
+
+#teachers-toppers .tabs .nav-tabs li.active a, .nav-tabs li a:hover {
+    background-color: #f7951e;
+    color: #fff;
+    border-radius: 30px;
+    border-top: none;
+}
+
+#teachers-toppers .nav-tabs li a, .nav-tabs li a:hover {
+    background-color: #f9d921;
+    color: #000;
+    border-radius: 30px;
+    border-top: none;
+}
+
+#googlertab .tabs .nav-tabs li.active a, .nav-tabs li a:hover {
+    background-color: #f7951e;
+    color: #fff;
+    border-radius: 15px;
+    border-top: none;
+}
+
+#googlertab .nav-tabs li a, .nav-tabs li a:hover {
+    background-color: #f9d921;
+    color: #000;
+    border-radius: 15px;
+    border-top: none;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.bg-black-action {
+    background-color: #333;
+    height: 40px;
+}
+
+.call-to-action {
+    min-height: 0 !important;
+}
+
+.bg-action {
+    background-color: #f7951e;
+    font-size: 18px;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ----- MISC PEN STUFF ----- */
+
+#flashingtext {
+    color: #fff;
+}
+
+#flashingtext2 {
+    font-size: 16px;
+    color: red;
+}
+
+#flashingtext3 {
+    font-size: 16px;
+    color: #f9d921;
+}
+
+/*button*/
+.btn-code {
+    display: inline-block;
+    background: #009688;
+    padding: 0.7em 0.4em;
+    font-size: 0.8em;
+    color: #fbf8f8;
+    text-decoration: none;
+    border-radius: 0.25em;
+    position: relative;
+}
+
+    .btn-code:after {
+        content: '';
+        position: absolute;
+        top: -2%;
+        left: -2%;
+        width: 104%;
+        height: 104%;
+        background: #ffffff;
+        mix-blend-mode: soft-light;
+        border-radius: 0.25em;
+        transform: rotate(-5deg);
+        transition: 0.3s;
+    }
+
+    .btn-code:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+
+        .btn-code:hover:after {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+    .btn-code span {
+        position: relative;
+        z-index: 1;
+    }
+
+.bg-message {
+    background: #3E5151; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #DECBA4, #3E5151); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #DECBA4, #3E5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: 1px solid #34c3d8;
+    border-radius: 2px;
+}
+
+html #googlertab .rounded-btn {
+    letter-spacing: 2px !important;
+}
+
+.bg-black-transparant {
+    background: rgba(0,0,0,0.5);
+}
+
+th {
+    border-top: none;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/*Scroll Start */
+.scrollbar {
+    float: left;
+    height: 690px;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+}
+
+.force-overflow {
+    min-height: 690px;
+}
+
+
+#style-4::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1bb8a3;
+}
+
+#style-4::-webkit-scrollbar-thumb {
+    background-color: #1bb8a3;
+    border: 2px solid #555555;
+}
+/*Scroll End*/
+
+.panel-group.panel-group-primary .panel-heading {
+    background-color: #1bb8a3 !important;
+}
+
+
+.panel-group .panel-heading {
+    padding: 0;
+    border-radius: 0;
+}
+
+.tabs .nav-tabs li.active a, .tabs .nav-tabs li a:hover {
+    text-transform: uppercase;
+    background-color: #fff !important;
+    color: #1bb8a3 !important;
+    border-top: 4px solid #009688;
+    padding: 10px;
+    border-radius: 0 !important;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.nav-tabs li a {
+    border-left: none !important;
+    background-color: #1bb8a3 !important;
+    color: #fff !important;
+    border-radius: 0 !important;
+    border-top: 4px solid #1bb8a3;
+    padding: 10px;
+    border-right: none !important;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+table.table {
+    /*margin-top: 20px;*/
+    background: #fff;
+}
+
+.course-icon {
+    width: 70px;
+}
+
+h6 {
+    color: #333;
+    font-size: 0.825em;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 18px;
+    margin: 0 0 14px 0;
+    height: 35px;
+}
+
+#course-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#course-container::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1bb8a3;
+}
+
+#course-container::-webkit-scrollbar-thumb {
+    background-color: #1bb8a3;
+    border: 2px solid #555555;
+}
+
+.scrollbar-course {
+    float: left;
+    height: 785px;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+}
+
+.call-to-action-btn {
+    margin: 25px 0 0 !important;
+}

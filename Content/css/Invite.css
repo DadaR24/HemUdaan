@@ -1,0 +1,99 @@
+﻿.bg-black-transparent {
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+.border-right-1 {
+    border-right: 1px dashed #8e8e8e;
+}
+
+.img-course-icon {
+    width: 60px;
+    border-radius: 50%;
+    padding: 3px;
+    border: 1px solid #269bd4;
+    display: inline-block;
+    margin: 5px;
+}
+
+.img-course-icon-grey {
+    width: 60px;
+    border-radius: 50%;
+    padding: 3px;
+    border: 1px solid #269bd4;
+    display: inline-block;
+    margin: 5px;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.img-course-icon-grey1 {
+    width: 60px;
+    border-radius: 50%;
+    padding: 3px;
+    border: 1px solid #269bd4;
+    display: inline-block;
+    margin: 5px;
+    -webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(50%);
+    /*width :50%;*/
+}
+
+.course-div {
+    height: 143px;
+    overflow-y: visible;
+    overflow-x: hidden;
+    width: 465px;
+}
+
+
+.certificate-div {
+    height: 143px;
+    overflow-y: visible;
+    overflow-x: hidden;
+    width: 465px;
+    text-align: center;
+}
+
+.img-course-certificate {
+    width: 65px;
+    margin: 2px;
+}
+
+.img-course-certificate-grey {
+    width: 65px;
+    margin: 2px;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.iframe-box-shadow{
+     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+
+
+/*Media Queries*/
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 425px) {
+}
+
+@media only screen and (max-width: 412px) {
+}
+
+@media only screen and (max-width: 384px) {
+}
+
+@media only screen and (max-width: 375px) {
+}
+
+@media only screen and (max-width: 360px) {
+}
+
+@media only screen and (max-width: 320px) {
+}

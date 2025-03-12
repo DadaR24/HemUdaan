@@ -1,0 +1,367 @@
+﻿
+@using HEMUdaan.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>@ViewBag.Title - Clone Futura</title>
+
+    <meta name="keywords" content="Clone Futura, CloneFutura, Tutor, Learning, Teaching, At your Door step, Smartphone, Ipad, Apple, Computer, Kids, Women, Serion Citizen" />
+    <meta name="description" content="Clone Futura">
+    <meta name="author" content="Accuratesis.com">
+
+    <!-- Favicon -->
+    @*<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="../Images/clonefutura.png">*@
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Web Fonts  -->
+    @*<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">*@
+    <!-- Vendor CSS -->
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @*@Styles.Render("~/Content/font-awesome.min.css")*@
+    @Styles.Render("~/Content/simple-line-icons.min.css")
+    @Styles.Render("~/Content/owl.carousel.min.css")
+    @Styles.Render("~/Content/owl.theme.default.min.css")
+    @Styles.Render("~/Content/magnific-popup.min.css")
+
+    <!-- Theme CSS -->
+    @Styles.Render("~/Content/theme.css")
+    @Styles.Render("~/Content/theme-elements.css")
+    @Styles.Render("~/Content/theme-blog.css")
+    @Styles.Render("~/Content/theme-shop.css")
+    @Styles.Render("~/Content/theme-animate.css")
+
+    <!-- Current Page CSS -->
+    @Styles.Render("~/Content/settings.css")
+    @Styles.Render("~/Content/layers.css")
+    @Styles.Render("~/Content/navigation.css")
+    @Styles.Render("~/Content/component.css")
+
+    <!-- Admin Css -->
+    @RenderSection("AdminCss", required: false)
+    <!-- Skin CSS -->
+    @Styles.Render("~/Content/bootstrap-datepicker3.css")
+    @Styles.Render("~/Content/jquery-ui.css")
+    @Styles.Render("~/Content/jquery-ui.theme.css")
+    @Styles.Render("~/Content/select2.css")
+    @Styles.Render("~/Content/select2-bootstrap.css")
+    @Styles.Render("~/Content/datatables.css")
+    @Styles.Render("~/Content/bootstrap-multiselect.css")
+    @Styles.Render("~/Content/bootstrap-tagsinput.css")
+    @Styles.Render("~/Content/bootstrap-colorpicker.css")
+    @Styles.Render("~/Content/bootstrap-timepicker.css")
+    @Styles.Render("~/Content/basic.css")
+    @Styles.Render("~/Content/dropzone.css")
+    @Styles.Render("~/Content/bootstrap-markdown.min.css")
+    @Styles.Render("~/Content/summernote.css")
+    @Styles.Render("~/Content/summernote-bs3.css")
+    @Styles.Render("~/Content/codemirror.css")
+    @Styles.Render("~/Content/monokai.css")
+
+    <!-- Admin Extension CSS -->
+    @Styles.Render("~/Content/theme-admin-extension.css")
+
+    <!-- Admin Extension Skin CSS -->
+    @Styles.Render("~/Content/extension.css")
+    @Styles.Render("~/Content/default.css")
+
+    <!-- Theme Custom CSS -->
+    @Styles.Render("~/Content/custom.css")
+
+    <!-- Head Libs -->
+    @Scripts.Render("~/Content/js/modernizr.min.js")
+
+    <style>
+        .panel-body {
+            background: #fff none repeat scroll 0 0;
+        }
+
+        .main {
+            margin-top: 15px;
+        }
+
+        #mainNav a {
+            color: #000 !important;
+        }
+
+        #header, #footer {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        
+        <header id="header" class="header-narrow header-full-width" data-plugin-options='{"stickyEnabled": false, "stickyEnableOnBoxed": false, "stickyEnableOnMobile": false}'>
+            <div class="header-body pb-none pt-none mb-none mt-none no-borders b-top-none" style="border-top:none !important">
+                <div class="header-container container background-color-primary">
+                    <div class="header-row">
+                        <div class="header-column">
+                            <div class="header-logo mt-md mr-lg">
+                                <a href="/User/Dashboard">
+                                    @*<img alt="Porto" width="82" height="40" src="img/logo.png">*@
+                                    @*<img src="@Href("~/Images/logos/adminlogo.png")" width="150" class="m-xs" />*@
+                                </a>
+                            </div>
+                            <div class="header-nav">
+                                <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <nav class="header-nav-top hidden">
+                                    <ul class="nav nav-pills pull-right">
+                                        <li>
+                                            <a href="#" class="dropdown-menu-toggle text-light" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                @*<img src="@Href(SessionUser.User.PhotoUrl)" height="25" class="img-circle" alt="Profile Photo">*@
+                                                @*<strong> @SessionUser.User.FirstName </strong>*@
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLanguage">
+                                                <li><a href="@Url.Action("MyProfile", "Trainer")"><i class="fa fa-user-plus fa-fw text-tertiary"></i> My Profile</a></li>
+                                                <li>
+                                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
+                                                    {@Html.AntiForgeryToken()
+                                                    <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-lock fa-fw text-color-secondary"></i> Log off</a>
+                                                }
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="header-nav-main header-nav-main-light header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse pull-left">
+                                    <nav>
+                                        <ul class="nav nav-pills" id="mainNav">
+                                            <li class="">
+                                                <a class="" href="@Url.Action("Dashboard", "User")">
+                                                    <i class="fa fa-dashboard"></i> Dashboard
+                                                </a>
+                                            </li>
+
+                                            @*@{
+                                                    bool isAdmin = SessionUser.isUserInAnyOfRoles("Admin");
+                                                }
+
+                                                @Html.Partial("~/Views/Shared/Admin/nav/_adminNav.cshtml")
+                                                @Html.Partial("~/Views/Shared/Admin/nav/_courseDevelopmentNav.cshtml")
+                                                @Html.Partial("~/Views/Shared/Admin/nav/_batchManagerNav.cshtml")
+                                                @Html.Partial("~/Views/Shared/Admin/nav/_accounts.cshtml")
+                                                @Html.Partial("~/Views/Shared/Admin/nav/_trainerNav.cshtml")*@
+
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+
+        <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <!--<div class="modal-content hidden">-->
+                @*<div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="formModalLabel">Contact Us   <span class="pull-right mr-lg"> <i class="fa fa-phone"></i>&nbsp;7666 188 188</span></h4>
+                    </div>*@
+                <!--<div class="modal-body">-->
+                @*<div class="row">
+
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="alert alert-danger text-center hidden" id="contactError">
+                                Error sending your message.
+                            </div>
+                        </div>
+                    </div>*@
+                <!--<form id="contactFormValidate" name="contactFormValidate" action="/Home/Index" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
+                            <div class='form-group mt-lg @(ViewBag.UserName == "" ? "" : "hidden")'>
+                                <label class="col-sm-2 control-label">Want to</label>
+                                <div class="col-sm-8 ">
+                                    <select value="" data-msg-required="Please select contact purpose." class="form-control" name="Reason" id="Reason" required>
+                                        <option value="">Select</option>
+                                        <option value="WhizJunior2017">Enroll for WhizJuniors 2017</option>
+                                        <option value="PartnerShip">Partner with WhizJuniors</option>
+                                        <option value="Enquire">Enquiry</option>
+                                        <option value="Suggest">Suggest</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class='form-group @(ViewBag.UserName == "" ? "" : "hidden")'>
+                                <label class="col-sm-2 control-label">Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" placeholder="Type your Name..." value="@ViewBag.UserName" data-msg-required=" Please enter your name." maxlength="100" class="form-control" name="Name" id="Name" required>
+                                </div>
+                            </div>
+                            <div class="form-group @(ViewBag.UserName == "" ? "" : "hidden")">
+                                <label class="col-sm-2 control-label">Mobile</label>
+                                <div class="col-sm-8">
+                                    <input type="text" placeholder="Type your Mobile..." value="@ViewBag.UserMobileNo" data-msg-required="Please enter the mobile." maxlength="10" class="form-control" name="Mobile" id="Mobile" required>
+                                </div>
+                            </div>
+                            <div class="form-group @(ViewBag.UserName == "" ? "" : "hidden")">
+                                <label class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-8">
+                                    <input type="email" placeholder="Type your Email..." value="@ViewBag.UserEmail" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="Email" id="Email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Message</label>
+                                <div class="col-sm-8">
+                                    <textarea maxlength="5000" data-msg-required="Please enter your message." rows="3" class="form-control" name="Message" id="Message" required></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
+                                <input type="button" value="Send Message" onclick="gocontactsave()" class="btn btnsave btn-primary" data-loading-text="Loading...">
+                            </div>
+                        </form>
+
+                        <div id="divContactSuccess" class="hidden">
+                            <div class="alert alert-info fade in nomargin">
+                                <h4>Success!</h4>
+                                <p id="contactSuccess">Your message has been received by us. Our representative will get back to you soon. </p>
+                                <p>
+                                    <button class="btn btn-info mt-xs mb-xs" data-dismiss="modal" type="button">Close</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>-->
+            </div>
+        </div>
+
+        <footer class="light narrow" id="footer"></footer>
+    </div>
+
+    <script>
+
+        var baseSiteURL = '@Url.Content("~")';
+
+
+        function ToWebPath(path) {
+            if (path != undefined && path != "") {
+                return path.replace("~", baseSiteURL);
+            }
+            return path;
+        }
+    </script>
+
+    <!-- Vendor -->
+    @Scripts.Render("~/Content/js/jquery.min.js")
+    @Scripts.Render("~/Content/js/jquery.appear.min.js")
+    @Scripts.Render("~/Content/js/jquery.easing.min.js")
+    @Scripts.Render("~/Content/js/jquery-cookie.min.js")
+    @Scripts.Render("~/Content/js/bootstrap.min.js")
+    @Scripts.Render("~/Content/js/common.min.js")
+    @Scripts.Render("~/Content/js/jquery.validation.min.js")
+    @Scripts.Render("~/Content/js/jquery.stellar.min.js")
+    @Scripts.Render("~/Content/js/jquery.easy-pie-chart.min.js")
+    @Scripts.Render("~/Content/js/jquery.gmap.min.js")
+    @Scripts.Render("~/Content/js/jquery.lazyload.min.js")
+    @Scripts.Render("~/Content/js/jquery.isotope.min.js")
+    @Scripts.Render("~/Content/js/owl.carousel.min.js")
+    @Scripts.Render("~/Content/js/jquery.magnific-popup.min.js")
+    @Scripts.Render("~/Content/js/vide.min.js")
+
+    <!-- Theme Base, Components and Settings -->
+    @Scripts.Render("~/Content/js/theme.js")
+
+    <!-- Current Page Vendor and Views -->
+    @Scripts.Render("~/Content/js/jquery.themepunch.tools.min.js")
+    @Scripts.Render("~/Content/js/jquery.themepunch.revolution.min.js")
+    @Scripts.Render("~/Content/js/jquery.flipshow.min.js")
+    @Scripts.Render("~/Content/js/view.home.js")
+
+
+
+    <!-- Theme Custom -->
+    <!-- Theme Initialization Files -->
+    @Scripts.Render("~/Content/js/theme.init.js")
+
+    <!-- Admin scripts -->
+    <!-- Admin Extension Specific Page Vendor -->
+    @Scripts.Render("~/Content/js/bootstrap-datepicker.js")
+    @Scripts.Render("~/Content/js/jquery-placeholder.js")
+    @Scripts.Render("~/Content/js/jquery-ui.js")
+    @Scripts.Render("~/Content/js/jqueryui-touch-punch.js")
+    @Scripts.Render("~/Content/js/select2.js")
+
+    <!-- Data Table -->
+    @Scripts.Render("~/Content/js/jquery.dataTables.js")
+    @Scripts.Render("~/Content/js/dataTables.tableTools.min.js")
+    @Scripts.Render("~/Content/js/datatables.js")
+
+    @Scripts.Render("~/Content/js/bootstrap-multiselect.js")
+    @Scripts.Render("~/Content/js/jquery.maskedinput.js")
+    @Scripts.Render("~/Content/js/bootstrap-tagsinput.js")
+    @Scripts.Render("~/Content/js/bootstrap-colorpicker.js")
+    @Scripts.Render("~/Content/js/bootstrap-timepicker.js")
+    @Scripts.Render("~/Content/js/spinner.js")
+    @Scripts.Render("~/Content/js/dropzone.js")
+    @Scripts.Render("~/Content/js/markdown.js")
+    @Scripts.Render("~/Content/js/to-markdown.js")
+
+    @Scripts.Render("~/Content/js/codemirror.js")
+    @Scripts.Render("~/Content/js/active-line.js")
+    @Scripts.Render("~/Content/js/matchbrackets.js")
+    @Scripts.Render("~/Content/js/javascript.js")
+    @Scripts.Render("~/Content/js/xml.js")
+    @Scripts.Render("~/Content/js/htmlmixed.js")
+    @Scripts.Render("~/Content/js/css.js")
+    @Scripts.Render("~/Content/js/summernote.js")
+    @Scripts.Render("~/Content/js/bootstrap-maxlength.js")
+    @Scripts.Render("~/Content/js/ios7-switch.js")
+    @Scripts.Render("~/Content/js/bootstrap-confirmation.js")
+
+    <!-- Jquery Ajax Form Submition -->
+    @Scripts.Render("~/Content/js/jquery.form.js")
+
+    <!-- Admin Extension -->
+    @Scripts.Render("~/Content/js/theme.admin.extension.js")
+
+
+
+    <!-- Admin Extension Examples -->
+    @Scripts.Render("~/Content/js/examples.advanced.form.js")
+    <!-- Table --->
+    @Scripts.Render("~/Content/js/examples.datatables.default.js")
+
+
+    <!-- Auto Search Twitter Bootstrap Ajax Typeahead Plugin Demo -->
+    @Scripts.Render("~/Content/js/bootstrap-typeahead.js")
+
+    <!-- Current Page Vendor and Views -->
+    @Scripts.Render("~/Content/js/view.contact.js")
+
+    <!-- Theme Custom -->
+    @Scripts.Render("~/Content/js/custom.js")
+
+    @RenderSection("AdminScripts", required: false)
+
+    <!-- Examples -->
+    @RenderSection("scripts", required: false)
+
+    @RenderSection("BottomScript", false)
+    <script>
+        $(document).ready(function () {
+            $(".modal").on("hidden.bs.modal", function () {
+                $('#divContactSuccess').addClass('hidden');
+                $("#contactFormValidate").removeClass('hidden');
+                $("#contactFormValidate")[0].reset()
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿section.section {
+    background-color: #269bd4;
+    border-top: none;
+}
+
+.bg-blue {
+    background-color: #269bd4;
+}
+
+.featured-box .box-content {
+    border-top: none;
+    padding: 0;
+}
+
+.vertical-school {
+    width: 264px;
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    position: relative;
+    top: 113px;
+    z-index: 9;
+    left: -103px;
+}
+
+.bg-yellow-dark {
+    background-color: #FFC107;
+}
+
+.vertical-student {
+    width: 264px;
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    position: relative;
+    top: 109px;
+    z-index: 9;
+    left: -103px;
+}
+
+.text-yellow {
+    color: #F9D921 !important;
+}
+
+section.section {
+    background: #24C6DC; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #514A9D, #24C6DC); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.top-border {
+    border-top: 1px solid #fff !important;
+    padding-top: 3px;
+}
+
+#school-profile .border-right {
+    border-right: 1px solid #fff !important;
+}
+
+#leaderboard-schools .badge-img {
+    width: 39px;
+}
+
+#leaderboard-schools .sheild-img {
+    width: 36px;
+}
+
+#leaderboard-schools .trophy-img {
+    width: 47px;
+}
+
+@media only screen and (max-width: 425px) {
+    #school-profile .border-right {
+        border-right: none !important;
+    }
+
+    #school-profile h4 {
+        font-size: 1.2em;
+    }
+
+    #leaderboard-schools .text-right {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #school-profile .border-right {
+        border-right: none !important;
+    }
+
+    #school-profile h4 {
+        font-size: 1.2em;
+    }
+
+    #leaderboard-schools .text-right {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #school-profile .border-right {
+        border-right: none !important;
+    }
+
+    #school-profile h3 {
+        font-size: 1.6em;
+    }
+
+    #school-profile h4 {
+        font-size: 1.1em;
+    }
+
+    #leaderboard-schools .text-right {
+        text-align: center;
+    }
+}

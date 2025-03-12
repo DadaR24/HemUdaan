@@ -1,0 +1,374 @@
+﻿@model HEMUdaan.Models.Course
+@using HEMUdaan.App.DTO;
+@{
+    ViewBag.Title = "Course Registration";
+    Layout = "~/Views/Shared/_RootAdminLayout.cshtml";
+
+
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+@section AdminCss {
+    <style>
+        /* Panel Styles */
+        /* Panel Styles */
+        .panel-default {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .panel-heading {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            background-color: #f5f5f5;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .panel-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 16px;
+        }
+
+        .panel-body {
+            padding: 15px;
+        }
+
+        /* Form Group Styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        /* Form Control Styles */
+        .form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+        }
+
+            .btn-primary:hover,
+            .btn-primary:focus,
+            .btn-primary:active,
+            .btn-primary.active,
+            .open .dropdown-toggle.btn-primary {
+                color: #fff;
+                background-color: #286090;
+                border-color: #204d74;
+            }
+
+        /* Additional Styles */
+        .col-md-5 {
+            width: 45.66666667%;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .required-label:after {
+            content: "*";
+            color: red;
+        }
+
+
+        #footer {
+            display: none !important;
+        }
+    </style>
+}
+
+<div role="main" class="main">
+    <div class="container">
+        @using (Html.BeginForm("Index", "Course", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-md-7">
+                    <!-- Course Details -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading p-sm">
+                            <h4 class="panel-title">Course Details</h4>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Error and Success messages -->
+                            <div class="row">
+                                <!-- Error message -->
+                                <div id="divError" class='@(TempData["Error"] == null ? "hidden" : "")'>
+                                    <div class='alert alert-danger'>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <div id="spanError" class="text-left">@Html.Raw(TempData["Error"])</div>
+                                    </div>
+                                </div>
+                                <!-- Success message -->
+                                <div id="divSuccess" class='@(TempData["Success"] == null ? "hidden" : "")'>
+                                    <div class='alert alert-success'>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <div id="spanSuccess" class="text-left">@Html.Raw(TempData["Success"])</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Form fields -->
+                            <div class="row">
+                                <!-- CourseName -->
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="inputDefault">@Html.DisplayNameFor(model => model.CourseName)</label>
+                                    <div class="col-md-5">
+                                        @Html.EditorFor(model => model.CourseName, new { htmlAttributes = new { @class = "form-control", maxlength = "27", required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.CourseName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <!-- Description -->
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">@Html.DisplayNameFor(model => model.Description)</label>
+                                    <div class="col-md-5">
+                                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", maxlength = "160", required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row mt-lg">
+                                    <div class="form-group">
+                                        <label for="Author">Author*</label>
+                                        <select id="Author" name="Author" required>
+                                            @foreach (var item in Model.authorlist)
+                                            {
+                                                <option value="@item.Key">@item.Value</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="row mt-lg">
+                                    <div class="form-group">
+                                        <label for="Manager">Manager*</label>
+                                        <select id="Manager" name="Manager" required>
+                                            @foreach (var item in Model.Managerlist)
+                                            {
+                                                <option value="@item.Key">@item.Value</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt-lg">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="inputDefault">@Html.DisplayNameFor(model => model.ExpectedDeliveryDate)</label>
+                                        <div class="col-md-5">
+                                            @Html.EditorFor(model => model.ExpectedDeliveryDate, new { htmlAttributes = new { @class = "form-control datepicker", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.ExpectedDeliveryDate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-lg">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="inputDefault">@Html.DisplayNameFor(model => model.FromAge)</label>
+                                        <div class="col-md-5">
+                                            @Html.EditorFor(model => model.FromAge, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.FromAge, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-lg">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="inputDefault">@Html.DisplayNameFor(model => model.ToAge)</label>
+                                        <div class="col-md-5">
+                                            @Html.EditorFor(model => model.ToAge, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.ToAge, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-lg">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="inputDefault">@Html.DisplayNameFor(model => model.NoOfSessions)</label>
+                                        <div class="col-md-5">
+                                            @Html.EditorFor(model => model.NoOfSessions, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.NoOfSessions, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Prerequisite Course -->
+                    <div class="panel panel-default">
+                        <div class="row mt-lg">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="inputDefault">Courses</label>
+                                <div class="col-md-5">
+                                    <input type="text" name="txtCourseSource" id="txtCourseSource" autocomplete="off" placeholder="Courses" class="form-control" />
+                                    @Html.EditorFor(model => model.PrerequisiteCourselist, new { htmlAttributes = new { @class = "form-control hidden" } })
+                                    <div class="row">
+                                        <div class="col-md-12 mt-sm hidden">
+                                            <table id="tableCourses" class="table table-condensed table-bordered ">
+                                                <tbody id="tablecoursebody"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*@Html.EditorFor(model => model.CategoryID, new { htmlAttributes = new { @class = "form-control hidden", required = "required" } })
+                            @Html.EditorFor(model => model.TypesID, new { htmlAttributes = new { @class = "form-control hidden", required = "required" } })
+                            <input type="hidden" name="Mode" id="Mode" value="@ViewBag.Mode" />*@
+
+                    </div>
+
+                </div>
+
+                <!-- Side Panel -->
+                <div class="col-md-4 col-md-offset-1">
+                    <div class="row mt-lg">
+                        <div class="form-group">
+                            <label for="CourseAllocatedTo">Course Allocated To*</label>
+                            <select id="CourseAllocatedTo" name="CourseAllocatedTo" required>
+                                @foreach (var item in Model.Courseisforlist)
+                                {
+                                    <option value="@item.Key">@item.Value</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading p-sm">
+                                <h4 class="panel-title">
+                                    Main Category
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row ">
+                                    <div class="form-group col">
+                                        <label for="MainCategory">Main Category*</label>
+                                        <select id="MainCategory" name="MainCategory" required>
+                                            @foreach (var item in Model.MainCategorylist)
+                                            {
+                                                <option value="@item.Key">@item.Value</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading p-sm">
+                                <h4 class="panel-title">
+                                    Customer Type
+                                </h4>
+                                <input type="hidden" id="SelectedCustomerTypes" name="SelectedCustomerTypes" value="@ViewBag.SelectedCustomerTypes" />
+                            </div>
+                            <div id="divCustomerTypes" class="panel-body">
+                                <div class="row">
+                                    <label for="Category">Category*</label>
+                                    <select id="Categorylist" name="Categorylist" required>
+                                        @foreach (var item in Model.Categorylist)
+                                        {
+                                            <option value="@item.Key">@item.Value</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading p-sm">
+                                <h4 class="panel-title">
+                                    Course Active
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row ">
+                                    <div class="form-group col">
+                                        <label for="ActiveStatus">ActiveStatus*</label>
+                                        <select id="CourseActiveList" name="CourseActiveList" required>
+                                            @foreach (var item in Model.CourseActiveList)
+                                            {
+                                                <option value="@item.Key">@item.Value</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="row">
+                    <div class="col-md-7 col-md-offset-5">
+                        <div class="panel panel-default">
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @Html.HiddenFor(model => model.CourseID)
+                                        <input type="submit" value="Save" id="btnsubmit" class="btn btnsave btn-primary" data-loading-text="Processing....">
+                                        <button type="button" onclick="goback()" class="btn btn-default cancel">Cancel</button>
+                                        <hr class="m-none" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $(function () {
+        // Initialize datepicker
+        $('.datepicker').datepicker({
+            dateFormat: 'yy-mm-dd', // Change the format as per your requirement
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-100:+0" // Allow selection of past 100 years to current year
+        });
+    });
+</script>

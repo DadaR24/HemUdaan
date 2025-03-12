@@ -1,0 +1,35 @@
+﻿.bggrey {
+    background: #00607a;
+    min-height: 600px;
+    padding: 40px 0;
+}
+
+    .bggrey .featured-box .box-content {
+        padding: 20px;
+    }
+
+    .bggrey .input-lg {
+        height: auto;
+        padding: 6px 10px;
+        font-size: 13px;
+        line-height: 1.3333333;
+        border-radius: 4px;
+        color: #1b1b1b;
+        border: 1px solid #a09f9f;
+    }
+
+    .bggrey .form-group {
+        margin-bottom: 0px;
+    }
+
+    .bggrey .text-danger {
+        font-size: 13px;
+    }
+
+@@media only screen and (max-width: 767px) {
+    .bggrey {
+        background: #00607a;
+        min-height: 600px;
+        padding: 0px 0;
+    }
+}

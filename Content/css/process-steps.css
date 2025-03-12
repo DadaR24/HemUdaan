@@ -1,0 +1,85 @@
+.process-steps
+	{margin:0 0 40px;list-style:none}
+	.process-steps li{float:left;position:relative;width:25%;text-align:center;overflow:hidden}
+	.process-steps.process-2 li{width:50%}
+	.process-steps.process-3 li{width:33.33%}
+	.process-steps.process-5 li{width:33%}
+	.process-steps li .i-circled{margin-bottom:0!important}
+	.process-steps li .i-bordered{background-color:#FFF; color:#00607a; }
+	.process-steps li h5{margin:15px 0 0;font-size:16px;font-weight:300}
+	.process-steps li.active h5,.process-steps li.ui-tabs-active h5{font-weight:600;color:#00607a;}
+	.process-steps li.active a,.process-steps li.ui-tabs-active a{background-color:#00607a!important;color:#FFF;text-shadow:1px 1px 1px rgba(0,0,0,.2);border-color:#00607a!important}
+	.process-steps li:after,.process-steps li:before{content:'';position:absolute;top:30px;left:0;margin-left:-26px;width:50%;border-top:2px dashed #ccc;}
+	.process-steps li:after{left:auto;right:0;margin:0 -26px 0 0}
+	.process-steps li:first-child:before,.process-steps li:last-child:after{display:none}
+	.i-circled {
+    border-radius: 50%;
+}
+
+.i-circled:hover, .i-rounded:hover {
+    background-color: #00607a;
+    color: #FFF;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    box-shadow: 0 0 0 rgba(0,0,0,.2);
+}
+
+.process-steps li.active a, .process-steps li.ui-tabs-active a {
+    background-color: #00607a!important;
+    color: #FFF;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    border-color: #00607a!important;
+}
+
+.i-bordered {
+    border: 2px solid #555;
+    line-height: 50px!important;
+    background-color: transparent!important;
+    color: #444;
+    text-shadow: none;
+}
+
+.i-bordered, .i-circled, .i-rounded {
+    width: 52px!important;
+    height: 52px!important;
+    line-height: 52px!important;
+    background-color: #444;
+    /*border-radius: 3px;*/
+}
+.i-bordered, .i-circled, .i-plain, .i-rounded, .social-icon {
+    display: block;
+    float: left;
+    margin: 4px 11px 7px 0;
+    text-align: center!important;
+    font-size: 28px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    cursor: pointer;
+    font-style: normal;
+}
+
+.process-steps li {
+    float: left;
+    position: relative;
+    width: 25%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.divcenter {
+    float: none!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+.divcenter, .emptydiv, .noabsolute {
+    position: relative!important;
+}
+
+.process-steps li a {
+	text-decoration:none;
+}
+
+.i-bordered:hover {
+    background-color: #00607a!important;
+	color: #FFF !important;
+    border-color: #00607a;
+}

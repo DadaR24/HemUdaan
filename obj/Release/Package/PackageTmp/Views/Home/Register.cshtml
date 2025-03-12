@@ -1,0 +1,270 @@
+﻿@model HEMUdaan.Models.User
+@{
+    ViewBag.Title = "Register";
+}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+
+    .container {
+        max-width: 1000px;
+        margin: 2px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    /* Background - Transparent, No Gradient */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: transparent;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Floating Box Effect */
+    .card {
+        width: 100%;
+        max-width: 850px;
+        background: #ffffff;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); /* Soft Floating Shadow */
+        border-radius: 12px;
+        padding: 25px;
+        transition: all 0.3s ease-in-out;
+    }
+
+        /* Hover Effect */
+        .card:hover {
+            transform: translateY(-5px); /* Lift effect */
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+    /* Header Styling */
+    .card-header {
+        text-align: center;
+        background: #007bff;
+        color: white;
+        padding: 18px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px 10px 0 0;
+    }
+
+    /* Form Fields */
+    .form-control {
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 1rem;
+        background: #f8f9fa;
+        border: 1px solid #ced4da;
+        transition: all 0.3s;
+    }
+
+        .form-control:focus {
+            background: #ffffff;
+            border: 2px solid #007bff;
+            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.3);
+        }
+
+    /* Button Styling */
+    .btn-primary {
+        background: #007bff;
+        border: none;
+        padding: 12px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: 0.3s;
+        border-radius: 8px;
+    }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            transform: scale(1.03);
+        }
+
+    /* Footer */
+    .card-footer {
+        text-align: center;
+        padding: 15px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+        .card-footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            .card-footer a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+
+<body>
+    <br>
+    <br>
+    <div class="container">
+        <div class="card mx-auto mt-3">
+            <div class="card-header text-center bg-primary text-white">
+                <h4 class="mb-0"> <i class="fa fa-user"></i> User Registration</h4>
+            </div>
+            <div class="card-body">
+                <form action="@Url.Action("Register", "Home")" method="post" id="registrationForm" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                @*<input type="text" class="form-control" id="FirstName" placeholder="Enter First Name">*@
+                                <input type="text" id="FirstName" name="FirstName" class="form-control" placeholder="First Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Middle Name</label>
+                                <input type="text" id="MiddleName" name="MiddleName" class="form-control" placeholder="Middle Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" id="LastName" name="LastName" class="form-control" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Mobile Number</label>
+                                <input type="text" id="MobileNumber" name="MobileNumber" class="form-control" pattern="[0-9]{10}" title="Mobile number must be 10 digits" placeholder="Mobile Number" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmergencyContact">EmergencyContact</label>
+
+                                <input type="text" id="EmergencyContact" name="EmergencyContact" class="form-control" pattern="[0-9]{10}" title="Mobile number must be 10 digits" placeholder="Emergency Contact">
+                                @Html.ValidationMessageFor(model => model.EmergencyContact, "", new { @class = "text-danger small" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email address</label>
+                                <input type="email" id="emailid" name="emailid" class="form-control" placeholder="Email ID">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>School Name</label>
+                                <input type="text" id="schoolname" name="schoolname" class="form-control" placeholder="School Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputStd">Standard</label>
+
+                                <select id="Std" name="Std" required class="form-control form-select">
+                                    <option value="" disabled selected>Select Standard</option>
+                                    @foreach (var item in Model.StdList)
+                                    {
+                                        <option value="@item.Key">@item.Value</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputCity">City</label>
+
+                                <select id="city" name="City" required class="form-control form-select">
+                                    <option value="" disabled selected>Select City</option>
+                                    @foreach (var item in Model.CityList)
+                                    {
+                                        <option value="@item.Key">@item.Value</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputState">State</label>
+
+                                <select id="state" name="State" required class="form-control form-select">
+                                    <option value="" disabled selected>Select State</option>
+                                    @foreach (var item in Model.stateList)
+                                    {
+                                        <option value="@item.Key">@item.Value</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputfile">Payment Slip</label>
+
+                                <input type="file" class="form-control" id="FilePath" name="FilePath" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputPincode">Pincode</label>
+
+                                <input type="text" id="Pincode" name="Pincode" pattern="[0-9]{6}" class="form-control" title="Pin code must be 6 digits" placeholder="Pin Code" required>
+                                @Html.ValidationMessageFor(model => model.Pincode, "", new { @class = "text-danger small" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputState">User Type</label>
+
+                                <select id="UserType" name="UserType" required class="form-control form-select">
+                                    <option value="" disabled selected>Select User Type</option>
+                                    <option value="User">User</option>
+                                    <option value="Volunteer">Volunteer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="submit" id="registerBtn" class="btn btn-primary w-100">REGISTER</button>
+                        <p class="mt-2">Already registered? <a href="@Url.Action("Index", "Login")">Click here to login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+
+
+    // JavaScript function to handle form submission
+    function registerUser() {
+        // Perform form validation here if needed
+        document.getElementById("registrationForm").submit(); // Submit the form
+    }
+
+
+
+
+
+</script>

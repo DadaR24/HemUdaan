@@ -1,0 +1,172 @@
+﻿body {
+    background-color: #F1EBE2;
+}
+
+.doc {
+    width: 100%;
+    height: 600px;
+}
+
+.no-radius {
+    border-radius: 0px !important;
+}
+
+.shadow-box {
+    background-color: #FFF;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0,0,0,.075);
+}
+
+.breadcrumb {
+    background-color: #fff;
+}
+
+h5 {
+    font-size: 1.2em;
+    color: #777;
+}
+
+.feature-box .feature-box-icon {
+    position: relative;
+    top: 0 !important;
+}
+
+.alert-white {
+    background-color: #fff;
+}
+
+.inverted-orange {
+    background-color: #f7951e;
+}
+
+.inverted-grey {
+    background-color: #383f48;
+}
+
+.inverted-grey {
+    background-color: #46b8da;
+}
+
+.marginTopBottom {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.img-thumbnail-screenomatic {
+    border: 2px solid #1bb8a3;
+}
+
+.corner-radius {
+    border-radius: 5px;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.short-text {
+    white-space: nowrap;
+    width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-bs-file {
+    position: relative;
+}
+
+    .btn-bs-file input[type="file"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        outline: none;
+        cursor: inherit;
+    }
+
+.border-frame {
+    box-shadow: 1px 2px 5px #888888;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+html .rounded-btn-blue {
+    border-radius: 30px;
+    background-color: #269bd4;
+}
+
+    html .rounded-btn-blue:hover {
+        border-radius: 30px;
+        background-color: #00607a;
+        color: #fff;
+    }
+
+html .rounded-btn-green {
+    border-radius: 30px;
+    background-color: #1bb8a3;
+}
+
+html .border-tl {
+    border-top: 1px solid #d4d1d1;
+    border-left: 1px solid #d4d1d1;
+}
+
+html .border-t {
+    border-top: 1px solid #d4d1d1;
+}
+
+html .min-50 {
+    min-height: 50px;
+}
+
+html .min-65 {
+    min-height: 65px;
+}
+
+html .box-shadow-5 {
+    border: 1px solid #caebfb;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.08);
+}
+
+.div-overlay {
+    background-color: rgba(0,0,0,0.5);
+    position: relative;
+    top: 0;
+    z-index: 99;
+}
+
+html .lock-position {
+    position: absolute;
+    top: 1px;
+    right: 19px;
+    z-index: 9999;
+}
+
+#googlertab .tabs .nav-tabs li.active a, .nav-tabs li a:hover {
+    background-color: #f7951e;
+    color: #fff;
+    border-radius: 15px;
+    border-top: none;
+}
+
+#googlertab .nav-tabs li a, .nav-tabs li a:hover {
+    background-color: #f9d921;
+    color: #000;
+    border-radius: 15px;
+    border-top: none;
+}
+
+
+.call-to-action {
+    /*height:50px!important;*/
+    min-height: 0 !important;
+}
+
+.bg-action {
+    background-color: #f7951e;
+    font-size: 18px;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}

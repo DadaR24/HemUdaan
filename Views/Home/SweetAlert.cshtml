@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "SweetAlert";
+}
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</head>
+<body>
+    @if (TempData["UseSweetAlert1"] != null && (bool)TempData["UseSweetAlert1"])
+    {
+        <script>
+        var title = '@Html.Raw(TempData["SweetAlertTitle"])';
+        var message = '@Html.Raw(TempData["SweetAlertMessage"])';
+        var type = '@Html.Raw(TempData["SweetAlertType"])';
+
+        Swal.fire({
+            title: title,
+            text: message,
+            icon: type,
+            confirmButtonText: 'OK'
+        }).then(function () {
+            window.location.href = '@Url.Action("Learn", "Course", new {CourseID = ViewBag.CourseID })';
+        });
+        </script>
+    }
+
+    @if (TempData["UseSweetAlert2"] != null && (bool)TempData["UseSweetAlert2"])
+    {
+        <script>
+            Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+                window.location.href = '@Url.Action("Survey","Course")';
+            });
+        </script>
+    }
+    @if (TempData["UseSweetAlert3"] != null && (bool)TempData["UseSweetAlert3"])
+    {
+        <script>
+            Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+            window.location.href = '@Url.Action("Learn", "Course", new {CourseID = ViewBag.CourseID })';
+            });
+        </script>
+    }
+    @if (TempData["UseSweetAlert4"] != null && (bool)TempData["UseSweetAlert4"])
+    {
+        <script>
+     Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+            window.location.href = '@Url.Action("Learn", "Course", new {CourseID = ViewBag.CourseID })';
+            });
+        </script>
+    }
+    @if (TempData["UseSweetAlert5"] != null && (bool)TempData["UseSweetAlert5"])
+    {
+        <script>
+     Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+            window.location.href = '@Url.Action("Learn", "Course", new {CourseID = ViewBag.CourseID })';
+            });
+        </script>
+    }
+    @if (TempData["UseSweetAlert6"] != null && (bool)TempData["UseSweetAlert6"])
+    {
+        <script>
+     Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+            window.location.href = '@Url.Action("Learn", "Course", new {CourseID = ViewBag.CourseID })';
+            });
+        </script>
+    }
+    @if (TempData["UseSweetAlert"] != null && (bool)TempData["UseSweetAlert"])
+    {
+        <script>
+     Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+                window.location.href = '@Url.Action("Index","User")';
+            });
+        </script>
+    }
+    @if (TempData["UseSweetAlert7"] != null && (bool)TempData["UseSweetAlert7"])
+    {
+        <script>
+    var title = '@Html.Raw(TempData["SweetAlertTitle"])';
+    var message = '@Html.Raw(TempData["SweetAlertMessage"])';
+    var type = '@Html.Raw(TempData["SweetAlertType"])';
+
+    Swal.fire({
+        title: title,
+        text: message,
+        icon: type,
+        confirmButtonText: 'OK'
+    }).then(function () {
+        window.location.href = '@Url.Action("Index", "Home")';
+    });
+        </script>
+    }
+
+    @*<script>
+            // Display SweetAlert with exam summary
+            swal.fire({
+                title: "Exam Summary",
+                text: "Total Questions: @TempData["TotalQuestions"]\n" +
+                      "Correct Questions: @TempData["CorrectQuestions"]\n" +
+                      "Incorrect Questions: @TempData["IncorrectQuestions"]\n" +
+                      "Unattempted Questions: @TempData["UnattemptedQuestions"]\n" +
+                      "Total Points: @TempData["TotalPoints"]",
+                buttons: {
+                    review: {
+                        text: "Review",
+                        value: "review",
+                    },
+                    dashboard: {
+                        text: "Back to Dashboard",
+                        value: "dashboard",
+                    },
+                },
+            }).then((value) => {
+                if (value === "review") {
+                    // Redirect to review page
+                    window.location.href = "/Home/Review";
+                } else if (value === "dashboard") {
+                    // Redirect to dashboard
+                    window.location.href = "/Dashboard";
+                }
+            });
+        </script>*@
+
+</body>

@@ -1,0 +1,167 @@
+﻿@media only screen and (max-width: 360px) {
+   .SchoolImg{
+     min-width: 0px;
+    max-width: 100%;
+   }
+   .spanSchoolHeadingRank{
+         width: 145px;
+        left: 80px;
+        top: 9px;
+        font-size: 2.4em;
+   }
+      .spanSchoolHeadingCoins{
+        width: 69px;
+        left: 110px;
+        top: 51px;
+        font-size: 2.2em;
+   }
+      .paddingRL{
+          padding-left:8px;
+          padding-right:8px;
+      }
+      .stdProfilePd{
+          padding: 0px 0px 0px 0px !important;
+      }
+}
+
+@media only screen and (max-width: 599px) and (min-width: 361px) {
+    .SchoolImg{
+     min-width: 0px;
+    max-width: 100%;
+   }
+    .spanSchoolHeadingRank{
+        width: 186px;
+        left: 75px;
+        top: 12px;
+        font-size: 2.4em;
+   }
+      .spanSchoolHeadingCoins{
+        width: 119px;
+        left: 100px;
+        top: 59px;
+        font-size: 2.2em;
+   }
+      .paddingRL{
+          padding-left:10px;
+          padding-right:10px;
+      }
+      .stdProfilePd{
+          padding: 0px 0px 0px 0px !important;
+      }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 600px) {
+    .SchoolImg{
+     min-width: 0px;
+    max-width: 100%;
+   }
+    .spanSchoolHeadingRank{
+        width: 264px;
+        left: 140px;
+        top: 27px;
+        font-size: 2.4em;
+   }
+      .spanSchoolHeadingCoins{
+        width: 153px;
+        left: 180px;
+        top: 110px;
+        font-size: 2.2em;
+   }
+      .paddingRL{
+          padding-left:10px;
+          padding-right:10px;
+      }
+      .stdProfilePd{
+          padding: 0px 0px 0px 0px !important;
+      }
+}
+
+@media only screen and (max-width: 979px) and (min-width: 768px) {
+     .SchoolImg{
+    min-width: 220px;
+    max-width: 220px;
+   }
+     .spanSchoolHeadingRank{
+        width: 133px;
+        left: 74px;
+        top: 8px;
+        font-size: 1.7em;
+   }
+      .spanSchoolHeadingCoins{
+        width: 57px;
+        left: 100px;
+        top: 43px;
+        font-size: 1.7em;
+   }
+      .paddingRL{
+          padding-left:10px;
+          padding-right:10px;
+      }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 980px) {
+     .SchoolImg{
+     min-width: 0px;
+    max-width: 100%;
+   }
+     .spanSchoolHeadingRank{
+        width: 250px;
+        left: 75px;
+        top: 18px;
+        font-size: 2.4em;
+   }
+
+      .spanSchoolHeadingCoins{
+        width: 200px;
+        left: 100px;
+        top: 78px;
+        font-size: 2.2em;
+   }
+      .paddingRL{
+          padding-left:30px;
+          padding-right:30px;
+      }
+       .ribbon {
+        background: #ED213A;
+        background: -webkit-linear-gradient(to right, #93291E, #ED213A);
+        background: linear-gradient(to right, #93291E, #ED213A);
+        overflow: hidden;
+        white-space: nowrap;
+        position: absolute;
+        right: 85%;
+        top: 8%;
+        -webkit-transform: rotate(320deg);
+        -moz-transform: rotate(320deg);
+        -ms-transform: rotate(320deg);
+        -o-transform: rotate(320deg);
+        transform: rotate(320deg);
+        -webkit-box-shadow: 0 0 10px #888;
+        -moz-box-shadow: 0 0 10px #888;
+        box-shadow: 0 0 10px #888;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+     .SchoolImg{
+     min-width: 0px;
+    max-width: 100%;
+   }
+
+     .spanSchoolHeadingRank{
+        width: 250px;
+        left: 75px;
+        top: 18px;
+        font-size: 2.4em;
+   }
+
+      .spanSchoolHeadingCoins{
+        width: 200px;
+        left: 100px;
+        top: 78px;
+        font-size: 2.2em;
+   }
+      .paddingRL{
+          padding-left:30px;
+          padding-right:30px;
+      }
+}

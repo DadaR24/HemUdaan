@@ -1,0 +1,165 @@
+#tag-line .testimonial blockquote {
+    background-color: #ff5e62 !important;
+    border-radius: 15px !important;
+}
+
+#tag-line .testimonial blockquote {
+    padding: 10px 45px !important;
+}
+
+.alert ul {
+    margin: 0px !important;
+}
+
+
+#topics html .list-secondary.list-icons.list-icons-style-3 li > .fa:first-child, html .list-secondary.list-icons.list-icons-style-3 li a:first-child > .fa:first-child, html .list-secondary.list-icons.list-icons-style-3 li > .icons:first-child, html .list-secondary.list-icons.list-icons-style-3 li a:first-child > .icons:first-child {
+    background-color: #ff5e62 !important;
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 425px) {
+    #tech-activity h3 {
+        font-size: 17px;
+    }
+
+    #tag-line .testimonial blockquote {
+        padding: 10px 40px !important;
+    }
+
+    #topics h5 {
+        font-size: 14px !important;
+    }
+
+    #tag-line .testimonial blockquote p {
+        font-size: 1.3em !important;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #tech-activity h3 {
+        font-size: 15px;
+    }
+
+    #tag-line .testimonial blockquote:before {
+        left: 10px;
+        top: 0;
+        color: #FFF;
+        content: "“";
+        font-size: 60px !important;
+        font-style: normal;
+        line-height: 1;
+        position: absolute;
+    }
+
+    #tag-line .testimonial blockquote:after {
+        color: #FFF;
+        content: "”";
+        font-size: 60px !important;
+        font-style: normal;
+        line-height: 1;
+        position: absolute;
+        bottom: -0.5em;
+        right: 10px;
+    }
+
+    #tag-line .testimonial blockquote {
+        padding: 10px 32px !important;
+    }
+
+    #topics h5 {
+        font-size: 16px !important;
+    }
+
+    #rules h3 {
+        font-size: 16px !important;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    #tech-activity h3 {
+        font-size: 13px;
+    }
+
+    #tag-line .testimonial blockquote {
+        padding: 10px 35px !important;
+    }
+
+    #tag-line .testimonial blockquote p {
+        font-size: 1.1em !important;
+    }
+
+    #tag-line .testimonial blockquote:before {
+        left: 10px;
+        top: 0;
+        color: #FFF;
+        content: "“";
+        font-size: 60px !important;
+        font-style: normal;
+        line-height: 1;
+        position: absolute;
+    }
+
+    #tag-line .testimonial blockquote:after {
+        color: #FFF;
+        content: "”";
+        font-size: 60px !important;
+        font-style: normal;
+        line-height: 1;
+        position: absolute;
+        bottom: -0.5em;
+        right: 10px;
+    }
+
+    #need .list.list-icons li {
+        padding-left: 10px !important;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+    #tech-activity h3 {
+        font-size: 12px;
+    }
+
+    #tag-line .testimonial blockquote {
+        padding: 10px 25px !important;
+    }
+
+        #tag-line .testimonial blockquote:before {
+            left: 10px;
+            top: 0;
+            color: #FFF;
+            content: "“";
+            font-size: 45px !important;
+            font-style: normal;
+            line-height: 1;
+            position: absolute;
+        }
+
+        #tag-line .testimonial blockquote:after {
+            color: #FFF;
+            content: "”";
+            font-size: 45px !important;
+            font-style: normal;
+            line-height: 1;
+            position: absolute;
+            bottom: -0.5em;
+            right: 10px;
+        }
+
+    .alert ul {
+        margin: 0px !important;
+    }
+
+    blockquote {
+        padding: 10px 10px !important;
+    }
+
+    #tag-line .testimonial blockquote p {
+        font-size: 1em !important;
+    }
+
+    #need .list.list-icons li {
+        padding-left: 10px !important;
+    }
+}

@@ -1,0 +1,512 @@
+﻿@model HEMUdaan.Models.CreativityCompetition
+@{
+    ViewBag.Title = "Creativity";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="code.js"></script>
+
+
+@{
+    string error = TempData["Error"] as string;
+    if (!string.IsNullOrEmpty(error))
+    {
+        <script>
+            alert("@error");
+        </script>
+    }
+}
+@{
+    string Success = TempData["Success"] as string;
+    if (!string.IsNullOrEmpty(Success))
+    {
+        <script>
+            alert("@Success");
+        </script>
+    }
+}
+
+
+
+<style>
+
+
+    #comment-box, #post {
+        border: none;
+        border-radius: 5px;
+        height: 80px;
+        width: 400px;
+    }
+
+    .featured-box {
+        margin-left: 130px;
+        margin-right: 1px;
+    }
+
+    .bglight-student {
+        background-color: #f9f9f9;
+        padding: 10px;
+    }
+
+    .featured-box {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .featured-box-primary {
+        background-color: #fff;
+    }
+
+    .box-content {
+        padding: 20px;
+        margin: 10px 0px 0px 0px;
+    }
+
+    .btn {
+        border-radius: 3px;
+        padding: 8px 20px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #337ab7;
+        color: #fff;
+        border: 1px solid #2e6da4;
+    }
+
+    .btn-default {
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #ccc;
+    }
+
+        .btn-default:hover,
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #286090;
+            border-color: #204d74;
+        }
+
+    .float-left {
+        float: left;
+    }
+
+    .align-left {
+        text-align: left;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .text-uppercase {
+        text-transform: uppercase;
+    }
+
+    .btnsave {
+        margin-top: 10px;
+    }
+
+    .mb-sm {
+        margin-bottom: 10px;
+    }
+
+    .mt-xs {
+        margin-top: 5px;
+    }
+
+    .pt-sm {
+        padding-top: 10px;
+    }
+
+    .pb-xlg {
+        padding-bottom: 40px;
+    }
+
+    .col-md-offset-3 {
+        margin-left: 25%;
+    }
+
+    .col-md-2 {
+        width: 16.66667%;
+        float: left;
+        margin-left: 16.66667%;
+    }
+
+    .col-md-12 {
+        width: 93%;
+        float: left;
+    }
+
+    .file-field {
+        margin-bottom: 20px;
+    }
+
+    .alert {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .alert-danger {
+        background-color: #f2dede;
+        border-color: #ebccd1;
+        color: #a94442;
+    }
+
+    .alert-success {
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+        color: #3c763d;
+    }
+
+    .close {
+        float: right;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        opacity: .2;
+    }
+
+    .activity-form-box {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 41px;
+        width: 398px;
+        height: 97px;
+        margin-left: 70px;
+        background-color: white;
+        /* Add any other styling as needed */
+    }
+
+    /* .small-box {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 372px;
+        text-align: center;
+        height:19px;
+        margin:0px 0px 11px 92px;
+        background-color:white;
+    }*/
+
+    .small-box h3 {
+        font-size: 1.5em;
+        margin: 0;
+    }
+
+    @@media (max-width: 768px) {
+        .activity-form-box {
+            width: 130%; /* Make it full width */
+            margin-left: 0; /* Remove left margin */
+            margin-right: 0; /* Remove right margin */
+            padding: 10px; /* Decrease padding for smaller screens */
+        }
+
+        .bglight-student {
+            margin: 0px 0px 0px -323px;
+        }
+
+        .box-content {
+            padding: 20px;
+            margin: -18px 0px 0px 0px;
+            width: 230px;
+        }
+
+        .btn-default {
+            margin: 0px 0px -38px 0px;
+        }
+    }
+</style>
+ <button class="btn btn-primary" onclick="window.location.href='@Url.Action("Index", "volunteer",new {UserID = ViewBag.UserID})'">Dashboard</button>
+<button class="btn btn-primary" onclick="window.location.href='@Url.Action("Logout", "Home",new {UserID = ViewBag.UserID}))'">Log Out</button>
+
+
+@if (!Request.Browser.IsMobileDevice)
+{
+    <div class="bglight-student p-xs">
+        <div class="container mt-sm pt-sm pb-xlg mb-xlg">
+            <div class="featured-boxes">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="featured-box featured-box-primary align-left mt-xs" style="height:839px; width:648px; margin: 0px 0px 0px 5px;background-image:url('/Images/AR1.jpeg');">
+
+                        <div class="box-content box-content-light">
+                            <div class="small-box">
+                                <h3 class="heading-primary text-uppercase mb-sm" style="margin:0px 0px 25px 162px;"> <i class="fa fa-user"></i><b>Activity Submission</b></h3>
+
+                            </div>
+                            @*<h3 class="heading-primary text-uppercase mb-sm" style="margin:0px 0px 25px 155px;"> <i class="fa fa-user"></i><b>Activity Submission</b></h3>*@
+
+                            <div class="activity-form-box">
+                                @using (Html.BeginForm("Creativity", "Volunteer", FormMethod.Post, new { id = "ActivitySubmissionForm", ValidateRequest = "True", enctype = "multipart/form-data" }))
+                                {
+                                    <!-- Team Member List -->
+                                    <div class="file-field" style="margin:0px 0px 0px 20px">
+                                        <i class="fa fa-folder-open-o"></i>
+                                        <label class="hidden-xs hidden-sm" style="color:blue"><b>Select Your Team For Activity</b></label><br />
+                                        <input type="hidden" id="lblATY" value="@ViewBag.ATKT" />
+                                        <input type="hidden" id="" value="@ViewBag.MCID" />
+                                        <div class="col-md-2" style="margin-top:41px;margin-left:5.66px;">
+                                            <a href="@Url.Action("StudentList","Volunteer" , new { GroupName = "T1", CID = ViewBag.MCID,UserID =ViewBag.UserID})" class="btn btn-primary" style="font-size:15px;">Team1</a>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <div class="col-md-2" style="margin:6px 0px 0px 43px">
+                                            <a href="@Url.Action("StudentList","Volunteer" , new { GroupName = "T2" , CID = ViewBag.MCID,UserID =ViewBag.UserID})" class="btn btn-primary" style="font-size:15px;">Team2</a>
+                                        </div>
+                                        <br />
+                                        <br />
+
+                                        <div class="col-md-2" style="margin:-31px 0px 0px 220px">
+                                            <a href="@Url.Action("StudentList","Volunteer" , new { GroupName = "T3" ,CID = ViewBag.MCID,UserID =ViewBag.UserID})" class="btn btn-primary" style="font-size:15px;">Team3</a>
+                                        </div>
+                                        <br />
+                                        <br />
+
+                                    </div>
+                                }
+                            </div>
+                            <div class="activity-form-box">
+                                <div class="box-content box-content-light">
+
+                                    @using (Html.BeginForm("Creativity_Image", "Volunteer", FormMethod.Post, new { id = "ActivitySubmissionForm", ValidateRequest = "True", enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.Hidden("CID", TempData["ID"]) <!-- Assuming CID is stored in TempData["CID"] -->
+
+                                        <!-- Image Upload -->
+                                        <div class="file-field" style="margin:-37px 0px 0px 0px">
+                                            <i class="fa fa-folder-open-o"></i>
+                                            <label class="hidden-xs hidden-sm"><b>Upload Image Activity</b></label><br />
+                                            <div class="btn btn-default btn-sm float-left col-md-12" style="margin:8px 0px 0px 0px">
+                                                <input type="file" id="uploadDoc" name="UploadDoc">
+                                            </div>
+                                            <br /><br />
+                                            <input type="submit" value="Upload Image" id="btnSubmited" class="btn btnsave btn-primary display-inline-block" style="margin:26px 0px 0px -372px">
+                                        </div>
+                                    }
+                                    <!-- Video Upload -->
+                                </div>
+                            </div>
+                            <div class="activity-form-box">
+                                <div class="box-content box-content-light">
+                                    @using (Html.BeginForm("Creativity_Video", "Volunteer", FormMethod.Post, new { id = "ActivitySubmissionForm", ValidateRequest = "True", enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.Hidden("CID", TempData["ID"]) <!-- Assuming CID is stored in TempData["CID"] -->
+
+                                        <div class="file-field" style="margin:-37px 0px 0px 0px">
+                                            <i class="fa fa-folder-open-o"></i>
+                                            <label class="hidden-xs hidden-sm"><b>Upload Video Activity</b></label><br />
+                                            <div class="btn btn-default btn-sm float-left col-md-12" style="margin:10px 0px 0px 0px">
+                                                <input type="file" id="uploadDoc" name="UploadDoc">
+                                            </div>
+                                            <br /><br />
+                                            <input type="submit" value="Upload Video" id="btnSubmited" class="btn btnsave btn-primary display-inline-block" style="margin:27px 0px 0px -372px">
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="activity-form-box">
+                                <div class="box-content box-content-light" style="margin:0px 0px 0px -3px">
+
+                                    @using (Html.BeginForm("Message", "Volunteer", FormMethod.Post, new { id = "ActivitySubmissionForm", ValidateRequest = "false", enctype = "multipart/form-data", MCName = TempData["MCName"] }))
+                                    {
+                                        @Html.Hidden("CID", "@ViewBag.MCID") <!-- Assuming CID is stored in TempData["CID"] -->
+
+                                        <div class="file-field" style="margin:-23px 0px 0px 0px">
+                                            <i class="fa fa-pencil"></i>
+                                            <label class="hidden-xs hidden-sm"><b>Enter Comment</b></label><br />
+                                            <div class="col-md-12">
+                                                <textarea type="text" class="form-control" id="txtSuggestionComment" name="SuggestionComment" rows="2" style="width:365px;height:50px;margin:0px 0px -56px 0px;" onpaste="return false;"></textarea>
+                                            </div>
+                                            <br /><br />
+                                            <input type="submit" value="Submit" id="btnSubmitedTextDesc" class="btn btnsave btn-primary display-inline-block" style="margin:89px 0px 0px 139px">
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="bglight-student p-xs">
+        <div class="container mt-sm pt-sm pb-xlg mb-xlg">
+            <div class="featured-boxes">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="featured-box featured-box-primary align-left mt-xs" style="background-image:url('/Images/AR1.jpeg');">
+                        <div class="box-content box-content-light">
+
+                            <h3 class="heading-primary text-uppercase mb-sm text-center"><i class="fa fa-user"></i> Activity Submission</h3>
+
+                            <div class="activity-form-box">
+                                @using (Html.BeginForm("Creativity", "Volunteer", FormMethod.Post, new { id = "ActivitySubmissionForm", ValidateRequest = "True", enctype = "multipart/form-data" }))
+                                {
+                                    <!-- Team Member List -->
+                                    <div class="file-field">
+                                        <i class="fa fa-folder-open-o"></i>
+                                        <label style="color: blue;"><b>Select Your Team For Activity</b></label><br />
+                                        <input type="hidden" id="lblATY" value="@ViewBag.ATKT" />
+                                        <input type="hidden" id="" value="@ViewBag.MCID" />
+                                        <div class="col-xs-12" style="margin:18px 0px 0px 0px;">
+                                            <a href="@Url.Action("StudentList","Volunteer" , new { GroupName = "T1", CID = ViewBag.MCID,UserID =ViewBag.UserID})" class="btn btn-primary btn-block" style="font-size:15px;">Team1</a>
+                                        </div>
+                                        <br />
+                                        <div class="col-xs-12" style="margin:-37px 0px 0px 101px;">
+                                            <a href="@Url.Action("StudentList","Volunteer" , new { GroupName = "T2" , CID = ViewBag.MCID,UserID =ViewBag.UserID})" class="btn btn-primary btn-block" style="font-size:15px;">Team2</a>
+                                        </div>
+                                        <br />
+                                        <div class="col-xs-12" style="margin:-37px 0px 0px 206px;">
+                                            <a href="@Url.Action("StudentList","Volunteer" , new { GroupName = "T3" ,CID = ViewBag.MCID,UserID =ViewBag.UserID})" class="btn btn-primary btn-block" style="font-size:15px;">Team3</a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="activity-form-box">
+                                <div class="box-content box-content-light">
+
+                                    @using (Html.BeginForm("Creativity_Image", "Volunteer", FormMethod.Post, new { id = "ActivitySubmissionForm2", ValidateRequest = "True", enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.Hidden("CID", TempData["ID"]) <!-- Assuming CID is stored in TempData["CID"] -->
+
+                                        <!-- Image Upload -->
+                                        <div class="file-field">
+                                            <i class="fa fa-folder-open-o"></i>
+                                            <label><b>Upload Image Activity</b></label><br />
+                                            <div class="btn btn-default btn-lg" style= "width:235px">
+                                                <input type="file" class= "form-control" id="uploadDoc" name="UploadDoc">
+                                            </div>
+                                            <br /><br />
+                                            <input type="submit" value="Upload Image" id="btnSubmited" class="btn btnsave btn-primary btn-block">
+                                        </div>
+                                    }
+                                    <!-- Video Upload -->
+                                </div>
+                            </div>
+                            <div class="activity-form-box">
+                                <div class="box-content box-content-light">
+                                    @using (Html.BeginForm("Creativity_Video", "Volunteer", FormMethod.Post, new { id = "ActivitySubmissionForm3", ValidateRequest = "True", enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.Hidden("CID", TempData["ID"]) <!-- Assuming CID is stored in TempData["CID"] -->
+
+                                        <div class="file-field">
+                                            <i class="fa fa-folder-open-o"></i>
+                                            <label><b>Upload Video Activity</b></label><br />
+                                            <div class="btn btn-default btn-lg" style= "width:235px">
+                                                <input type="file" class= "form-control" id="uploadDoc" name="UploadDoc">
+                                            </div>
+                                            <br /><br />
+                                            <input type="submit" value="Upload Video" id="btnSubmited" class="btn btnsave btn-primary btn-block">
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="activity-form-box">
+                                <div class="box-content box-content-light">
+
+                                    @using (Html.BeginForm("Message", "Volunteer", FormMethod.Post, new { id = "ActivitySubmissionForm4", ValidateRequest = "false", enctype = "multipart/form-data", MCName = TempData["MCName"] }))
+                                    {
+                                        @Html.Hidden("CID", "@ViewBag.MCID") <!-- Assuming CID is stored in TempData["CID"] -->
+
+                                        <div class="file-field">
+                                            <i class="fa fa-pencil"></i>
+                                            <label><b>Enter Comment</b></label><br />
+                                            <div class="col-xs-12" style="margin:0px 0px -38px 0px;">
+                                                <textarea type="text" class="form-control" id="txtSuggestionComment" name="SuggestionComment" rows="2" onpaste="return false;"></textarea>
+                                            </div>
+                                            <br /><br />
+                                            <input type="submit" value="Submit" id="btnSubmitedTextDesc" class="btn btnsave btn-primary btn-block" style="margin:67px 0px 0px 97px;">
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+@section Scripts{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+        var desc = ("#TxtDesc").val();
+        $("#btnSubmitedTextDesc").click(function () {
+
+            $.ajax({
+                url: '@Url.Action("Creativity", "School")',
+                dataType: 'html',
+                data: desc,
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+
+                    location.reload();
+                    alert("Data Saved Sucessfully.....");
+                },
+                error: function (xhr) {
+                    alert("error");
+                }
+            });
+        });
+            //Creativity_Des
+       $(document).ready(function () {
+
+       });
+
+        // var GetActivity1 = '';
+        function SubmitSchoolGroupData() {
+            debugger;
+
+            var X1 = GetActivity !== '' ? GetActivity : GetActivity1;
+
+            $.ajax({
+                type: "POST",
+                url: '/School/Creativity_Image?MCID=' + GetMCID + '&ATY=' + X1,
+                success: function (response) {
+                    debugger;
+                    if (response[0] == "0") {
+                        GetActivity1 = response[2];
+                        var GetMCID = response[3];
+                        Swal.fire("Congrats!", "Team Added Completed Successfully", "success");
+
+                        setTimeout(function () {
+                            debugger;
+                            // window.location.href = "url?Data1=" + value1 + "&Data2=" + value2;
+                            window.location.href = "/School/Creativity_Image?MCID=" + GetMCID + '&ATY=' + GetActivity1;
+                        }, 5000);
+                    } else {
+                        swal("Congrats!", "Record Not Saved.........", "error");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX request failed with error:", error);
+                }
+            });
+        }
+
+        function showAlert() {
+            debugger;
+            alert("Copying and pasting is not allowed.");
+            return false;
+        }
+
+
+
+    </script>
+
+    <script src="code.js"></script>
+}
+

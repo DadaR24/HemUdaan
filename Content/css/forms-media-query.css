@@ -1,0 +1,37 @@
+﻿
+
+@media only screen and (max-width: 768px){
+#registrationform h1 {font-size: 1.6em; line-height: 25px; margin: 0 0 29px 0;}
+#registrationform .featured-box .box-content {padding:15px !important;}
+#registrationform .input-lg {height: 27px; padding: 6px; font-size: 11px;}
+#registrationform .form-control{font-size:11px !important;}
+#registrationform .password{font-size:11px;}
+#registrationform .btn-lg{padding: 6px; font-size: 14px;}
+}
+
+@media only screen and (max-width: 425px){
+#registrationform h1 {font-size: 1.6em; line-height: 25px; margin: 0 0 29px 0;}
+#registrationform .featured-box .box-content {padding:15px !important;}
+#registrationform .input-lg {height: 27px; padding: 6px; font-size: 11px;}
+#registrationform .form-control{font-size:11px !important;}
+#registrationform .password{font-size:11px;}
+#registrationform .btn-lg{padding: 6px; font-size: 14px;}
+}
+
+@media only screen and (max-width: 375px){
+#registrationform h1 {font-size: 1.6em; line-height: 25px; margin: 0 0 29px 0;}
+#registrationform .featured-box .box-content {padding:15px !important;}
+#registrationform .input-lg {height: 29px; padding: 6px; font-size: 11px;}
+#registrationform .form-control{font-size:11px !important;}
+#registrationform .password{font-size:11px;}
+#registrationform .btn-lg{padding: 6px; font-size: 14px;}
+}
+
+@media only screen and (max-width: 320px){
+#registrationform h1 {font-size: 1.4em; line-height: 25px; margin: 0 0 29px 0;}
+#registrationform .featured-box .box-content {padding:15px !important;}
+#registrationform .input-lg {height: 28px; padding: 5px; font-size: 12px;}
+#registrationform .form-control{font-size:10px !important;}
+#registrationform .password{font-size:10px;}
+#registrationform .btn-lg{padding: 6px; font-size: 14px;}
+}

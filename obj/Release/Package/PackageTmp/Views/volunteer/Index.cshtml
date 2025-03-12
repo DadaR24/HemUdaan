@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "Values";
+    Layout = "~/Views/Shared/_UdaanLayout.cshtml";
+}
+@*<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+@*<title>Main Courses</title>*@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="~/Scripts/sweetaleart/maxjquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+@*<style>
+    #footer {
+        display: none !important;
+    }
+</style>*@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://www.hemvirtues.com/Uploads/Common_Document/health_509.jpeg" alt="8th Grade" class="card-img-top">
+                <div class="card-footer text-center">
+                    <input type="hidden" />
+                    <div class="d-flex justify-content-between">
+                        <a href="/Content/Pdf/Health Project_Group.pdf" class="btn btn-primary" target="_blank">Activity</a>
+
+                        <button class="btn btn-primary ms-2" onclick="Health()">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://www.hemvirtues.com/Uploads/Common_Document/Courage_683.jpeg" alt="9th Grade" class="card-img-top">
+                <div class="card-footer text-center">
+                    <input type="hidden" />
+                    <div class="d-flex justify-content-between">
+
+                        <a href="/Content/Pdf/Courage Project_Group.pdf" class="btn btn-primary" target="_blank">Activity</a>
+                        <button class="btn btn-primary ms-2" onclick="Courage()">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://www.hemvirtues.com/Uploads/Common_Document/Gratitude_(1)_461.jpg" alt="10th Grade" class="card-img-top">
+                <div class="card-footer text-center">
+                    <input type="hidden" />
+                    <div class="d-flex justify-content-between">
+
+                        <a href="/Content/Pdf/Gratitude Project_Group.pdf" class="btn btn-primary" target="_blank">Activity</a>
+                        <button class="btn btn-primary ms-2" onclick="Gratitute()">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+ </div>
+
+    <script>
+        function Health() {
+        // Curiosity function implementation
+        debugger;
+        // Display a SweetAlert message
+        Swal.fire({
+            title: "Note:",
+            text: "Submit the Project Suggested by HEMA Foundation \nOR \nYou may Upload your own made projects related to this particular value",
+            timer: 4000, // Timeout in milliseconds
+            buttons: false // Hide the "OK" button
+        });
+
+        // Make an AJAX request
+        $.ajax({
+            url: '/Volunteer/ValueCheck',
+            type: "POST",
+            data: {
+                CID: '@ViewBag.HMCID',
+                userId: '@ViewBag.UserID' // Corrected data format
+            },
+            success: function (response) {
+                if (response[0] === "1") {
+                    // If response[0] is "1", redirect to a page after a delay
+                    setTimeout(function () {
+                        window.location = '/volunteer/Creativity?CID=' + encodeURIComponent('@ViewBag.HMCID') + '&UserID=' + encodeURIComponent('@ViewBag.UserID'); // Concatenate CID and UserID in the URL
+                    }, 2000);
+                } else {
+                    // If response[0] is not "1", display a message and reload the page after a delay
+                    Swal.fire("Note:", "You have Already Submitted Value");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
+            },
+            error: function (response) {
+                alert("Error: " + JSON.stringify(response));
+            }
+        });
+    }
+
+    function Courage() {
+        // Teamwork function implementation
+        debugger;
+        // Display a SweetAlert message
+        Swal.fire({
+            title: "Note:",
+            text: "Submit the Project Suggested by HEMA Foundation \nOR \nYou may Upload your own made projects related to this particular value",
+            timer: 4000, // Timeout in milliseconds
+            buttons: false // Hide the "OK" button
+        });
+
+        // Make an AJAX request
+        $.ajax({
+            url: '/Volunteer/ValueCheck',
+            type: "POST",
+            data: {
+                CID: '@ViewBag.CMCID',
+                userId: '@ViewBag.UserID'
+            },
+            success: function (response) {
+                if (response[0] === "1") {
+                    // If response[0] is "1", redirect to a page after a delay
+                    setTimeout(function () {
+                        window.location = '/volunteer/Creativity?CID=' + encodeURIComponent('@ViewBag.CMCID') + '&UserID=' + encodeURIComponent('@ViewBag.UserID');
+                    }, 2000);
+                } else {
+                    // If response[0] is not "1", display a message and reload the page after a delay
+                    Swal.fire("Note:", "You have Already Submitted Value");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
+            },
+            error: function (response) {
+                alert("Error: " + JSON.stringify(response));
+            }
+        });
+    }
+
+        function Gratitute() {
+        // Safety function implementation
+        debugger;
+        // Display a SweetAlert message
+        Swal.fire({
+            title: "Note:",
+            text: "Submit the Project Suggested by HEMA Foundation \nOR \nYou may Upload your own made projects related to this particular value",
+            timer: 3000, // Timeout in milliseconds
+            buttons: false // Hide the "OK" button
+        });
+
+        // Make an AJAX request
+        $.ajax({
+            url: '/Volunteer/ValueCheck',
+            type: "POST",
+            data: {
+                CID: '@ViewBag.GMCID',
+                userId: '@ViewBag.UserID'
+            },
+            success: function (response) {
+                if (response[0] === "1") {
+                    // If response[0] is "1", redirect to a page after a delay
+                    setTimeout(function () {
+                        window.location = '/volunteer/Creativity?CID=' + encodeURIComponent('@ViewBag.GMCID') + '&UserID=' + encodeURIComponent('@ViewBag.UserID');
+                    }, 2000);
+                } else {
+                    // If response[0] is not "1", display a message and reload the page after a delay
+                     Swal.fire("Note:", "You have Already Submitted Value");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
+            },
+            error: function (response) {
+                alert("Error: " + JSON.stringify(response));
+            }
+        });
+    }
+
+  
+    </script>

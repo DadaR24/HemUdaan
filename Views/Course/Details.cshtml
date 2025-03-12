@@ -1,0 +1,414 @@
+﻿@model HEMUdaan.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+
+<style>
+    .innerul li {
+        list-style: outside none none;
+        padding: 5px 3px !important;
+    }
+
+        .innerul li.active {
+            background-color: #e9f3ff;
+        }
+
+        .innerul li a {
+            color: #666;
+        }
+
+        .innerul li.active a {
+            color: #333;
+        }
+
+    .panel-heading {
+        background: none;
+    }
+</style>
+<div role="main" class="main">
+    <div class="home-intro p-xxs home-intro-off-white mb-none p-md" id="home-intro">
+        <div class="container">
+            <div class="row pt-sm pb-sm">
+                <div class="col-md-4">
+                    <h4 class="text-color-dark mb-none">
+                        <img src="@Href(Model.FeaturedImage)" width="32" style="width:32px;" />&nbsp;&nbsp;@Model.CourseName
+                    </h4>
+                </div>
+                <div class="col-md-8 text-right">
+                    <div class="post-meta">
+
+
+                        <a href='@Url.Action("Create", "Course", new { ID = ViewBag.CourseID })'>Edit Course</a>
+
+
+                        @if (Model.TrainerResource != null)
+                        {
+                            <span class="mr-xl"><i class="fa fa-download fa-fw mr-xs"></i><a title="Download" href="@Href(Model.TrainerExercise)" target="_blank">Resource</a> </span>
+                        }
+                        @if (Model.TrainerExercise != null)
+                        {
+                            <span class="mr-xl"><i class="fa fa-download fa-fw mr-xs"></i><a title="Download" href="@Href(Model.TrainerExercise)" target="_blank">Exercise</a> </span>
+                        }
+
+                        <span class="mr-xl"><i class="fa fa-check fa-fw mr-xs"></i><a href="@Url.Action("GetCertify", new { CourseID = Model.CourseID })">Get Certified</a> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row bg-dark pt-lg">
+        <div class="container">
+            <div class="row pb-xl">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#popular"><i class="fa fa-star"></i> Content</a>
+                                    </li>
+                                    <li onclick="LoadNotebooks();" class="hidden">
+                                        <a data-toggle="tab" href="#recent">Notebook</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content p-xxs" style="height:450px; overflow:scroll; overflow-x:hidden; ">
+                                    <div class="tab-pane active" id="popular">
+
+                                        <div id="accordion" class="panel-group VikashToshaniwal">
+                                            @Html.Raw(ViewBag.TopicTree)
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane hidden" id="recent">
+                                        <h4> <i class="fa fa-bookmark-o"></i> Notebook</h4>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <textarea id="txtNotebook" name="txtNotebook" rows="5" class="form-control" placeholder="Write Your Topic Note..."></textarea>
+                                                <hr />
+                                                <h4>Notes</h4>
+                                                <div id="divCourseNoteBook" class="col-md-12">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="frmApproveCourse">
+                                <div class="form-group">
+                                    <label class="control-label text-dark" for="ApprovalStatus">Approval Status</label>
+                                    <div>
+                                        <select id="ApprovalStatus" name="ApprovalStatus" class="form-control" required="required">
+                                            <option></option>
+                                            <option>Approved</option>
+                                            <option>Hold</option>
+                                            <option>Reject</option>
+                                        </select>
+                                        <input type="hidden" id="CourseID" name="CourseID" value="@ViewBag.CourseID" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label text-dark" for="ApprovalRemark">Approval Remark</label>
+                                    <div>
+                                        <textarea id="ApprovalRemark" style="width:100%" name="ApprovalRemark" class="form-control text-dark" required="required"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="button" value="Submit" onclick="approveCourse()" class="btn btn-primary " data-loading-text="Processing....">
+                                </div>
+                            </form>
+
+                            <div id="divApproveSuccess" class="alert alert-success" style="display:none;">
+                                <strong><i class="fa fa-check-circle"></i> Course Approval Status Updated !</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row text-dark panel panel-body m-none mt-lg pl-xs pr-xs">
+                        <div class="row"><div class="col-md-5 text-right bold pr-xs">Approval Status: </div><div class="col-md-7 pl-none">        @Model.ApprovalStatus</div></div>
+                        <div class="row"><div class="col-md-5 text-right bold pr-xs">Delivery Date:   </div><div class="col-md-7 pl-none">        @Model.ExpectedDeliveryDate</div></div>
+                        @*<div class="row"><div class="col-md-5 text-right bold pr-xs">Topics:    </div><div class="col-md-7 pl-none">        @Model.TopicCount</div></div>
+                            <div class="row"><div class="col-md-5 text-right bold pr-xs">SubTopics: </div><div class="col-md-7 pl-none">        @Model.SubTopicCount</div></div>
+                            <div class="row"><div class="col-md-5 text-right bold pr-xs">Reviewers: </div><div class="col-md-7 pl-none">        @Model.ReviewerCount</div></div>
+                            <div class="row"><div class="col-md-5 text-right bold pr-xs">Reviews:   </div><div class="col-md-7 pl-none">        @Model.ReviewCount</div></div>*@
+                    </div>
+
+
+
+                </div>
+                <div class="col-md-8">
+
+                    <div class="row">
+                        <iframe id="frmVideo" width="100%" height="400px" src="https://www.youtube.com/embed/5cIXEiMvX1I?modestbranding=1&showinfo=0&fs=0&rel=0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tabs tabs-bottom  tabs-simple">
+                                <ul class="nav nav-tabs">
+                                    <li class="mb-xs ">
+                                        <a data-toggle="tab" href="#tabOverview" aria-expanded="false">OverView</a>
+                                    </li>
+                                    <li class="mb-xs active">
+                                        <a data-toggle="tab" href="#tabDiscussion" aria-expanded="true">Discussion</a>
+                                    </li>
+                                    <li class="mb-xs">
+                                        <a data-toggle="tab" href="#tabRating" onclick="LoadRatings()" aria-expanded="true">Rate this Course</a>
+                                    </li>
+                                    @*@if (SessionUser.isUserInAnyOfRoles("CourseManager", "Admin"))
+                                        {
+                                            <li class="mb-xs">
+                                                <a data-toggle="tab" href="#tabMCQ" aria-expanded="true">MCQ</a>
+                                            </li>
+                                        }*@
+                                </ul>
+                                <div class="tab-content p-md pt-lg pb-lg">
+                                    <div id="tabOverview" class="tab-pane ">
+                                        <div class="">
+                                            <h4>OverView</h4>
+                                            <p>@Model.Description</p>
+                                        </div>
+                                    </div>
+                                    <div id="tabDiscussion" class="tab-pane active ">
+                                        <div class="">
+                                            <h4>Discussion Forum</h4>
+                                            <div id="tabsNavigationSimple3" class=" ">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <form method="post" id="fmCourseReview">
+                                                            <div class="row mt-md">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label class="control-label text-dark">Course Review</label>
+                                                                        <textarea id="Review" name="Review" class="form-control" rows="3" data-msg-required="Please enter your message." maxlength="5000"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <input type="hidden" name="TopicID" id="TopicID" value="" />
+                                                                        <input type="hidden" id="CourseID" name="CourseID" value="@Model.CourseID" />
+                                                                        <input type="button" onclick="AddReview()" data-loading-text="Loading..." class="btn btn-primary mt-lg pull-right" value="Submit Review">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </form>
+
+                                                        <div id="divReviewSuccess" class="alert alert-success" style="display:none;">
+                                                            <strong><i class="fa fa-check-circle"></i> Review Added Successfully !</strong>
+                                                        </div>
+
+                                                        <hr />
+                                                        <div id="reviewList" class="row">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tabRating" class="tab-pane">
+                                        <div class="">
+                                            <h4>Rate this Course</h4>
+                                            <div id="tabsNavigationSimple3" class="">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <form method="post" id="frmCourseRating">
+                                                            <div class="row mt-md">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label class="control-label text-dark">Write your review about this Course</label>
+                                                                        <textarea id="Review" name="Review" class="form-control" rows="2" data-msg-required="Please enter your review." maxlength="500"></textarea>
+                                                                        <input type="hidden" name="Review1" id="Review1" value="" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-md">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <label class="control-label text-dark">Rate Course between 1 to 5 stars</label>
+                                                                        <select id="Rating" name="Rating" class="form-control">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input type="hidden" id="CourseID" name="CourseID" value="@Model.CourseID" />
+                                                                        <input type="button" onclick="RateCourse()" data-loading-text="Loading..." class="btn btn-primary mt-lg pull-right" value="Rate Course">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </form>
+
+                                                        <div id="divRatingSuccess" class="alert alert-success" style="display:none;">
+                                                            <strong><i class="fa fa-check-circle"></i> Ratting Added Successfully !</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <h4>Ratings</h4>
+                                            <div id="divCourseRateList" class="row"></div>
+
+                                        </div>
+                                    </div>
+
+                                    <div id="tabMCQ" class="tab-pane ">
+                                        @*<h4>MCQ (@ViewBag.QuestionList.Count)</h4>*@
+                                        <div id="divMCQs" class="row">
+                                            @if (ViewBag.QuestionList != null)
+                                            {
+                                                int questioncount = 0;
+                                                foreach (var data in ViewBag.QuestionList)
+                                                {
+                                                    int answerCount = 0;
+                                                    questioncount++;
+                                                    <!-- -->
+                                                    <div class="panel-body mb-lg">
+
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-1 text-color-primary ">
+                                                                    <h4 class="m-none p-none">Q.@questioncount</h4>
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    <h4 class="m-none">
+                                                                        @Html.Raw(data.QuestionName)
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="col-md-1 text-color-primary ">
+                                                                    @if (data.ComplexityLevel == "Easy")
+                                                                    {
+                                                                        <span style="color:#269BD4;font-weight:bold;">@data.ComplexityLevel</span>
+                                                                    }
+                                                                    else if (data.ComplexityLevel == "Moderate")
+                                                                    {
+                                                                        <span style="color:#f9d921;font-weight:bold;">@data.ComplexityLevel</span>
+                                                                    }
+                                                                    else if (data.ComplexityLevel == "Tough")
+                                                                    {
+                                                                        <span style="color:#ff0000;font-weight:bold;">@data.ComplexityLevel</span>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                            <h6 class="m-none p-none"><b>Answer Options</b></h6>
+                                                            @foreach (var ans in data.QuestionOption)
+                                                            {
+                                                                answerCount++;
+                                                                <div class="row">
+                                                                    <div class="col-md-1 @Html.Raw(Convert.ToBoolean(@ans.IsAnswer)  ? "text-success" : "") ">
+                                                                        @answerCount
+                                                                        @Html.Raw(Convert.ToBoolean(@ans.IsAnswer) ? "<i title='completed' class='icon-check icons text-success pull-rights '></i>" : "")
+                                                                    </div>
+                                                                    <div class="col-md-11 ">
+                                                                        <p class="m-none @Html.Raw(Convert.ToBoolean(@ans.IsAnswer)  ? "text-success" : "")">
+                                                                            @ans.Options
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                            <h6 class="m-none p-none"><b>Hint</b></h6>
+                                                            <div class="row ">
+                                                                <div class="m-none col-md-12">
+                                                                    @data.AnswerDescription
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- -->
+                                                }
+                                            }
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="hidden">
+    <tr>
+        <td>ID</td>
+        <td>Topic ID</td>
+        <td>Parent ID</td>
+        <td>Review</td>
+        <td>User</td>
+        <td>Image</td>
+        <td>CreatedBy</td>
+    </tr>
+    <tbody id="tablebody"></tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        debugger;
+        // Initialize jQuery Validation plugin for your form
+        $("#frmApproveCourse").validate({
+            // Specify validation rules and options here
+            rules: {
+                // Define validation rules if necessary
+                CourseName: {
+                    required: true
+                },
+                ApprovalStatus: {
+                    required: true
+                }
+            },
+            messages: {
+                // Define custom error messages if necessary
+                CourseName: {
+                    required: "Please enter course name"
+                },
+                ApprovalStatus: {
+                    required: "Please enter approval status"
+                }
+            }
+        });
+    });
+
+    function approveCourse() {
+        debugger;
+        var courseApprovalForm = $("#frmApproveCourse");
+
+        // Validate the form using jQuery Validation plugin
+        if ($(courseApprovalForm).valid()) {
+            $.ajax({
+                type: "POST", // Assuming you want to update data, so change method to POST
+                url: '/Course/Approve',
+                data: $(courseApprovalForm).serialize(), // Serialize form data
+                dataType: 'json',
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8', // Change content type to this
+                success: function (response) {
+                    if (response.Success) {
+                        $(courseApprovalForm).hide();
+                        $("#divApproveSuccess").show();
+                    } else {
+                        alert(response.Message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Error: " + error);
+                }
+            });
+        }
+    }
+
+</script>

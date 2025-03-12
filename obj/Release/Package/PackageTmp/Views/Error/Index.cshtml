@@ -1,0 +1,84 @@
+﻿@using HEMUdaan.Models
+@model HEMUdaan.Models.User
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>404 - Bad Request</title>
+    <style>
+        .text-lightdark {
+            color: #3e3e3e;
+        }
+
+        p {
+            color: #777;
+            line-height: 24px;
+            margin: 0 0 20px;
+            font-size: 18px;
+        }
+
+        .btn {
+            -webkit-transition: all 0.1s;
+            -moz-transition: all 0.1s;
+            transition: all 0.1s;
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .btn-quaternary {
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            background-color: #038fab;
+            border-color: #038fab #038fab #026579;
+        }
+
+            .btn-quaternary:hover {
+                border-color: #03a4c4 #03a4c4 #037a92;
+                background-color: #03a4c4;
+                color: #fff;
+            }
+    </style>
+</head>
+<body>
+    <div class="content" style="text-align: center; padding-top: 5%">
+        <img src="/Content/img/error-img.png" title="error" />
+        <h2 class="text-lightdark">Oops..!</h2>
+        <p class="">Bad Request.The server cannot or will not process the request due to an apparent client error.</p>
+        @*@if (Model.Username == "9870002011" || Model.Username == "9820348870" || Model.Username == "9819540279" || Model.Username == "8076608526" || Model.Username == "9892104311" || Model.Username == "9892727705" || Model.Username == "8971799230" || Model.Username == "7318248634" || Model.Username == "9837007165" || Model.Username == "9619916613" || Model.Username == "9324024888" || Model.Username == "8169933685")
+        {
+            <a class="btn btn-quaternary" href="/user/index">Back To Home</a>
+        }
+        else
+        {
+            <a class="btn btn-quaternary" href="/volunteer/index">Back To Home</a>
+
+        }*@
+        <div class="copy-right">
+            <p>&#169 All rights Reserved | Designed by <a href="https://www.hemudaan.com/">HEM Udaan</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,330 @@
+﻿.section-default-lightgrey {
+    background-color: #efefef;
+}
+
+.smash-icon img {
+    height: 80px;
+    width: 80px;
+}
+
+.img-section {
+    height: 100px !important;
+}
+/* Style the tab content */
+.boxcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+.img-fix {
+    width: 70px !important;
+    height: 70px !important;
+}
+
+html .rounded-btn:hover {
+    cursor: pointer !important;
+}
+
+#VideoFormat .text-md {
+    font-size: 1.7rem !important;
+    height: 70px;
+}
+
+#VideoFormat ul {
+    font-size: 15px !important;
+}
+
+#VideoFormat .uneditable-input {
+    width: 225px;
+}
+
+#VideoFormat .bg-light-grey {
+    background-color: #f2f2f2 !important;
+}
+
+#VideoFormat .input-append {
+    margin-bottom: 14px;
+}
+
+#VideoFormat .alert.alert-default {
+    background: none !important;
+    border: none !important;
+    color: #737373;
+}
+
+#imageFormat .text-md {
+    font-size: 1.7rem !important;
+    height: 70px;
+}
+
+#imageFormat ul {
+    font-size: 15px !important;
+}
+
+#imageFormat .uneditable-input {
+    width: 225px;
+}
+
+#imageFormat .bg-light-grey {
+    background-color: #f2f2f2 !important;
+}
+
+#imageFormat .input-append {
+    margin-bottom: 14px;
+}
+
+#imageFormat .alert.alert-default {
+    background: none !important;
+    border: none !important;
+    color: #737373;
+}
+
+/*#subpoints .list.list-icons li{
+        padding-left:0 !important;
+    }*/
+
+#tasks p {
+    font-size: 16px !important;
+}
+
+@media(max-width:1024px) {
+    #VideoFormat .text-md {
+        font-size: 1.7rem !important;
+        height: 95px;
+    }
+
+    #imageFormat .text-md {
+        font-size: 1.7rem !important;
+        height: 95px;
+    }
+}
+
+@media(max-width:800px) {
+    section.section {
+        padding: 20px 0 !important;
+        margin-bottom: 20px !important;
+    }
+
+    section h4 {
+        font-size: 1.2em;
+    }
+
+    section .lead {
+        margin-bottom: 0 !important;
+        font-size: 15px !important;
+    }
+
+    #tasks h3 {
+        font-size: 1.3em !important;
+        margin-bottom: 20px;
+    }
+
+    #tasks h4 {
+        font-size: 1.1em !important;
+        margin: 0 !important;
+    }
+
+    #tasks .img-fix {
+        margin-top: 10px !important;
+    }
+
+    #tasks .p-sm {
+        padding: 5px !important;
+    }
+
+    #tasks p {
+        color: #555;
+        line-height: 20px;
+    }
+
+    #VideoFormat .text-md {
+        height: 75px;
+        font-size: 1.3rem !important;
+        line-height: 1.4;
+    }
+
+    #imageFormat .text-md {
+        font-size: 1.5rem !important;
+        line-height: 1.4;
+    }
+
+    #VideoFormat p {
+        margin-bottom: 0 !important;
+    }
+
+    #imageFormat p {
+        margin-bottom: 0 !important;
+    }
+
+    #VideoFormat ul {
+        font-size: 14px !important;
+    }
+
+    #imageFormat ul {
+        font-size: 14px !important;
+    }
+
+    .divider.divider-small {
+        margin: 15px auto !important;
+    }
+
+    li {
+        line-height: 21px;
+    }
+
+    .img-section {
+        height: 80px !important;
+    }
+
+    .smash-icon img {
+        height: 60px;
+        width: 60px;
+    }
+
+    #VideoFormat .uneditable-input {
+        width: 150px;
+    }
+
+    #imageFormat .uneditable-input {
+        width: 150px;
+    }
+
+    .form-horizontal .control-label {
+        text-align: left !important;
+    }
+}
+
+@media(max-width:479px) {
+    .smash-button {
+        letter-spacing: 0 !important;
+    }
+}
+
+@media(max-width:425px) {
+    .img-section {
+        height: 71px !important;
+        margin-top: 15px;
+    }
+
+    #divForm .p-xlg {
+        padding: 0 30px 30px 30px !important;
+    }
+
+    .smash-icon.pb-md {
+        padding-bottom: 10px !important;
+    }
+
+    #VideoFormat .text-md {
+        height: 95px;
+        font-size: 1.3rem !important;
+        line-height: 1.4;
+    }
+
+    #imageFormat .text-md {
+        height: 95px;
+        font-size: 1.3rem !important;
+        line-height: 1.4;
+    }
+
+    #tasks .p-lg {
+        padding: 10px 20px !important;
+    }
+
+    #tasks .form-bordered .form-group {
+        border-bottom: 1px solid #eff2f7;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media(max-width:375px) {
+    section .lead {
+        margin-bottom: 0 !important;
+        font-size: 14px !important;
+    }
+
+    .line-height-lg {
+        line-height: 24px !important;
+    }
+
+    .smash-icon img {
+        height: 50px;
+        width: 50px;
+    }
+
+    #VideoFormat .text-md {
+        height: 110px;
+        font-size: 1.3rem !important;
+        line-height: 1.4;
+    }
+
+    #imageFormat .text-md {
+        height: 110px;
+        font-size: 1.3rem !important;
+        line-height: 1.4;
+    }
+
+    #tasks .p-lg {
+        padding: 10px !important;
+    }
+
+    #tasks .pr-xlg {
+        padding-right: 20px !important;
+    }
+
+    #tasks .pl-xlg {
+        padding-left: 20px !important;
+    }
+
+    #tasks .p-xlg {
+        padding: 15px !important;
+    }
+
+    #tasks .form-bordered .form-group {
+        border-bottom: 1px solid #eff2f7;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media(max-width:320px) {
+    section .lead {
+        margin-bottom: 0 !important;
+        font-size: 13px !important;
+    }
+
+    .line-height-lg {
+        line-height: 22px !important;
+    }
+
+    .img-section {
+        height: 60px !important;
+        margin-top: 15px;
+    }
+
+    #VideoFormat .uneditable-input {
+        width: 110px;
+    }
+
+    #imageFormat .uneditable-input {
+        width: 110px;
+    }
+
+    #VideoFormat .text-md {
+        height: 130px;
+        font-size: 1.3rem !important;
+        line-height: 1.4;
+    }
+
+    #imageFormat .text-md {
+        height: 130px;
+        font-size: 1.3rem !important;
+        line-height: 1.4;
+    }
+
+    #tasks .pb-xlg {
+        padding-bottom: 15px !important;
+    }
+}

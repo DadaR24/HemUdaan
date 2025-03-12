@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "SweetAlert";
+}
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</head>
+<body>
+    @if (TempData["UseSweetAlert1"] != null && (bool)TempData["UseSweetAlert1"])
+    {
+        <script>
+            Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+                window.location.href = '@Url.Action("Index","Home")';
+            });
+        </script>
+    }
+    @if (TempData["UseSweetAlert2"] != null && (bool)TempData["UseSweetAlert2"])
+    {
+        <script>
+            Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+                window.location.href = '@Url.Action("Survey","Course")';
+            });
+        </script>
+    }
+    @if (TempData["UseSweetAlert3"] != null && (bool)TempData["UseSweetAlert3"])
+    {
+        <script>
+            Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+                window.location.href = '@Url.Action("Index","User")';
+            });
+        </script>
+    }
+    @if (TempData["UseSweetAlert4"] != null && (bool)TempData["UseSweetAlert4"])
+    {
+        <script>
+     Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+                window.location.href = '@Url.Action("Index","User")';
+            });
+        </script>
+    }
+
+    @if (TempData["UseSweetAlert5"] != null && (bool)TempData["UseSweetAlert5"])
+    {
+        <script>
+     Swal.fire({
+            title: '@TempData["SweetAlertTitle"]',
+            text: '@TempData["SweetAlertMessage"]',
+            icon: '@TempData["SweetAlertType"]',
+            confirmButtonText: 'OK'
+        }).then(function () {
+                window.location.href = '@Url.Action("Index","User")';
+            });
+        </script>
+    }
+
+
+</body>

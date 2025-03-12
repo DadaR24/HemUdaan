@@ -1,0 +1,17 @@
+﻿/*body{
+    font-family:cursive !important;
+}*/
+
+
+html .featured-bordered{
+    border: 2px solid #1BB8A3;
+    border-radius:18px;
+    /*background-color:#fff;*/ 
+}
+
+#wallet-tab .nav>li {position: relative;display: block;}
+#wallet-tab .nav .nav-tabs  {border-bottom: 1px solid #ddd;}
+#wallet-tab .nav .nav-tabs>li {float: left;margin-bottom: -1px;}
+#wallet-tab .nav .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover {color: #555;cursor: default;background-color: #fff;border: 1px solid #ddd;border-bottom-color: transparent;}
+
+

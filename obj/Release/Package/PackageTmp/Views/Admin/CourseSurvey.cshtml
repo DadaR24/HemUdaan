@@ -1,0 +1,580 @@
+﻿@model HEMUdaan.Models.SyllabusModel
+
+@{
+    ViewBag.Title = "CourseSurvey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CourseSurvey</h2>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<link href="~/Content/maxbootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/alertify.bootstrap.css" rel="stylesheet" />
+<link href="~/Content/alertify.core.css" rel="stylesheet" />
+<link href="~/Content/alertify.default.css" rel="stylesheet" />
+
+<!-- Load jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Load Bootstrap's JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- Load DataTables -->
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+<!-- Load other scripts -->
+<script src="~/Content/js/sweetalert-dev.js"></script>
+<script src="~/Content/js/alertify.js"></script>
+<script src="~/Content/js/maxbootstrap.min.js"></script>
+
+
+<div class="row">
+    <div id="divSuccess" class='@(string.IsNullOrEmpty(Convert.ToString(TempData["Success"])) ? "hidden" : "")'>
+        <div class='alert alert-success '>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <div id="spanSuccess" class="text-left ">@Html.Raw(Convert.ToString(TempData["Success"]))</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div id="divError" class='@(string.IsNullOrEmpty(Convert.ToString(TempData["Error"])) ? "hidden" : "")'>
+        <div class='alert alert-danger'>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <div id="spanError" class="text-left ">@Html.Raw(Convert.ToString(TempData["Error"]))</div>
+        </div>
+    </div>
+</div>
+<div class="panel-heading  p-none">
+    <h4 class="panel-title align-center">
+        Add Survey
+    </h4>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+            <label for="disabledTextInput" id="lblMCQID" class="col-sm-2 control-label disabled hidden">@ViewBag.MCQID</label>
+        </div>
+
+        <div class="form-group">
+            <label for="disabledSelect" class="col-sm-2 control-label"> Course Name</label>
+            <div class="col-md-12 mb-sm">
+                <select class="form-control" onChange="GetTopicBy_CourseID(this.options[this.selectedIndex].value)" id="CourseID" name="CourseID">
+                    <option value="0" selected="selected">Please select the course</option>
+                    @if (Model.course.Count != 0)
+                    {
+                        foreach (var data in Model.course)
+                        {
+                            if (Model.CourseID == data.Value.Length)
+                            {
+                                <option value="@data.Value" selected="selected">@data.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@data.Value">@data.Text</option>
+                            }
+                        }
+                    }
+                </select>
+
+            </div>
+        </div>
+
+        <div class="form-group" id="Topic">
+            <label for="disabledSelect" class="col-sm-2 control-label">Topic Name</label>
+            <div class="col-md-12 mb-sm">
+                <select class="form-control" id="TopicID" name="TopicID" onchange="GetSubTopicBy_TopicID(this.value)">
+                    <option value="0" selected>Please select the topic</option>
+                    <!-- Add more options here if needed -->
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group" id="Subtopic">
+            <label for="disabledSelect" class="col-sm-2 control-label">Sub-Topic Name</label>
+            <div class="col-md-12 mb-sm disabled">
+                <select class="form-control" id="ParentTopicID" name="ParentTopicID">
+                    <option value="0" selected>Please select the sub topic</option>
+                </select>
+            </div>
+        </div>
+
+        <input hidden="hidden" id="Ques" value="@ViewBag.Ques" />
+
+        <div class="form-group col-md-6">
+            <label class="control-label" for="inputDefault">Enter Question:</label>
+            <div class="">
+                <input type="text" id="WG_Question" name="WG_Question" class="form-control" required="required" placeholder="Enter Question" LanguageID="@Model.LanguageID" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="form-group col-md-6">
+            <label class="control-label" for="inputDefault">Enter Option1:</label>
+            <div class="">
+                <input type="text" id="WG_Answer1" name="WG_Answer1" class="form-control" required="required" placeholder="Enter Question" />
+            </div>
+        </div>
+
+
+        <div class="form-group col-md-6">
+            <label class="control-label" for="inputDefault">Enter Option2:</label>
+            <div class="">
+                <input type="text" id="WG_Answer2" name="WG_Answer2" class="form-control" required="required" placeholder="Enter Question" />
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label class="control-label" for="inputDefault">Enter Option3:</label>
+            <div class="">
+                <input type="text" id="WG_Answer3" name="WG_Answer3" class="form-control" required="required" placeholder="Enter Question" />
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label class="control-label" for="inputDefault">Enter Option4:</label>
+            <div class="">
+                <input type="text" id="WG_Answer4" name="WG_Answer4" class="form-control" required="required" placeholder="Enter Question" />
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label class="control-label" for="inputDefault">Enter Option5:</label>
+            <div class="">
+                <input type="text" id="WG_Answer5" name="WG_Answer5" class="form-control" required="required" placeholder="Enter Question" />
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="mt-md normaleditor" style="text-align:center">
+            <button type="button" class="btn btn-primary btn-lg" id="SubmitGetRerpot">Add</button>
+            <input type="button" onclick="ResetQuestionForm()" value="Cancel" class="btn btn-default" />
+        </div>
+
+
+    </div>
+</div>
+
+<br />
+<br />
+<div class="panel-heading  p-none align-centre">
+    <h4 class="panel-title align-center">
+        Survey Lists
+    </h4>
+</div>
+<br />
+
+<div>
+    <table class="table table-striped table-bordered table-hover" id="tblWordGameDetails">
+        <thead>
+            <tr style="align-items:center">
+
+                <th>ID</th>
+                <th>CourseID</th>
+                <th>CourseName</th>
+
+                <th>TopicID</th>
+                <th>TopicName</th>
+                <th>SubTopicID</th>
+                <th>Question</th>
+                <th>Option1</th>
+                <th>Option2</th>
+                <th>Option3</th>
+                <th>Option4</th>
+                <th>Option5</th>
+
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var item in ViewBag.SurveyListData)
+                {
+                    <tr style="height:5px;">
+                        <td><span>@item.ID</span></td>
+                        <td><span>@item.CourseID</span></td>
+                        <td><span>@item.CourseName</span></td>
+
+                        <td><span>@item.TopicID</span></td>
+                        <td><span>@item.TopicName</span></td>
+                        <td><span>@item.SubTopicID</span></td>
+                        <td><span>@item.Question</span></td>
+                        <td><span>@item.Option1</span></td>
+                        <td><span>@item.Option2</span></td>
+                        <td><span>@item.Option3</span></td>
+                        <td><span>@item.Option4</span></td>
+                        <td><span>@item.Option5</span></td>
+
+
+
+                        <td align="center">
+                            <button type="button" onclick="Edit(@item.ID)" class="btn btn-primary" data-toggle="modal">EDIT</button>
+                            <button type="button" onclick="Delete(@item.ID)" class="btn btn-danger" data-toggle="modal">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Survey</h4>
+            </div>
+            <div class="modal-body">
+                <!-- Add the form fields for editing the survey details -->
+                <div class="form-group">
+                    <label for="editCourseID">Course ID</label>
+                    <input type="text" class="form-control" id="editCourseID" name="editCourseID" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="editTopicID">Topic ID</label>
+                    <input type="text" class="form-control" id="editTopicID" name="editTopicID" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="editTopicName">Topic Name</label>
+                    <input type="text" class="form-control" id="editTopicName" name="editTopicName" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="editQuestion">Question</label>
+                    <input type="text" class="form-control" id="editQuestion" name="editQuestion">
+                </div>
+                <div class="form-group">
+                    <label for="editOption1">Option 1</label>
+                    <input type="text" class="form-control" id="editOption1" name="editOption1">
+                </div>
+                <div class="form-group">
+                    <label for="editOption2">Option 2</label>
+                    <input type="text" class="form-control" id="editOption2" name="editOption2">
+                </div>
+                <div class="form-group">
+                    <label for="editOption3">Option 3</label>
+                    <input type="text" class="form-control" id="editOption3" name="editOption3">
+                </div>
+                <div class="form-group">
+                    <label for="editOption4">Option 4</label>
+                    <input type="text" class="form-control" id="editOption4" name="editOption4">
+                </div>
+                <div class="form-group">
+                    <label for="editOption5">Option 5</label>
+                    <input type="text" class="form-control" id="editOption5" name="editOption5">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveSurvey()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        // Retrieve the values of TopicName and SubTopicName from the query string
+        var urlParams = new URLSearchParams(window.location.search);
+        var topicName = urlParams.get('topicName');
+        var subTopicName = urlParams.get('subTopicName');
+
+        // Set the values of TopicName and SubTopicName fields
+        $("#TopicName").val(topicName);
+        $("#SubTopicName").val(subTopicName);
+    });
+
+    var ReportTypes = "";
+    function GetTopicBy_CourseID(GetCourseID) {
+
+        if (GetCourseID != null && GetCourseID != "") {
+            $("#TopicID").empty();
+
+            var temp = "<option value='0'>Select Topic</option>";
+
+            $.ajax({
+                type: "Get",
+                url: '/Admin/GetTopicListSurvey',
+                dataType: 'json',
+                data: { CourseID: GetCourseID },
+                accept: 'application/json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+                    if (response.length != 0) {
+                        var TopicData = response;
+                        for (i = 0; i < TopicData.length; i++) {
+                            var item = TopicData[i];
+                            temp += "<option value='" + item.Value + "'>" + item.Text + "</option>";
+                        }
+                        $("#TopicID").append(temp);
+                    }
+                    else {
+                        alert("No data available Further");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message); isCompleted = true;
+                }
+            });
+        }
+    }
+    function GetSubTopicBy_TopicID(GetTopicID) {
+
+        if (GetTopicID != null && GetTopicID != "") {
+            $("#ParentTopicID").empty();
+
+            var temp = "<option value='0'>Select SubTopic</option>";
+
+            $.ajax({
+                type: "Get",
+                url: '/Admin/GetSubTopicList',
+                dataType: 'json',
+                data: { TopicID: GetTopicID },
+                accept: 'application/json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+
+                    if (response.length != 0) {
+                        var SubTopicData = response;
+                        for (i = 0; i < SubTopicData.length; i++) {
+                            var item = SubTopicData[i];
+                            temp += "<option value='" + item.Value + "'>" + item.Text + "</option>";
+                        }
+                        $("#ParentTopicID").append(temp);
+                    }
+                    else {
+                        alert("No data available Further");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message); isCompleted = true;
+                }
+            });
+        }
+
+    }
+    $("#SubmitGetRerpot").click(function ()
+    {
+        debugger;
+        $('#btnExportToExcel').prop('disabled', false);
+            var CourseIDVal = $("#CourseID option:selected").val();
+            var TopicIDVal = $("#TopicID option:selected").val();
+            var SubTopicIDVal = $("#ParentTopicID option:selected").val();
+            var ReportTypes = $("#ReportTypes").val();
+           var listofQuizData = {};
+        var QuestionVal = $("#WG_Question").val();
+        var Option1Val = $("#WG_Answer1").val();
+        var Option2Val = $("#WG_Answer2").val();
+        var Option3Val = $("#WG_Answer3").val();
+        var Option4Val = $("#WG_Answer4").val();
+        var Option5Val = $("#WG_Answer5").val();
+
+
+             try {
+                  $.ajax({
+                type: "POST",
+                      url: '@Url.Action("SurveyData", "Admin")',
+                      data: JSON.stringify({ SubTopicID: SubTopicIDVal, CourseID: CourseIDVal, TopicID: TopicIDVal, RT: ReportTypes, Question: QuestionVal, Option1: Option1Val, Option2: Option2Val, Option3: Option3Val, Option4: Option4Val, Option5: Option5Val }),
+                         contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                      success: function (Rdata) {
+                          debugger;
+                          if (Rdata.length != 0)
+                          {
+
+                            if (Rdata[0] == "1")
+                            {
+
+                                if (Rdata[0] == "OK") {
+                                    //swal("Note:", "Your Question for Survey Added Successfull");
+                                    setTimeout(function () {
+                                        location.reload();
+                                }, 1000);
+
+
+                            }
+                                else {
+                                    swal("Note:", "Your Question for Survey Added Successfull");
+
+                                    setTimeout(function () {
+                                        location.reload();
+                                    }, 2000);
+                                }
+
+
+                            }
+
+                        }
+                    },
+                error: function (err) {
+
+                    }
+
+                });
+             }
+            catch (e)
+            {
+                alert("You messed something up!" + e);
+            }
+    });
+
+    $.ajax({
+        url: '/Exam/Survey',
+        type: 'GET',
+        data: {
+            CourseID: courseID,         // Provide appropriate values for the parameters
+            TopicID: topicID,
+            SubTopicID: subTopicID,
+            Question: question,
+            Option1: option1,
+            Option2: option2,
+            Option3: option3,
+            Option4: option4,
+            Option5: option5
+        },
+        success: function (data) {
+            // Handle the returned data
+            if (data[0] === '1') {
+                // Record saved successfully
+                console.log(data[1]);
+            } else if (data[0] === '2') {
+                // Error occurred while saving the record
+                console.log("Error: Record not saved");
+            }
+        },
+        error: function (error) {
+            // Handle any errors
+            console.log(error);
+        }
+    });
+
+    function Delete(id) {
+        debugger;
+
+
+        $.ajax({
+            url: '/Admin/DeleteSurvey',
+            type: "POST",
+            data: { ID: id },
+            success: function (response) {
+                debugger;
+                if (response[0] == "1") {
+                    //swal("Congrats!", response[1], "success");
+                    //swal("Congrats ", "success");
+                    //swal("Note:", " Survey deleted Successfully");
+
+                    setTimeout(function () {
+                        window.location = 'Admin/CourseSurvey';
+                    }, 2000);
+                }
+                else {
+                    //swal("Congrats!", response[1], "success");
+                    //swal("Congrats ", "success");
+                    swal("Note:", "Course Survey deleted Successfully");
+
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
+            },
+            error:
+                function (response) {
+                    alert("Error: " + response);
+                }
+        });
+
+    }
+
+    function Edit(id) {
+        debugger;
+        $.ajax({
+            url: '/Admin/EditSurvey',
+            type: 'POST',
+            data: { ID: id },
+            success: function (response) {
+                if (response.success) {
+                    var surveyData = response.data; // Assuming the server returns the survey data
+
+                    // Set the values of the form fields
+                    $("#editCourseID").val(surveyData.CourseID);
+                    $("#editTopicID").val(surveyData.TopicID);
+                    $("#editTopicName").val(surveyData.TopicName);
+                    $("#editQuestion").val(surveyData.Question);
+                    $("#editOption1").val(surveyData.Option1);
+                    $("#editOption2").val(surveyData.Option2);
+                    $("#editOption3").val(surveyData.Option3);
+                    $("#editOption4").val(surveyData.Option4);
+                    $("#editOption5").val(surveyData.Option5);
+
+                    // Open the modal form for editing the survey
+                    $('#myModal').modal('show');
+                } else {
+                    // Handle the error case
+                    alert("Failed to retrieve survey data.");
+                }
+            },
+            error: function (response) {
+                alert("Error: " + response);
+            }
+        });
+    }
+
+
+    function saveSurvey() {
+        debugger;
+        //var id = $("#editID").val();
+        var courseID = $("#editCourseID").val();
+        var topicID = $("#editTopicID").val();
+        var subtopicID = $("#editSubTopicID").val();
+        var question = $("#editQuestion").val();
+        var option1 = $("#editOption1").val();
+        var option2 = $("#editOption2").val();
+        var option3 = $("#editOption3").val();
+        var option4 = $("#editOption4").val();
+        var option5 = $("#editOption5").val();
+
+        // Send the updated survey data to the server
+        $.ajax({
+            url: '/Admin/UpdateSurvey',
+            type: 'POST',
+            data: {  CourseID: courseID, TopicID: topicID, Question: question, Option1: option1, Option2: option2, Option3: option3, Option4: option4, Option5: option5 },
+            success: function (response) {
+                if (response.success)
+                {
+                    $('#myModal').modal('hide');
+
+                    // Survey updated successfully
+                    swal("Survey updated successfully.");
+                    // Reload the survey list
+                    loadSurveyList();
+                    //$('#myModal').modal('hide');
+
+                    setTimeout(function () {
+                        window.location.href = 'Admin/CourseSurvey';
+                        // Close the modal form
+                    }, 2000);
+                } else {
+                    // Handle the error case
+                    alert("Failed to update survey.");
+                }
+            },
+            error: function (response) {
+                alert("Error: " + response);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        debugger;
+        // Bind change event to TopicID select element
+        $('#TopicID').change(function () {
+            // Call GetSubTopicBy_TopicID function with the selected value
+            GetSubTopicBy_TopicID($(this).val());
+        });
+    });
+
+
+</script>

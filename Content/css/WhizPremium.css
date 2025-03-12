@@ -1,0 +1,902 @@
+﻿input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.body{
+    background:none;
+    transition: background-color .5s;
+}
+
+html.dark body {
+    background-color: #0a0c08 !important;
+}
+
+header{
+    border-bottom:none;
+}
+
+#about .box-shadow{
+    background-color: #0a0c08 !important;
+    border: none;
+    padding: 10px 20px 20px;
+    box-shadow: -1px 1px 6px 2px #585858;
+}
+
+#about .text-md {
+    font-size: 2.0rem !important;
+}
+
+#faq .bttn-dark {
+    width: 100px;
+    margin-right:15px;
+}
+
+#faq .toggle-primary .toggle.active > label {
+    background-color: #c4b060;
+    border-color: #6d5b12;
+    color: #FFF;
+    text-align: left !important;
+    font-size: 1.4em;
+}
+
+#faq .toggle-primary .toggle label {
+    font-size: 1.2em;
+    color: #c4b060;
+    border-left-color: #6d5b12;
+    border-right-color: #6d5b12;
+    text-align: left !important;
+}
+
+#faq .toggle > .toggle-content > p {
+    color: #fff;
+    background-color: #0a0c08 !important;
+    border: none;
+    padding: 10px 20px 20px;
+    box-shadow: 0 2px 1px #3e3e3e;
+    margin-bottom: 0;
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+#faq .list.list-side-borders {
+    text-align: left;
+    border-left: 1px solid #DBDBDB;
+    padding-left: 10px;
+    color: #fff;
+    font-size:1.2em;
+}
+
+#faq .list-primary.list-icons li .fa, #faq .list-primary.list-icons li .icons {
+    color: #c4b060;
+    border-color: #6d5b12;
+}
+
+#whizpremium-banner{
+    padding:20px 0 !important;
+    border-top:none !important;
+    background:none;
+    /*background-color:#0a0c08 !important;*/
+    /*background-image:url(/Content/img/WhizPremium/banner-bg.png) !important;
+    background-size:cover;*/
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: white;
+}
+#moving_bg {
+  background: url(/Content/img/WhizPremium/bg-dark.jpg) 0 0;
+  -webkit-animation: backgroundmove 40s linear 0s infinite normal;
+  -moz-animation: backgroundmove 40s linear 0s infinite normal;
+  -ms-animation: backgroundmove 40s linear 0s infinite normal;
+  -o-animation: backgroundmove 40s linear 0s infinite normal;
+  animation: backgroundmove 40s linear 0s infinite normal;
+}
+@-webkit-keyframes backgroundmove {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: -1024px -1024px;
+  }
+}
+@-moz-keyframes backgroundmove {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: -1024px -1024px;
+  }
+}
+
+@keyframes backgroundmove {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: -1024px -1024px;
+  }
+}
+
+#whizpremium-banner h1 {
+    font-size: 9.5em !important;
+    background: -webkit-linear-gradient(#ffffff, #d6bb42);
+    padding: 30px 0 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 !important;
+    line-height: 125px;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.back-button{
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+
+.girl-position {
+    position: absolute;
+    top: 143px;
+    right: 20px;
+    z-index:9;
+}
+
+.bg-gradient{
+    background: #232526 !important;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #414345, #232526) !important;  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #414345, #232526) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+#whizpremium-banner h1 small{
+    font-size: 55%;
+    color:#fff;
+}
+
+html.dark section.section {
+    background: none;
+    border-top: none;
+}
+
+#whizpremium .box-shadow {
+    border: 1px solid #efefef;
+    padding: 10px;
+    box-shadow: 2px 2px 7px #efefef;
+    margin-bottom:10px;
+    background-color:#0a0c08 !important;
+}
+
+#dark-circle .home-concept .process-image{
+    padding-bottom: 90px !important; 
+}
+
+.inverted-golden{
+    background-color:#c4b060 !important;
+    padding: 5px 10px;
+    line-height:2.2;
+}
+
+.home-concept strong {
+    color: #c4b060 !important;
+}
+
+#whizpremium-courses h1, h1{
+    color: #c4b060 !important;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom:0 !important;
+}
+
+#whizpremium-courses .divider.divider-small hr {
+    width: 50px;
+    height: 3px;
+    background: #c4b060;
+}
+
+.box-golden{
+    padding:10px;
+    /*margin: 30px auto;*/
+
+    /*width: 300px;
+    height: 300px;*/
+    border-left: 1px solid #c4b060;
+    border-right: 1px solid #c0a124;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-position: 0 0, 0 100%;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 1px;
+    -moz-background-size: 100% 1px;
+    background-size: 100% 1px;
+    background-image: -webkit-linear-gradient(left, #c4b060 0%, #c0a124 100%), -webkit-linear-gradient(left, #c4b060 0%, #c0a124 100%);
+    background-image: -moz-linear-gradient(left, #c4b060 0%, #c0a124 100%), -moz-linear-gradient(left, #c4b060 0%, #c0a124 100%);
+    background-image: -o-linear-gradient(left, #c4b060 0%, #c0a124 100%), -o-linear-gradient(left, #c4b060 0%, #c0a124 100%);
+    background-image: linear-gradient(to right, #c4b060 0%, #c0a124 100%), linear-gradient(to right, #c4b060 0%, #c0a124 100%);
+}
+
+.box-shadow-golden {
+    background-color:#0a0c08 !important;
+    border: none;
+    padding: 10px 20px 20px;
+    box-shadow: -1px 1px 6px 2px #585858;
+}
+
+.box-shadow-golden h4{
+    text-transform:uppercase;
+}
+
+.box-shadow-golden p{
+    margin-bottom: 10px !important;
+    color: #c4b060 !important;
+    text-align: center;
+    line-height: 1.5;
+}
+
+#whizpremium-courses h3 {
+    font-weight:600;
+    text-align:center;
+    font-size: 1.4em;
+    margin-bottom:5px;
+}
+
+#whizpremium-courses .course-img{
+    /*width:180px;*/
+    margin-bottom:20px;
+}
+
+.home-concept strong{
+    font-size:1.8em !important;
+}
+
+#benefits h4{
+    font-size:1.3em;
+    text-transform:uppercase !important;
+    margin-bottom:0;
+}
+#benefits {
+    padding:30px 0;
+}
+
+#benefits .box {
+    background-color: #0a0c08;
+    margin: 10px 0;
+    border: 2px solid #4a4a4a;
+    padding: 10px 0;
+}
+
+.icons-benefits{
+    height:80px !important;
+    margin-bottom:20px;
+}
+
+/*bttn dark start*/
+
+
+.bttn-dark {
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #c4b060;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    color: #c4b060 !important;
+    cursor:pointer !important;
+}
+
+.bttn-dark:hover, .bttn-dark:active {
+    
+    color:#fff !important;
+    text-decoration:none;
+}
+
+
+.bttn-dark:before {
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: #c4b060;
+    z-index: -1;
+    }
+
+.bttn-dark:hover:before {
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    color:#000 !important;
+}
+
+.bttn-dark:focus:before {
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+/*bttn dark end*/
+
+/*Side Form Start*/
+.sideform {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sideform a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sideform a:hover {
+    color: #f1f1f1;
+}
+
+.sideform .closebtn {
+    position: relative;
+    left: 190px;
+    top: 0;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+#mySidenav h4{
+    text-transform: uppercase;
+    color: #d6bb42 !important;
+    text-align: center;
+    font-weight: 600 !important;
+    font-size: 1.8em;
+}
+
+#Counselingform form {
+    padding:15px; 
+}
+
+#Counselingform .form-horizontal .control-label{
+    text-align:left !important;
+}
+
+#Counselingform .bttn-dark {
+    font-size: 15px !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center !important;
+    padding: 10px !important;
+    border: 2px solid #c4b060;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    color: #c4b060 !important;
+    cursor: pointer !important;
+}
+
+#Counselingform .form-control{
+    color:#d6bb42 !important;
+}
+
+#Counselingform  .bttn-dark:hover, .bttn-dark:active {
+    
+    color:#fff !important;
+    text-decoration:none;
+}
+
+
+#Counselingform  .bttn-dark:before {
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: #c4b060;
+    z-index: -1;
+    }
+
+#Counselingform  .bttn-dark:hover:before {
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    color:#000 !important;
+}
+
+#Counselingform  .bttn-dark:focus:before {
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.btn-premium{
+    background-color: transparent;
+    border-color: #c4b060 #c4b060 #c4b060;
+    color: #c4b060;
+}
+
+.btn-premium:hover{
+    color: #c4b060 !important;
+    text-decoration: none;
+}
+
+.btn-premium:active{
+        background-color: transparent;
+    border-color: #c4b060 #c4b060 #c4b060;
+    color: #c4b060;
+}
+
+.btn-premium:focus{
+    outline: unset!important;
+}
+
+.featured-box-primary .box-content {
+    border-top-color: #c4b060!important;
+}
+
+.input-group .form-control{
+    color: #d6bb42 !important;
+}
+
+
+#mySidenav h5 {
+    text-transform: uppercase;
+    color: #d6bb42 !important;
+    text-align: center;
+    font-weight: 600 !important;
+    font-size: 1.3em;
+}
+
+
+.shop .cart-totals th, .shop .cart-totals td {
+    padding: 8px 7px!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Side Form End*/
+
+/*Media Queries*/
+@media only screen and (max-width: 1024px) {
+
+.girl-position {
+    position: absolute;
+    top: 68px;
+    right: 20px;
+}
+
+#whizpremium-banner h1 {
+    font-size: 6.5em !important;
+    background: -webkit-linear-gradient(#ffffff, #d6bb42);
+    padding: 30px 0 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 !important;
+    line-height: 85px;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+}
+
+@media only screen and (max-width: 768px) {
+.girl-position {
+    position: absolute;
+    top: 65px;
+    right: 0;
+}
+
+#whizpremium-banner h1 {
+    font-size: 6.5em !important;
+    background: -webkit-linear-gradient(#ffffff, #d6bb42);
+    padding: 30px 0 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 !important;
+    line-height: 83px;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+}
+
+@media only screen and (max-width: 425px) {
+    h1 {
+    font-size: 2em;
+    line-height: 34px;
+    margin: 0 0 32px 0;
+}
+
+#whizpremium-banner {
+    margin-bottom: 0;
+    padding: 20px 0 0 !important;
+    border-top: none !important;
+    background-color: #0a0c08 !important;
+    background-image: url(/Content/img/WhizPremium/banner-bg.png) !important;
+    background-size: cover;
+}
+
+#whizpremium-banner h1 {
+    font-size: 5.5em !important;
+    background: -webkit-linear-gradient(#ffffff, #d6bb42);
+    padding: 30px 0 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 !important;
+    line-height: 62px;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.girl-position {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.box-shadow-golden {
+    background-color:#0a0c08 !important;
+    margin: 10px 0;
+    border: none;
+    padding: 10px 10px 20px;
+    box-shadow: -1px 1px 6px 2px #585858;
+}
+
+#benefits h4 {
+    font-size: 1.2em;
+    text-transform: uppercase !important;
+    margin-bottom: 20px;
+    height: 60px;
+}
+}
+
+@media only screen and (max-width: 412px) {
+    h1 {
+    font-size: 2em;
+    line-height: 34px;
+    margin: 0 0 32px 0;
+}
+
+#whizpremium-banner {
+    margin-bottom: 0;
+    padding: 20px 0 0 !important;
+    border-top: none !important;
+    background-color: #0a0c08 !important;
+    background-image: url(/Content/img/WhizPremium/banner-bg.png) !important;
+    background-size: cover;
+}
+
+#whizpremium-banner h1 {
+    font-size: 5.5em !important;
+    background: -webkit-linear-gradient(#ffffff, #d6bb42);
+    padding: 30px 0 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 !important;
+    line-height: 62px;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.girl-position {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.box-shadow-golden {
+    background-color:#0a0c08 !important;
+    margin: 10px 0;
+    border: none;
+    padding: 10px 10px 20px;
+    box-shadow: -1px 1px 6px 2px #585858;
+}
+
+#benefits h4 {
+    font-size: 1.2em;
+    text-transform: uppercase !important;
+    margin-bottom: 20px;
+    height: 60px;
+}
+}
+
+@media only screen and (max-width: 384px) {
+    h1 {
+    font-size: 2em;
+    line-height: 34px;
+    margin: 0 0 32px 0;
+}
+
+#whizpremium-banner {
+    margin-bottom: 0;
+    padding: 20px 0 0 !important;
+    border-top: none !important;
+    background-color: #0a0c08 !important;
+    background-image: url(/Content/img/WhizPremium/banner-bg.png) !important;
+    background-size: cover;
+}
+
+#whizpremium-banner h1 {
+    font-size: 5.5em !important;
+    background: -webkit-linear-gradient(#ffffff, #d6bb42);
+    padding: 30px 0 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 !important;
+    line-height: 62px;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.girl-position {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.box-shadow-golden {
+    background-color:#0a0c08 !important;
+    margin: 10px 0;
+    border: none;
+    padding: 10px 10px 20px;
+    box-shadow: -1px 1px 6px 2px #585858;
+}
+
+#benefits h4 {
+    font-size: 1.2em;
+    text-transform: uppercase !important;
+    margin-bottom: 20px;
+    height: 60px;
+}
+}
+
+@media only screen and (max-width: 375px) {
+h1 {
+    font-size: 2em;
+    line-height: 34px;
+    margin: 0 0 32px 0;
+}
+
+#whizpremium-banner {
+    margin-bottom: 0;
+    padding: 20px 0 0 !important;
+    border-top: none !important;
+    background-color: #0a0c08 !important;
+    background-image: url(/Content/img/WhizPremium/banner-bg.png) !important;
+    background-size: cover;
+}
+
+#whizpremium-banner h1 {
+    font-size: 5.0em !important;
+    background: -webkit-linear-gradient(#ffffff, #d6bb42);
+    padding: 30px 0 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 !important;
+    line-height: 62px;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.girl-position {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.box-shadow-golden {
+    background-color:#0a0c08 !important;
+    margin: 10px 0;
+    border: none;
+    padding: 10px 10px 20px;
+    box-shadow: -1px 1px 6px 2px #585858;
+}
+
+#benefits h4 {
+    font-size: 1.2em;
+    text-transform: uppercase !important;
+    margin-bottom: 20px;
+    height: 60px;
+}
+}
+
+@media only screen and (max-width: 360px) {
+h1 {
+    font-size: 2em;
+    line-height: 34px;
+    margin: 0 0 32px 0;
+}
+
+#whizpremium-banner {
+    margin-bottom: 0;
+    padding: 20px 0 0 !important;
+    border-top: none !important;
+    background-color: #0a0c08 !important;
+    background-image: url(/Content/img/WhizPremium/banner-bg.png) !important;
+    background-size: cover;
+}
+
+#whizpremium-banner h1 {
+    font-size: 4.5em !important;
+    background: -webkit-linear-gradient(#ffffff, #d6bb42);
+    padding: 30px 0 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 !important;
+    line-height: 62px;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.girl-position {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.box-shadow-golden {
+    background-color:#0a0c08 !important;
+    margin: 10px 0;
+    border: none;
+    padding: 10px 10px 20px;
+    box-shadow: -1px 1px 6px 2px #585858;
+}
+
+#benefits h4 {
+    font-size: 1.2em;
+    text-transform: uppercase !important;
+    margin-bottom: 20px;
+    height: 60px;
+}
+}
+
+@media only screen and (max-width: 320px) {
+h1 {
+    font-size: 2em;
+    line-height: 34px;
+    margin: 0 0 32px 0;
+}
+
+#whizpremium-banner {
+    margin-bottom: 0;
+    padding: 20px 0 0 !important;
+    border-top: none !important;
+    background-color: #0a0c08 !important;
+    background-image: url(/Content/img/WhizPremium/banner-bg.png) !important;
+    background-size: cover;
+}
+
+#whizpremium-banner h1 {
+    font-size: 4em !important;
+    background: -webkit-linear-gradient(#ffffff, #d6bb42);
+    padding: 30px 0 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 !important;
+    line-height: 50px;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.girl-position {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.box-shadow-golden {
+    background-color:#0a0c08 !important;
+    margin: 10px 0;
+    border: none;
+    padding: 10px 10px 20px;
+    box-shadow: -1px 1px 6px 2px #585858;
+}
+
+#benefits h4 {
+    font-size: 1.2em;
+    text-transform: uppercase !important;
+    margin-bottom: 20px;
+    height: 60px;
+}
+
+}
+
+
+
+
+

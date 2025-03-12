@@ -1,0 +1,135 @@
+﻿@using HEMUdaan.Models
+@model HEMUdaan.Models.User
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #footer {
+        display: none !important;
+    }
+
+    body {
+        background-color: aliceblue; /* Light blue background color */
+    }
+
+    .btn-primary {
+        float: right;
+        margin-right: 20px;
+        margin-top: 10px;
+        background-color: aliceblue; /* Yellow color */
+        color: #ffffff;
+        border: none;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease; /* Smooth transition on hover */
+        animation: pulse 1.5s infinite alternate; /* Animation */
+    }
+
+        .btn-primary:hover {
+            background-color: #FF5733; /* Orange color on hover */
+        }
+
+    @@keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+    h2 {
+        color: #FF5733; /* Orange color for heading */
+        text-align: center;
+    }
+
+    /* Add more styles as needed for attractive design */
+
+    /* Fun images for kids */
+    .fun-images {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .fun-images img {
+            width: 321px; /* Adjust image size as needed */
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+            transition: transform 0.3s ease; /* Smooth transition on hover */
+            animation: float 3s infinite; /* Animation */
+            height: 230px;
+        }
+
+            .fun-images img:hover {
+                transform: scale(1.1); /* Enlarge image on hover */
+            }
+
+    @@keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    /* Media Queries for responsiveness */
+
+    @@media only screen and (max-width: 768px) {
+        .btn-primary {
+            float: none;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .fun-images img {
+            width: 100%; /* Make images full-width */
+            height: auto; /* Maintain aspect ratio */
+        }
+    }
+</style>
+
+<div style="overflow: hidden;">
+    <button class="btn btn-primary">
+        <a href="@Url.Action("Index", "Home")">LogOut</a>
+    </button>
+</div>
+
+<h2>Welcome to HEM Udaan!!</h2>
+
+<!-- Fun images for kids attraction -->
+<div class="fun-images">
+    <div class="top-images">
+        <img src="~/Images/kid1.jpg" alt="Fun Image 1">
+        <img src="~/Images/kid2.jpeg" alt="Fun Image 2">
+    </div>
+    <div class="bottom-images">
+        <img src="~/Images/kid3.jpeg" alt="Fun Image 3">
+        <img src="~/Images/kid4.jpeg" alt="Fun Image 4">
+    </div>
+    <!-- Add more fun images as needed -->
+</div>
+@if (!Request.Browser.IsMobileDevice)
+{
+    <button class="btn btn-primary" style="margin-right:615px;margin-top:-6px;">
+        <a href="@Url.Action("Index", "User")">Activity</a>
+    </button>
+}
+else
+{
+    <button class="btn btn-primary" style="margin-top:25px;">
+        <a href="@Url.Action("Index", "User")">Activity</a>
+    </button>
+}
+

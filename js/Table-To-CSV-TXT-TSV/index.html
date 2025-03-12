@@ -1,0 +1,1433 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>jquery.tabletocsv.js: Table To CSV/TXT/TSV Demo</title>
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css">
+<style>
+body { background-color: #fafafa; font-family: 'Roboto'; }
+.container { margin: 150px auto; }
+</style>
+</head>
+
+<body>
+  <div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/table/Table-To-CSV-TXT-TSV.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+
+  <div class="container">
+      <h1>jquery.tabletocsv.js: Table To CSV/TXT/TSV Demo</h1>
+      <div class="table-responsive" id="divTable">
+          <!-- ngIf: auditQueries.length > 0 --><table class="table responasive box table border-gray-light table-bordered table-hover text-center datatable1 ng-scope" id="tableID" ng-if="auditQueries.length > 0">
+              <!-- ngIf: auditQueries.length > 0 -->
+              <thead class="table-head-bg ng-scope" ng-if="auditQueries.length > 0">
+                  <tr>
+
+
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Bank</th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">State</th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Location</th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Warehouse Name</th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">ID</th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Month</th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Audit  Date</th>
+
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Audit Schedule Date</th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Audit Query</th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Audit Remark</th>
+
+
+
+
+
+
+
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Query Sent BY </th>
+
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Query Send Date </th>
+
+
+
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Approved BY </th>
+
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Approval Date </th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Status </th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Age </th>
+                      <th class="text-center" style="vertical-align: middle; background-clip: padding-box; position: sticky; ">Action </th>
+                  </tr>
+              </thead><!-- end ngIf: auditQueries.length > 0 -->
+              <!-- ngIf: auditQueries.length > 0 -->
+              <tbody ng-if="auditQueries.length > 0" class="ng-scope">
+                  <!-- ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          45
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Is there any spillage or damage material lying spread across the stack or floor?
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          Spillage observed
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  4:13PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          46
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Whether suitable dunnage material such as plastic sheet, pallets, wooden pellets, etc. are used as per product requirement/nature?
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          Plastic sheet
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  4:14PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          47
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Whether the appearance of the stocks is neat and free from dust/stains of oil, rust etc.?
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          gfgyf
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  4:19PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          48
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Whether the appearance of the stocks is neat and free from dust/stains of oil, rust etc.?
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          gfgyf
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  4:19PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          49
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Whether the stock is free from any infestation
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          live insects observed
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  4:25PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          50
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Is there any spillage or damage material lying spread across the stack or floor?
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          Spillage observed, Cleaning required
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  4:55PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          51
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          DC Book
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          dc BOOK NOT UPDATED
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  4:58PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          52
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Whether the stock is free from any infestation
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          Live insects observed
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  4:58PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          53
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Is there any spillage or damage material lying spread across the stack or floor?
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          Spillage observed, Cleaning required
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  5:03PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          54
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          DC Book
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          dc BOOK NOT UPDATED
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  5:03PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+                  <tr ng-repeat="list in auditQueries" class="ng-scope">
+
+                      <td class="ng-binding">
+
+                          Test Bank
+
+                      </td>
+                      <td class="ng-binding">
+
+                          BIHAR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          TestBR
+
+                      </td>
+                      <td class="ng-binding">
+
+                          testbrwh
+
+                      </td>
+                      <td class="ng-binding">
+
+                          55
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Feb 2023
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          28/12/2023
+
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Whether the stock is free from any infestation
+
+
+                      </td>
+
+
+                      <td class="ng-binding">
+
+                          Live insects observed
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Audit
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Dec 28 2023  5:03PM
+
+                      </td>
+
+                      <td class="ng-binding">
+                      </td>
+                      <td class="ng-binding">
+
+                          2023-12-30
+
+                      </td>
+                      <td class="ng-binding">
+
+                          Open
+
+                      </td>
+                      <td class="ng-binding">
+
+                          2
+
+                      </td>
+                      <td>
+                          <div class="wht-card" data-toggle="tooltip">
+                              <div class="text-body">
+                                  <div class="input-group sm-3">
+                                      <div class="input-group-prepend">
+
+                                          <!-- ngIf: list.isview --><a ng-click="ShowModel(list.id)" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-sm btn-primary center ng-scope" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a><!-- end ngIf: list.isview -->
+
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                          </div>
+                      </td>
+                      <!--<td>
+                    <div class="wht-card" data-toggle="tooltip">
+                        <div class="text-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <a ng-click="SaveData()" ng-if="list.isview" id="IsBurtgrtgtton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a ng-click="ShowModel(list.srno)" ng-if="list.isupdate" id="IsBufgftton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-edit"></i></a>-->
+                      <!--<a ng-click="DeleteRecord(list.srno)" ng-if="list.isdelete" id="IsBrtgrtutton" class="btn btn-primary center" style="display: inline-block;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>-->
+                  </tr><!-- end ngRepeat: list in auditQueries -->
+
+              </tbody><!-- end ngIf: auditQueries.length > 0 -->
+              <!-- ngIf: auditQueries.length == 0 -->
+          </table><!-- end ngIf: auditQueries.length > 0 -->
+      </div>
+      <table class="table table-bordered" id="example">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Month</th>
+                  <th>Savings</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>January</td>
+                  <td>$100</td>
+              </tr>
+              <tr>
+                  <td>February</td>
+                  <td>$80</td>
+              </tr>
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td>Sum</td>
+                  <td>$180</td>
+              </tr>
+          </tfoot>
+      </table>
+      <button class="btn btn-danger" id="export">Export</button>
+  </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="jquery.tabletocsv.js"></script>
+<script>
+$('#export').on('click',function(){
+    $('#tableID').tableToCsv();
+})
+  </script>
+</body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>

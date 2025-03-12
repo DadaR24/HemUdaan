@@ -1,0 +1,34 @@
+﻿@using HEMUdaan.Models
+@model HEMUdaan.Models.User
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<!-- Desktop View -->
+@if (!Request.Browser.IsMobileDevice)
+{
+    <div class="wsite-image text-center">
+        <a href="@Url.Action("Register", "Home")">
+            <img src="~/Images/SC_Web_SummerCamp.jpeg" alt="Summer Camps for Kids" class="img-fluid">
+        </a>
+        <!-- Optional Login Button: Add Bootstrap classes for responsiveness -->
+        <!--<div class="position-absolute top-50 start-50 translate-middle">
+            <button class="btn btn-primary"><a href="@Url.Action("Index", "Login")" class="btn btn-secondary">Login</a></button>
+        </div>-->
+    </div>
+}
+else
+{
+    <!-- Mobile View -->
+    <div class="wsite-image text-center">
+        <a href="@Url.Action("Register", "Home")">
+            <img src="~/Images/SC_Mob_SummerCamp.jpeg" alt="Summer Camps for Kids" class="img-fluid w-100">
+        </a>
+        <!-- Optional Login Button (For Mobile) -->
+        <!--<div class="position-absolute top-50 start-50 translate-middle">
+            <button class="btn btn-primary"><a href="@Url.Action("Index", "Login")" class="btn btn-secondary">Login</a></button>
+        </div>-->
+    </div>
+}

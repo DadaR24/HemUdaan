@@ -1,0 +1,234 @@
+  .panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: #fff;         /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+
+.position-group{
+    /*border:1px solid red;*/    
+}
+
+.position-group .position-default{
+    margin-bottom:10px;
+}
+
+.position-default{
+    border:1px solid #acebff!important;
+    margin-bottom:30px;   
+}
+.position-group .position-heading{
+    border:none;   
+    /*background:#0baadd;*/
+    background:#269bd4
+}
+
+.position-group .position-heading a{
+   color:#fff!important;
+   border-radius:0;
+   /*padding:15px 15px;*/
+}
+.position-group .position-heading h4{
+font-size:16px;
+
+}
+.position-group .position-heading i{
+font-size:20px;
+}
+
+.position-default>.position-heading .badge {
+    font-weight:normal;
+    color: #f5f5f5;
+    background-color: #007fa8;
+}
+.position-body .position-panel-body{
+    border-radius:0;
+    background:#e2f3fc;
+    padding:10px 0!important;
+}
+.position-panel-body p {
+    text-align:center;
+    color:#333;
+
+}
+
+
+
+/*start profile */
+
+.media {
+    /*box-shadow:0px 0px 4px -2px #000;*/
+    margin: 20px 3px;
+    border: 2px solid #dedede;
+    /*border-radius:30px;*/
+     padding:5px;
+     background:#fff;
+    
+    }
+
+.media-profile{
+    padding:3px ;
+    text-align:center ;
+  background:#858585;
+  color:#fff;
+  margin:0 auto;
+  margin-bottom:-15px;
+/*width:125px;*/
+width:80%;
+border-radius:20px;
+}
+   
+.media-left, .media>.pull-left {
+    padding:0 10px 0 5px;
+}
+
+.stud-dp img{
+    height:50px;
+    width:50px;
+    text-align:center;
+    margin:0 auto;
+}
+.stud-dp span{
+   color:#333;
+}
+    .dp
+    {
+        border:2px solid #007fa8;
+        transition: all 0.2s ease-in-out;
+    }
+    .dp:hover
+    {
+        border:2px solid #007fa8;
+        transform:rotate(360deg);
+        -ms-transform:rotate(360deg);  
+        -webkit-transform:rotate(360deg);  
+        /*-webkit-font-smoothing:antialiased;*/
+    }
+    .media-body, .media-left, .media-right {
+    display: inline;
+    vertical-align: top;
+    text-align:left;
+}
+
+    .media-body h4{
+        font-size:14px;
+        font-weight: bold;
+        line-height:none;
+        margin-bottom:0!important;
+        color:#333;
+    }
+        .media-body p {
+            color: #333;
+            text-transform: capitalize;
+             line-height:none;
+        margin-bottom:0;
+         text-align:left;
+        }
+      
+ .pos-rank{
+     color:#333;
+ }    
+
+.pos-rank .badge {
+     font-weight:normal;
+    color: #f5f5f5;
+    background-color: #007fa8;
+}
+
+.pos-coin {
+    color:#333;
+    display:inline;
+}
+
+.pos-coin img{
+   
+    width:18px;
+  
+}
+/*end profile*/
+
+
+
+.photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  border: 3px solid #007fa8;
+}
+
+.name {
+  margin-top: 20px;
+  
+  font-weight: 600;
+  font-size: 14pt;
+  color: #777;
+}
+
+.info {
+  margin-top: -5px;
+  margin-bottom: 5px;
+  color: #333;
+  font-size:13px;
+}
+
+.stats {
+  margin-top: 25px;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ededed;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.number-stat {
+  padding: 0px;
+  font-size: 14pt;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: #aaa;
+}
+
+.desc-stat {
+  margin-top: -15px;
+  font-size: 10pt;
+  color: #bbb;
+}
+
+.desc-photo{
+  text-align: center;
+  margin-top: 25px;  
+  padding-bottom: 25px;
+}
+
+.profile-stud .content{
+    margin-left:10px;
+
+}
+.title-box h3{
+    margin:0;
+
+}
+
+hr.style14 { 
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.00), #8c8b8b,rgba(255, 255, 255, 0.00));
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.00), #8c8b8b,rgba(255, 255, 255, 0.00));
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0.00), #8c8b8b,rgba(255, 255, 255, 0.00));
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0.00), #8c8b8b,rgba(255, 255, 255, 0.00)); 
+}
+
+.position-pic img{
+   height:30px;
+}
+
+.media-body small{
+    font-weight:bold;
+}
+

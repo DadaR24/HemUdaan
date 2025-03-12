@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Summary</title>
+    <!-- Include SweetAlert library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Access TempData values
+            var correctQuestions = "@TempData["CorrectQuestions"]";
+            var incorrectQuestions = "@TempData["IncorrectQuestions"]";
+            var totalPoints = "@TempData["TotalPoints"]";
+
+            // Display SweetAlert with exam summary
+            swal({
+                title: "Exam Summary",
+                text:
+                    "Correct Questions: " + correctQuestions + "\n" +
+                    "Incorrect Questions: " + incorrectQuestions + "\n" +
+                    "Total Points: " + totalPoints,
+                buttons: {
+                    dashboard: {
+                        text: "Back to Dashboard",
+                        value: "dashboard"
+                    },
+                    review: {
+                        text: "Review",
+                        value: "review"
+                    }
+                },
+            }).then((value) => {
+                if (value === "dashboard") {
+                    // Redirect to dashboard
+                    window.location.href = "/User/Index?UserID=@ViewBag.UserID";
+                } else if (value === "review") {
+                    // Redirect to review page
+                    window.location.href = "/Course/Review";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

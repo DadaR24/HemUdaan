@@ -1,0 +1,754 @@
+﻿@*@{
+        if (Session["UserID"] == null)
+        {
+            Response.Redirect("~/Account/LoginNew");
+        }
+    }*@
+
+@{
+    var user = Session["LoggedInUser"] as HEMUdaan.Models.User;
+    var adminUsernames = new HashSet<string>
+{
+        "9870002011", "9820348870", "9819540279", "8076608526",
+        "9892104311", "9892727705", "8971799230", "7318248634",
+        "9837007165", "9619916613", "9324024888", "8169933685"
+    };
+
+    bool isAdminUser = user != null && adminUsernames.Contains(user.Username);
+
+    var superadminUsernames = new HashSet<string>
+    {
+        "8108226013"
+    };
+    bool SuperadminUsernames = user != null && superadminUsernames.Contains(user.Username);
+
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Hem Udaan By Hema Foundation">
+    <title>@ViewData["Title"] HEM Udaan</title>
+    @RenderSection("head", required: false)
+
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css" rel="prefetch">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.min.css" rel="prefetch">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="prefetch">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" rel="prefetch">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" rel="prefetch">
+    <!-- Theme style -->
+    @*   <link rel="stylesheet" href="~/dist/css/adminlte.min.css?version=1"> *@
+    @* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css"> *@
+    <link rel="stylesheet" href="~/CustomJS/adminlte.min.css" rel="prefetch">
+    <script src="~/plugins/sweetalert2/sweetalert2.all.min.js" rel="prefetch"></script>
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js" rel="prefetch"></script>
+
+    <link rel="stylesheet" href="~/plugins/sweetalert2/sweetalert2.min.css" rel="prefetch">
+    <!-- Google Font: Source Sans Pro -->
+
+    <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="prefetch">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="~/plugins/toastr/toastr.min.css" rel="prefetch">
+    <link href="~/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="prefetch">
+    <link rel="stylesheet" href="~/datatable/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="~/Customcss/bootstrap-datepicker.min.css" rel="prefetch" type="text/css" />
+    <style>
+        th {
+            background-color: #20b2aa;
+            color: white;
+        }
+    </style>
+    <style>
+        /* Custom CSS to unbreak long words */
+        table {
+            width: 100%;
+        }
+
+            table th {
+                /* Prevent long words from breaking */
+                white-space: nowrap;
+                /* Reset max-width to allow full width */
+                max-width: none;
+            }
+
+            table td {
+                /* Prevent long words from breaking */
+                white-space: nowrap;
+                /* Reset max-width to allow full width */
+                max-width: none;
+            }
+    </style>
+    @*<style>
+            /* Full-page loader styles */
+            #loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+
+            .spinner {
+                width: 50px;
+                height: 50px;
+                border: 6px solid #ccc;
+                border-top: 6px solid #3498db;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+            @@keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>*@
+
+</head>
+@*
+    <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed"> *@
+
+<body class="hold-transition  layout-top-nav">
+    <div id="form1">
+        <noscript>
+            Your browser does not support JavaScript!
+        </noscript>
+        @*<div id="loader">
+                <div class="spinner"></div>
+            </div>*@
+        <div id="content" class="wrapper">
+            @*  <div class="preloader flex-column justify-content-center align-items-center" id="mydiv">
+                <img class="progress-bar-animated" src="~/img/logoloaderwithoutbg.gif" preload="auto" fetchpriority="high" loading="eager" fet> *@
+            @*  <video class="progress-bar-animated" preload="auto" autoplay loop muted playsinline>
+                    <source src="~/img/hfloader.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video> *@
+            @* </div> *@
+
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg bg-body">
+                <a class="navbar-brand p-0 me-0 me-lg-2" href="#">
+                    <img src="~/img/logowithoutbg.webp" fetchpriority="high" width="40" height="32" loading="lazy" class="brand-image img-circle mx-auto  img-fluid elevation-3">
+                </a> <span class="nav-link text-primary font-weight-bold">HEM Udaan</span>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            @if (user.UserType == "User")
+                            {
+                                <a class="nav-link active" href="/user/index">Home</a>
+                            }
+                            else if (user.UserType == "Volunteer")
+                            {
+                                <a class="nav-link active" href="/volunteer/index">Home</a>
+
+                            }
+                            else
+                            {
+                                <a class="nav-link active" href="/user/index">Home</a>
+
+                            }
+                            @*@if (!isAdminUser)
+                            {
+                                <a class="nav-link active" href="/user/index">Home</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link active" href="/volunteer/index">Home</a>
+
+                            }*@
+                            @*<a href="~/Home/Index" class="nav-link active">Home</a>*@
+                            @*<a class="nav-link active" href="@(isAdminUser ? "/user/index" : "/volunteer/index")">Home</a>*@
+
+                        </li>
+                        @*<li class="nav-item">
+
+                                <a href="~/Competition/UserManual" class="nav-link active">User Guide</a>
+
+                            </li>*@
+                       
+                        @if (SuperadminUsernames)
+                        { 
+                            <li class="nav-item dropdown">
+                                <a id="dropdownSubMenu1" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">Reports</a>
+                                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                    <li><a href="~/Admin/SurveyReport" class="dropdown-item">Survey Report</a></li>
+                                    <li><a href="~/Admin/MCQReport" class="dropdown-item">MCQ Report</a></li>
+                                    <li><a href="~/Admin/CreativityReports" class="dropdown-item">Creativity Report</a></li>
+                                    <li><a href="~/Admin/PBLReport" class="dropdown-item">PBL Report</a></li>
+                                    <li><a href="~/Admin/Userlist" class="dropdown-item">Users list</a></li>
+                                </ul>
+                            </li>
+                        }
+
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <!-- User Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" data-toggle="dropdown" aria-label="User Options">
+                                <i class="far fa-user"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                <div class="dropdown-divider"></div>
+                                @*<a class="dropdown-item" aria-label="Logout" href="~/Account/Logoff">
+                                        <i class="fas fa-sign-out-alt mr-2"></i>Sign Out
+                                    </a>
+                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <a class="dropdown-item" aria-label="Logout" href="~/Account/Logoff">
+                                            <i class="fas fa-sign-out-alt mr-2"></i>Sign Out
+                                        </a>
+                                    }*@
+
+                                @using (Html.BeginForm("LogOffUdaan", "Home", FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a class="dropdown-item spotBtn jump-todiv hidden" href="javascript:document.getElementById('logoutForm').submit()">
+                                        <i class="fa fa-power-off"></i> Log Out
+                                    </a>
+                                }
+
+                                @*@if (Request.IsAuthenticated)
+                                    {
+                                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a class="spotBtn jump-todiv" href="javascript:document.getElementById('logoutForm').submit()">
+                                                <i class="fa fa-power-off"></i> Log Out1
+                                            </a>
+                                        }
+                                    }*@
+                                @*@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="dropdown-item" aria-label="Logout">
+                                            <i class="fas fa-sign-out-alt mr-2"></i>Sign Out
+                                        </button>
+                                    }*@
+                            </div>
+                        </li>
+
+                        <!-- Fullscreen Button -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-widget="fullscreen" role="button" aria-label="Fullscreen">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- /.navbar -->
+            @*      <!-- Main Sidebar Container -->
+                <aside class="main-sidebar sidebar-dark-info  sidebar-collapse  elevation-4">
+                    <!-- Brand Logo -->
+                    <a href="https://hemvirtues.com/" class="brand-link">
+                        <img src="~/img/HF logo circle.png" class="brand-image img-circle mx-auto d-block img-fluid elevation-3"
+                             style="opacity: .8">
+                        <span class="brand-text font-weight-bold">HEM Virtues</span>
+                    </a>
+
+                    <!-- Sidebar -->
+                    <div class="sidebar ">
+                        <!-- Sidebar user panel (optional) -->
+                        <!-- Sidebar Menu -->
+
+                        <div id="menulist" style="width: 234px;">
+
+
+                            @*<nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="True">
+                        <li class='nav-item has-treeview'>
+                        <a href='#' class='nav-link active'>
+                        <i class='nav-icon fas fa-tachometer-alt'></i>
+                        <p>Dashboard<i class='right fas fa-angle-left'></i></p>
+                        </a>
+                        <ul class='nav nav-treeview'>
+                        <li class='nav-item'>
+                        <a href='/TestDms/Dashboard/Defaultdashboard.aspx' class='nav-link'>
+                        <i class='far fa-circle nav-icon'></i>
+                        <p>Default</p>
+                        </a>
+                        </li>
+                        <li class='nav-item'>
+                        <a href="/Location/index" class='nav-link'>
+                        <i class='far fa-circle nav-icon'></i>
+                        <p>Location</p>
+                        </a>
+                        </li>
+                        <li class='nav-item'>
+                        <a href='/TestDms/Dashboard/Defaultdashboard.aspx' class='nav-link'>
+                        <i class='far fa-circle nav-icon'></i>
+                        <p>Default</p>
+                        </a>
+                        </li>
+                        </ul>
+                        </li>*@
+            @*  @await Component.InvokeAsync("Side") *@
+            @*</ul>
+                </nav>*@
+
+            @* </div>
+
+                        <!-- /.sidebar-menu -->
+                    </div>
+                    <!-- /.sidebar -->
+                </aside> *@
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            @RenderSection("header", required: false)
+
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>
+                <!-- /.content-header -->
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                    <!--/. container-fluid -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <!-- Control Sidebar -->
+            <div class="modal fade" id="modalmessage" aria-labelledby="labeldiv">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Default Modal</h4>
+
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                One fine body&hellip;
+                            </p>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+
+                            <button type="button" class="btn btn-danger btnmsgclose" data-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="button" class="btn btn-primary btnmsgok">
+                                Ok
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
+            @RenderSection("modal", required: false)
+            <!-- Main Footer -->
+            @*  <footer class="main-footer">
+                    <strong>
+                        <asp:Label ID="lblloc" runat="server"></asp:Label>
+                    </strong>
+
+                    <div class="float-right d-none d-sm-inline-block">
+                        <b>Version</b> 1.0
+                    </div>
+                </footer> *@
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- Control Sidebar -->
+
+        </div>
+
+        <!-- ./wrapper -->
+        @*<div class="container">
+            <main role="main" class="pb-3">
+            @RenderBody()
+            </main>
+            </div>*@
+        @*<footer class="border-top footer text-muted">
+            <div class="container">
+            &copy; 2022 - Angular_DMS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+            </footer>*@
+        @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>*@
+
+        <!-- REQUIRED SCRIPTS -->
+        <!-- Toastr -->
+        <script src="~/plugins/toastr/toastr.min.js" rel="prefetch"></script>
+        <script src="~/plugins/sweetalert2/sweetalert2.min.js" rel="prefetch"></script>
+
+        <!-- jQuery -->
+
+        <script src="~/plugins/jquery/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+
+        <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js" rel="prefetch"></script>
+
+        <!-- overlayScrollbars -->
+
+        <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js" rel="prefetch"></script>
+
+        <!-- AdminLTE App -->
+
+        <script src="~/dist/js/adminlte.js?version=1" rel="prefetch"></script>
+
+
+        @*   <!-- AdminLTE for demo purposes -->
+            <script src="~/dist/js/demo.js" rel="prefetch"></script> *@
+
+        <!-- InputMask -->
+
+        <script src="~/plugins/moment/moment.min.js" rel="prefetch"></script>
+
+        <script src="~/plugins/inputmask/min/jquery.inputmask.bundle.min.js" rel="prefetch"></script>
+
+        <!-- date-range-picker -->
+
+        <script src="~/plugins/daterangepicker/daterangepicker.js" rel="prefetch"></script>
+
+        <!-- Tempusdominus Bootstrap 4 -->
+
+        <script src="~/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js" rel="prefetch"></script>
+
+        <!-- PAGE PLUGINS -->
+        @*   <!-- jQuery Mapael -->
+
+            <script src="~/plugins/jquery-mousewheel/jquery.mousewheel.js" rel="prefetch"></script>
+
+            <script src="~/plugins/raphael/raphael.min.js" rel="prefetch"></script>
+
+            <script src="~/plugins/jquery-mapael/jquery.mapael.min.js" rel="prefetch"></script>
+
+            <script src="~/plugins/jquery-mapael/maps/usa_states.min.js" rel="prefetch"></script> *@
+
+        @*  <!-- ChartJS -->
+
+            <script src="~/plugins/chart.js/Chart.min.js" rel="prefetch"></script> *@
+
+        <!-- Data Table -->
+
+        <script src="~/plugins/datatables/jquery.dataTables.min.js" rel="prefetch"></script>
+
+        <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js" rel="prefetch"></script>
+        <script src="~/datatable/js/jquery.dataTables.min.js" rel="prefetch"></script>
+
+        <script src="~/CustomJS/bootstrap-datepicker.min.js" type="text/javascript"></script>
+
+        @*<script>
+                // Simulate content loading
+                window.onload = function () {
+                    const loader = document.getElementById('loader');
+                    const content = document.getElementById('content');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        content.style.display = 'block';
+                    }, 2000); // Adjust the time as needed
+                };
+            </script>*@
+
+        <script>
+            debugger
+            // Unique identifier for the current tab
+            const currentTabId = Date.now().toString();
+            localStorage.setItem('currentTabId', currentTabId);
+
+            // Event listener for storage changes
+            window.addEventListener('storage', (event) => {
+                if (event.key === 'currentTabId' && event.newValue !== currentTabId) {
+                    // If this tab is not the latest, redirect it or take action
+                    alert('Another tab is active. Redirecting this one.');
+                    localStorage.setItem('isTabActive', 'false');
+                    // Redirect or take action (e.g., display an error message)
+                    window.location.href = '/Home/Error'; // Replace with your custom inactive page
+                }
+            });
+
+            // Set the current tab as active in localStorage
+            localStorage.setItem('isTabActive', 'true');
+
+            // Handle tab closure
+            window.addEventListener('beforeunload', () => {
+                if (localStorage.getItem('currentTabId') === currentTabId) {
+                    localStorage.setItem('isTabActive', 'false');
+                }
+            });
+
+
+
+
+            function ShowMSG(tittle, body, url) {
+                if (tittle.toUpperCase() == 'ERROR' || tittle.toUpperCase() == 'SUCCESS' || tittle.toUpperCase() == 'WARNING' || tittle.toUpperCase() == 'INFO') {
+                    showtoastwithModel(tittle, body);
+
+                }
+                else if (tittle.toUpperCase() == 'INFORMATION') {
+                    Swal.fire(
+                        'Information',
+                        body,
+                        'info'
+                    )
+                }
+                else {
+                    showMessage(tittle, body, url);
+                }
+            }
+            function showtoastwithModel(title1, body) {
+                if (title1 == 'ERROR') {
+                    // $(document).Toasts('create', {
+                    //     class: 'bg-danger',
+                    //     icon: 'fas sfa-info-circle',
+                    //     autohide: true,
+                    //     title: title1,
+                    //     subtitle: '',
+                    //     Delay: 300000,
+                    //     body: body
+                    // })
+                    Swal.fire(
+                        'Error!',
+                        body,
+                        'error'
+                    )
+                } else if (title1 == 'success') {
+                    // $(document).Toasts('create', {
+                    //     class: 'bg-success',
+                    //     icon: 'fas fa-check-circle',
+                    //     autohide: true,
+                    //     title: title1,
+                    //     subtitle: '',
+                    //     Delay: 300000,
+                    //     body: body
+                    // })
+                    Swal.fire(
+                        'Success',
+                        body,
+                        'success'
+                    )
+
+                }
+                else {
+                    // $(document).Toasts('create', {
+                    //     class: 'bg-info',
+                    //     icon: 'fas fa-exclamation-triangle',
+                    //     autohide: true,
+                    //     title: title1,
+                    //     subtitle: '',
+                    //     Delay: 300000,
+                    //     body: body
+                    // })
+                    Swal.fire(
+                        title1,
+                        body,
+                        'info'
+                    )
+                }
+
+
+
+
+
+            }
+            function showtoast(title1, body) {
+                if (title1 == 'Error') {
+                    $(document).Toasts('create', {
+                        class: 'bg-danger',
+                        icon: 'fas sfa-info-circle',
+                        autohide: true,
+                        title: title1,
+                        subtitle: '',
+                        Delay: 300000,
+                        body: body
+                    })
+                } else if (title1 == 'success') {
+                    $(document).Toasts('create', {
+                        class: 'bg-success',
+                        icon: 'fas fa-check-circle',
+                        autohide: false,
+                        title: title1,
+                        subtitle: '',
+                        Delay: 300000,
+                        body: body
+                    })
+
+                }
+                else {
+                    $(document).Toasts('create', {
+                        class: 'bg-info',
+                        icon: 'fas fa-exclamation-triangle',
+                        autohide: true,
+                        title: title1,
+                        subtitle: '',
+                        Delay: 300000,
+                        body: body
+                    })
+                }
+
+
+
+
+
+            }
+
+
+
+
+
+
+            function showMessage(title, body, url) {
+                $("#modalmessage .modal-title").html(title);
+                $("#modalmessage .modal-body").html(body);
+
+                if (url != '') {
+                    $(".btnmsgclose").hide();
+                    $('.btnmsgok').on('click', function (event) {
+                        event.preventDefault();
+                        // const baseUrl = `${window.location.protocol}//${window.location.host}/`;
+                        // const appPath = window.location.pathname.split('/').slice(1, -1).join('/'); // Extract the application path dynamically
+                        // const fullUrl = url.startsWith('http') ? url : `${baseUrl}${appPath}/${url}`; // Construct the full URL
+                        // const baseUrl = `${window.location.protocol}//${window.location.host}/`;
+                        // const appPath = window.location.pathname.split('/').slice(1, -2).join('/'); // Extract the correct app base path
+                        // const fullUrl = url.startsWith('http') ? url : `${baseUrl}${appPath}/${url}`.replace(/\/+/g, '/'); // Normalize slashes
+                        // const baseUrl = `${window.location.origin}/`; // Use window.location.origin for the base URL
+                        // const appPath = window.location.pathname.split('/').slice(1, -1).join('/'); // Get the application base path dynamically
+                        // const fullUrl = url.startsWith('http') ? url : `${baseUrl}${appPath}/${url}`.replace(/\/+/g, '/'); // Construct the final URL and normalize slashes
+                        // const baseUrl = `${window.location.origin}/${window.location.pathname.split('/')[1]}`; // Dynamic base for hemcomp
+                        // const fullUrl = url.startsWith('http') ? url : `${baseUrl}/${url}`.replace(/\/+/g, '/'); // Handle both absolute and relative URLs
+
+                        location.replace(url);
+                        // let finalUrl;
+                        // debugger
+                        // debugger
+                        // if (url.startsWith('http')) {
+                        //     // If the URL is absolute, use it directly
+                        //     finalUrl = url;
+                        // } else {
+                        //     // If the URL is relative, build it dynamically
+                        //     const baseUrl = `${window.location.origin}/${window.location.pathname.split('/')[1]}`; // Base path
+                        //     finalUrl = `${baseUrl}/${url}`.replace(/\/+/g, '/'); // Normalize the URL
+                        // }
+                        // debugger
+                        // console.log(`Redirecting to: ${finalUrl}`); // Debug log
+                        // location.replace(finalUrl); // Redirect to the constructed URL
+                    });
+                }
+                else {
+                    $(".btnmsgok").hide();
+                }
+
+                $('#modalmessage').modal({
+                    backdrop: 'static'
+                });
+
+            }
+
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                $("#mysearch").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#menulist *").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+                /// setInterval(updateClock, 1000);
+                // fetch('https://worldtimeapi.org/api/timezone/Asia/Kolkata').then(response => response.json()).then(data => {
+                //     const startTime = data.datetime.slice(11, 19); // Extract time portion (HH:MM)
+                //     console.log(startTime);
+                //     debugger
+                //     if (startTime >= "18:22:00") {
+                //         if (startTime < "18:24:00") {
+                //             //window.location.href = "/Competition/GameCompetition?FlageGType=S";
+                //             ShowMSG('Message', 'Competition Has been Started !! Please Start Game!!', '');
+                //         }
+                //         else {
+                //             alert("Game Competition Time is over!!");
+                //             ShowMSG('Message', 'Game Competition Time is over!!', '');
+                //             return false;
+                //         }
+                //     }
+                //     else {
+                //         alert("Game Competition not yet Started!!");
+                //         ShowMSG('Message', 'Game Competition not yet Started!!', '');
+                //         return false;
+                //     }
+                // });
+            });
+        </script>
+
+
+        <script>
+
+        </script>
+
+        <script>
+            history.pushState(null, null, location.href);
+            window.onpopstate = function () {
+                history.pushState(null, null, location.href);
+            };
+
+
+        </script>
+
+        @*  <script>
+                function updateClock() {
+                    const now = new Date();
+                    const timeString = now.toLocaleTimeString();
+                    //// document.getElementById("currentTime").textContent = timeString;
+                    ShowMSG('Message', timeString, '');
+                }
+
+                setInterval(updateClock, 1000); // Update every 1 second
+            </script> *@
+        @RenderSection("Scripts", required: false)
+    </div>
+    @*<script type="text/javascript">
+            $(document).on('click', '.jump-todiv', function () {
+                var target = $(this).data('targetdiv')
+                $('html,body').animate({
+                    scrollTop: ($(target).offset().top - 150)
+                },
+                    '2000');
+            });
+
+            function toggleMenu() {
+                $('.ham a').toggleClass('act');
+                $('#headLinks').toggleClass('hidden-xs');
+            }
+        </script>*@
+</body>
+</html>
+

@@ -1,0 +1,419 @@
+﻿@model HEMUdaan.Models.Course
+@{
+    ViewBag.Title = "Course Details";
+    Layout = "~/Views/Shared/_RootAdminLayout.cshtml";
+}
+
+@section AdminCss {
+    <!-- File Upload -->
+    @Styles.Render("~/Content/fileinput.css")
+    <style>
+        .list-nested li {
+            list-style: none;
+        }
+
+        html .panel-group.panel-group-primary .panel-heading a {
+            color: black !important;
+        }
+    </style>
+}
+
+<div role="main" class="main">
+    <div class="container">
+
+        <div class="row">
+            <div class="panel-group panel-group-primary" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading  p-none">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#divcourseDetailsCollapse">
+                                Course Details
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="divcourseDetailsCollapse" class="accordion-body collapse in">
+                        <div class="panel-body">
+                            @using (Html.BeginForm("Create", "Course", FormMethod.Post, new { id = "CourseForm", enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="row">
+                                    <div id="divError" class='@(string.IsNullOrEmpty(Convert.ToString(TempData["Error"])) ? "hidden" : "")'>
+                                        <div class='alert alert-danger '>
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <div id="spanError" class="text-left ">@Html.Raw(Convert.ToString(TempData["Error"]))</div>
+                                        </div>
+                                    </div>
+                                    <div id="divSuccess" class='@(string.IsNullOrEmpty(Convert.ToString(TempData["Success"])) ? "hidden" : "")'>
+                                        <div class='alert alert-success '>
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <div id="spanSuccess" class="text-left ">@Html.Raw(Convert.ToString(TempData["Success"]))</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <div class="col-md-8">
+                                            <h3 class="text-info mb-sm">
+                                                <i class="fa fa-book"></i>&nbsp;
+                                                @Model.CourseName
+
+                                            </h3>
+                                            <span></span>
+                                            @Html.HiddenFor(model => model.CourseName)
+                                        </div>
+
+                                    </div>
+                                    <hr class='col-md-12 m-sm mb-md'>
+                                    <div class="col-md-7">
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">@Html.DisplayNameFor(model => model.Description)</label>
+                                            <div class="col-md-8">
+                                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", required = "required" })
+                                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">
+                                                Upload Resource File<br />
+                                                @if (string.IsNullOrEmpty(Model.TrainerResource) == false)
+                                                {
+                                                    <span class="text-sm"><a href='@Href(Model.TrainerResource)' target="_blank">(View File)</a></span>
+                                                }
+                                            </label>
+                                            <div class="col-md-8">
+                                                <input id="ResourceFile" name="fileCourseResource" class="file" type="file">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">
+                                                Upload Exercise File<br />
+                                                @if (string.IsNullOrEmpty(Model.TrainerExercise) == false)
+                                                {
+                                                    <span class="text-sm"><a href='@Href(Model.TrainerExercise)' target="_blank">(View File)</a></span>
+                                                }
+                                            </label>
+                                            <div class="col-md-8">
+                                                <input id="ExerciseFile" name="fileExerciseResource" class="file" type="file">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="inputDefault">&nbsp;</label>
+                                            <div class="col-md-8">
+                                                <input type="submit" value="Send for Approval" class="btn btn-primary pull-right  " onclick="return confirmApproval();" data-loading-text="Updating....">
+                                                <input type="submit" value="Update Course" class="btn btn-primary pull-right  mr-md" data-loading-text="Updating....">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <div class="row">
+                                            <div class="row text-center pr-xl">
+                                                <div class="col-md-12">
+                                                    <img id="imgPhoto" src="@Href(ViewBag.FeaturedImagePath)" width="128" class="mb-sm" />
+                                                    <input id="file-0a" name="fileFeaturedImage" class="file" type="file" multiple>
+                                                    Featured Image (512px X 512px)
+                                                </div>
+                                                <div class="col-md-12 hidden">
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 ">
+                                        @Html.HiddenFor(model => model.CourseID)
+                                        @Html.HiddenFor(model => model.FeaturedImage)
+                                        @Html.HiddenFor(model => model.TrainerResource)
+                                        @Html.HiddenFor(model => model.TrainerExercise)
+
+                                        @Html.HiddenFor(model => model.ApprovalStatus)
+                                        @*<button type="button" onclick="goback()" class="btn btn-default cancel pull-right mr-md">Cancel</button>*@
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("~/Views/Course/Shared/_CourseAddEditTopicControl.cshtml")
+
+                @Html.Partial("~/Views/Course/Shared/_CourseAddEditSubTopicControl.cshtml")
+                @Html.Partial("~/Views/Course/Shared/_CourseQuestionControler.cshtml")
+
+                @Html.Partial("~/Views/Course/Shared/_CourseAddEditWJPractical.cshtml")
+                <a class="mt-xl" href="@Url.Action("View",new { Id = Model.CourseID })">View Course</a>
+            </div>
+        </div>
+
+        <div class="row">
+            @*@using (Html.BeginForm("Create", "Courses", FormMethod.Post, new { id = "CourseForm", enctype = "multipart/form-data" }))
+                {
+                @Html.AntiForgeryToken()
+                <div class="panel-group panel-group-primary" id="divcourseDetails">
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading p-sm">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#divcourseDetails" href="#divcourseDetailsCollapse">
+                                        Course Details
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="divcourseDetailsCollapse" class="accordion-body collapse in">
+                                <div class="panel-body">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                }*@
+
+
+
+        </div>
+    </div>
+</div>
+
+@section AdminScripts{
+    <!-- Admin File upload -->
+    @Scripts.Render("~/Content/js/fileinput.js")
+    @*@Scripts.Render("~/Content/js/Topics.js")*@
+    @Scripts.Render("~/Content/js/UploadImage.js")
+}
+
+@section scripts{
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript">
+        try {
+
+            function goback() {
+                window.location = "/Course/Index";
+            }
+
+            //$('#file-0a').fileinput({
+            //    allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif'],
+            //});
+
+            //$('#file-0a').on('change', function () { $("#imgPhoto").hide(); });
+
+            //$(".fileinput-remove").click(function () {
+            //    $("#imgPhoto").show();
+            //});
+
+            function confirmApproval() {
+                if (confirm("Are you sure you need to send the course for approval ?")) {
+                    $("#ApprovalStatus").val("Pending");
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        } catch (e) { alert(e); }
+
+        function AddText() {
+            var node = $('<span contenteditable="false">test</span>');
+            node = $('<img src="https://avatars2.githubusercontent.com/u/7842?v=3&s=96">');
+            $('#txtHtmlQuestionName').summernote('insertNode', node[0]);
+            $('#txtHtmlQuestionName').summernote('insertText', ' ');
+        }
+    </script>
+    <script>
+    @*<script>
+        var template = "<li class='col-md-3 col-sm-6 col-xs-12 isotope-item classic'><div class='portfolio-item center'><span class='img-thumbnail'><img class='img-responsive image{id}' src='{Path}' onclick='selectImage({id})'  Title ={Name} alt='{alt}'></span><span class='thumb-info-wrapper'><span class='thumb-info-image'></span></span></a></div></li>";
+        var imagetag = "<img  src='{image}' id ={id} >";
+        var imagebyIndex = new Array();
+        var Media = null;
+        function GetIamges() {
+            $.ajax({
+                type: "GET",
+                url: '/Courses/GetMediaFiles/',
+                //data: { id: "" },
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+                    if (response.Success) {
+
+                        Media = response.Data;
+                        LoadImage(Media);
+                    }
+                    else {
+                        alert(response.Message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
+                }
+            });
+        }*@
+
+        function LoadImage(Media) {
+            TotalImage = Media.length;
+            //$("#Questions").html(questionNumber)
+            $("#image").html("");
+
+            for (i = 0; i < Media.length; i++) {
+                var number = i + 1;
+                var Path = (Media[i].RelativePath); //.replace("http://clonefutura.com", " ");
+                var imagetemplate = template;
+                var tag = imagetag;
+                imagetemplate = imagetemplate.replace("{id}", Media[i].MediaID);
+                imagetemplate = imagetemplate.replace("{Path}", Path);
+                imagetemplate = imagetemplate.replace("{alt}", Media[i].Alt);
+                imagetemplate = imagetemplate.replace("{Name}", Media[i].Name);
+                imagetemplate = imagetemplate.replace("{id}", number);
+                tag = tag.replace("{image}", Path);
+                tag = tag.replace("{id}", number);
+                imagebyIndex.push(tag);
+                $("#image").append(imagetemplate);
+            }
+        }
+        function selectImage(id) {
+
+            $("#formSelectImageModal").modal('toggle');
+
+            var result = imagebyIndex[id - 1];
+            var node = $(result);
+
+            $('#QuestionName').summernote('insertNode', node[0]);
+            $('#QuestionName').summernote('insertText', ' ');
+        }
+
+        function AddVideo() {
+            var url = $('#videoUrl').val();
+            $('#formModalVideoLink').modal('toggle');
+            //$('.modal-backdrop').remove();
+            var node = $(url);
+            $('#QuestionName').summernote('insertNode', node[0]);
+            $('#QuestionName').summernote('insertText', ' ');
+
+        }
+        //Vidhyadhar Changes Select Topic
+        $("#ddlQuestionTopics").change(function () {
+            var id1 = this.value;
+            bindSubTopic(id1, 0)
+        });
+        $("#ddlPracticalTopics").change(function () {
+            var id1 = this.value;
+            bindPracticalSubTopic(id1, 0)
+        });
+        function bindSubTopic(id, selectid) {
+            var id1 = id;
+            var topicList1 = null;
+            if (id1 != null && id1 > 0) {
+                $.ajax({
+                    type: "GET",
+                    url: '/Course/GetSubTopic',
+                    data: { id: id1 },
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (response) {
+                        if (response.Success) {
+                            topicList1 = response.Data;
+                            if (topicList1 != null) {
+                                var listItems = "";
+                                listItems += "<option selected='selected' disabled>Select Sub Topic</option>";
+                                for (var i = 0; i < topicList1.length; i++) {
+                                    var parentTopic = topicList1[i].ParentTopicID;
+                                    if (parentTopic != null || parentTopic != undefined || parentTopic <= 0) {
+                                        if (selectid != 0 && topicList1[i].TopicID == selectid) {
+                                            listItems += "<option selected='selected' value='" + topicList1[i].TopicID + "'>" + topicList1[i].TopicName + "</option>";
+                                        }
+                                        else {
+                                            listItems += "<option value='" + topicList1[i].TopicID + "'>" + topicList1[i].TopicName + "</option>";
+                                        }
+
+                                    }
+                                }
+                                $("#ddlQuestionSubTopics").html(listItems);
+                            }
+                        }
+                        else {
+                            alert(response.Message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                    }
+                });
+            }
+
+        }
+
+        function bindPracticalSubTopic(id, selectid) {
+            var id1 = id;
+            var topicList1 = null;
+            if (id1 != null && id1 > 0) {
+                $.ajax({
+                    type: "GET",
+                    url: '/Course/GetSubTopic/',
+                    data: { id: id1 },
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (response) {
+                        if (response.Success) {
+                            topicList1 = response.Data;
+                            if (topicList1 != null) {
+                                var listItems = "";
+                                listItems += "<option selected='selected' disabled>Select Sub Topic</option>";
+                                for (var i = 0; i < topicList1.length; i++) {
+                                    var parentTopic = topicList1[i].ParentTopicID;
+                                    if (parentTopic != null || parentTopic != undefined || parentTopic <= 0) {
+                                        if (selectid != 0 && topicList1[i].TopicID == selectid) {
+                                            listItems += "<option selected='selected' value='" + topicList1[i].TopicID + "'>" + topicList1[i].TopicName + "</option>";
+                                        }
+                                        else {
+                                            listItems += "<option value='" + topicList1[i].TopicID + "'>" + topicList1[i].TopicName + "</option>";
+                                        }
+
+                                    }
+                                }
+                                $("#ddlPracticalSubTopics").html(listItems);
+                            }
+                        }
+                        else {
+                            alert(response.Message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                    }
+                });
+            }
+        }
+
+        $("#PracticalLevel").change(function () {
+            var Levelid = this.value;
+            var Coins = 0;
+            var Gems = 0;
+            if (Levelid == 1) {
+                Coins = 500;
+                Gems = 5;
+            }
+            else if (Levelid == 2) {
+                Coins = 1000;
+                Gems = 10;
+            }
+            else if (Levelid == 3) {
+                Coins = 1500;
+                Gems = 15;
+            }
+            $("#Coins").val(Coins);
+            $("#Gems").val(Gems);
+        });
+    </script>
+
+}
